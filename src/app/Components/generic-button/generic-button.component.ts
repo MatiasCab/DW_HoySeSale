@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-generic-button',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenericButtonComponent implements OnInit {
 
+  @Input() buttonStyle?: string;
+  @Input() btnText?: string;
+  
+  @Output() press: EventEmitter<void> = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitEvent(){
+    this.press.emit();
   }
 
 }
