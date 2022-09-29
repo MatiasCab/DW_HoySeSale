@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
-    //background-color:#181818;
+    background-color:#181818;
+}
+
+.fondo {
     background-image: url("./assets/valentin-bonjour-TIdqm0Cl8UA-unsplash.jpg");
+    position: absolute;
+    height: 100vh;  
+    width: 100vw;
+    background-size: cover;
+    //position: relative;
+    //filter:blur(8px);
 }
