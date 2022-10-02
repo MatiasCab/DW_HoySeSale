@@ -2,6 +2,11 @@
 
 body{
     background-color:#181818;
+    height: 100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .fondo {
@@ -12,4 +17,8 @@ body{
     background-size: cover;
     //position: relative;
     //filter:blur(8px);
+}
+
+.center{
+    text-align: center;
 }

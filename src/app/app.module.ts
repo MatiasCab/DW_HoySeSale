@@ -9,6 +9,10 @@ import { GenericButtonComponent } from './Components/generic-button/generic-butt
 import { AppTitleComponent } from './Components/app-title/app-title.component';
 import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
 import { LoginComponent } from './Components/login/login.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HeaderTextComponent } from './Components/header-text/header-text.component';
+import { ButtonIconComponent } from './Components/button-icon/button-icon.component';
+import { HeaderNavbarComponent } from './Components/header-navbar/header-navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { LoginComponent } from './Components/login/login.component';
     GenericButtonComponent,
     AppTitleComponent,
     PresentationPageComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    HeaderTextComponent,
+    ButtonIconComponent,
+    HeaderNavbarComponent
   ],
   imports: [
     BrowserModule,
