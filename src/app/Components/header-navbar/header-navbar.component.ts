@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header-navbar',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderNavbarComponent implements OnInit {
 
-  currentIcon = "";
-  currentText = "";
+  @Input() currentIcon1?: string;
+  @Input() currentIcon2?: string;
+  @Input() currentText?: string;
+
 
   constructor() { }
 

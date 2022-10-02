@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GenericButtonComponent } from './Components/generic-button/generic-button.component';
+import { AppTitleComponent } from './Components/app-title/app-title.component';
+import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
+import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderTextComponent } from './Components/header-text/header-text.component';
 import { ButtonIconComponent } from './Components/button-icon/button-icon.component';
@@ -23,6 +26,9 @@ import { SearchEntertainmentComponent } from './Components/search-entertainment/
   declarations: [
     AppComponent,
     GenericButtonComponent,
+    AppTitleComponent,
+    PresentationPageComponent,
+    LoginComponent,
     NavbarComponent,
     HeaderTextComponent,
     ButtonIconComponent,
