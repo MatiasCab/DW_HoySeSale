@@ -9,7 +9,11 @@ import { GenericButtonComponent } from './Components/generic-button/generic-butt
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderTextComponent } from './Components/header-text/header-text.component';
 import { ButtonIconComponent } from './Components/button-icon/button-icon.component';
-import { HeaderNavbarComponent } from './header-navbar/header-navbar.component';
+import { HeaderNavbarComponent } from './Components/header-navbar/header-navbar.component';
+import { CardComponent } from './Components/card/card.component';
+import { FilterComponent } from './Components/filter/filter.component';
+import { SearchInputComponent } from './Components/search-input/search-input.component';
+import { SearchEntertainmentComponent } from './Components/search-entertainment/search-entertainment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HeaderNavbarComponent } from './header-navbar/header-navbar.component';
     NavbarComponent,
     HeaderTextComponent,
     ButtonIconComponent,
-    HeaderNavbarComponent
+    HeaderNavbarComponent,
+    CardComponent,
+    FilterComponent,
+    SearchInputComponent,
+    SearchEntertainmentComponent
   ],
   imports: [
     BrowserModule,
