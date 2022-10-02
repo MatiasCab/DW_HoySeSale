@@ -21,6 +21,9 @@ import { CardComponent } from './Components/card/card.component';
 import { FilterComponent } from './Components/filter/filter.component';
 import { SearchInputComponent } from './Components/search-input/search-input.component';
 import { SearchEntertainmentComponent } from './Components/search-entertainment/search-entertainment.component';
+import { SearchPageComponent } from './Components/search-page/search-page.component';
+import { DisplaySearchInfoComponent } from './Components/display-search-info/display-search-info.component';
+import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { SearchEntertainmentComponent } from './Components/search-entertainment/
     CardComponent,
     FilterComponent,
     SearchInputComponent,
-    SearchEntertainmentComponent
+    SearchEntertainmentComponent,
+    SearchPageComponent,
+    DisplaySearchInfoComponent,
+    CardsGridComponent
   ],
   imports: [
     BrowserModule,
