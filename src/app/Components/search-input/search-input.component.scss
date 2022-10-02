@@ -1,6 +1,16 @@
-.form-control{
-    color: white;
-    background-color: rgb(99, 99, 99, 0.20);
-    border: none;
-    border-radius: 0.6rem;
+.search{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+
+    .form-control{
+        color: white;
+        background-color: rgb(99, 99, 99, 0.20);
+        border: none;
+        border-radius: 0.6rem;
+    }
+    
+    .form-control::-webkit-input-placeholder { 
+        font-family: 'Bootstrap-icons';
+    }
 }
