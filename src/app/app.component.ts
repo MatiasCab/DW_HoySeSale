@@ -33,13 +33,15 @@ import {
   ])
 ]
 })
+
 export class AppComponent {
 
   constructor(private contexts: ChildrenOutletContexts) {}
   
   title = 'angular-hoy-se-sale';
-
+  
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }
+
