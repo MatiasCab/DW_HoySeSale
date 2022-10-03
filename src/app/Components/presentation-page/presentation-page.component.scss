@@ -1,28 +1,50 @@
-
-
 .mt{
-    margin-top: 60%;
+    margin-top: 30vh;
 }
 
 .mb {
-    margin-top: 70%;
+    margin-top: 20vh;
 }
 
 .left {
-    margin-left: 17%;
+    margin-left: 9vh;
 }
 
 .right {
-    margin-right: 17%;
+    margin-right: 9vh;
 }
 
-.textFoot {
+.or {
+    display: inline-block;
+    position: relative;
+}
+
+.or::after, .or::before{
+    content: "";
+    position: absolute;
+    width: 5em;
+    height: 1px;
+    background-color: rgba($color: white, $alpha: 0.5);
+    top: 0.78em;
+}
+
+.or::before {
+    left: -5em;
+}
+
+.or::after {
+    right: -5em;
+}
+
+.center-or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
     font-size: small;
 }
-
-// .j{
-//     position: fixed;
-//     left: 30%;
-//     top: 30%;
-//     z-index: 99;
-// }

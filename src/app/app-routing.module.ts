@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './Components/login/login.component';
-import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
 import { SearchPageComponent } from './Components/search-page/search-page.component';
+import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
-  {path:'login', component: LoginComponent},
-  {path:'presentation', component: PresentationPageComponent},
-  {path:'search', component: SearchPageComponent},];
+  {path:'login', component: LoginComponent, data: {animation: 'b'}},
+  {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
+  {path:'search', component: SearchPageComponent}];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
