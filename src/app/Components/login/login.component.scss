@@ -1,16 +1,23 @@
-.mt{
-    //margin-top: 60%;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
+.mt {
+    margin-top: 8vh;
 }
 
-.a{
-    transform: translate(50%, 50%);
+.display {
+    display: flex;
+    justify-content: center;
 }
 
-.ds{
-    vertical-align: middle;
-    display: table-cell;
+.t{
+    background-color: rgb(190, 190, 190);
+}
+
+.t:checked {
+    background-color: #6B2CF5;
+    border-color: #D450E6;
+}
+
+.bottom-button {
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
 }

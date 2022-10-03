@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './../app/services/in-memory-data.service';
@@ -21,6 +23,7 @@ import { CardComponent } from './Components/card/card.component';
 import { FilterComponent } from './Components/filter/filter.component';
 import { SearchInputComponent } from './Components/search-input/search-input.component';
 import { SearchEntertainmentComponent } from './Components/search-entertainment/search-entertainment.component';
+import { InputUserCredentialsComponent } from './Components/input-user-credentials/input-user-credentials.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { SearchEntertainmentComponent } from './Components/search-entertainment/
     CardComponent,
     FilterComponent,
     SearchInputComponent,
-    SearchEntertainmentComponent
+    SearchEntertainmentComponent,
+    InputUserCredentialsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { SearchEntertainmentComponent } from './Components/search-entertainment/
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
