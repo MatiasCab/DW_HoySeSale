@@ -24,6 +24,7 @@ import { SearchEntertainmentComponent } from './Components/search-entertainment/
 import { SearchPageComponent } from './Components/search-page/search-page.component';
 import { DisplaySearchInfoComponent } from './Components/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
+import { CardNameComponent } from './Components/card-name/card-name.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CardsGridComponent } from './Components/cards-grid/cards-grid.component
     SearchEntertainmentComponent,
     SearchPageComponent,
     DisplaySearchInfoComponent,
-    CardsGridComponent
+    CardsGridComponent,
+    CardNameComponent
   ],
   imports: [
     BrowserModule,
