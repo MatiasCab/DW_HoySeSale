@@ -1,8 +1,33 @@
-<div class="mt fondo">
-    <div class="mt-4 ms-4">
-        <app-header-navbar></app-header-navbar>
-    </div>
-    <div class="text-light a">
-        <h1>LOGIN</h1>
+<div class="fondo" >
+    <div class="blur-back">
+        <div class="mt-4 ms-4">
+            <app-header-navbar [backPage]="'/presentation'"></app-header-navbar>
+        </div>
+        <div class="display text-light">
+            <h1 class="title_margin mt-5">LOGIN</h1>
+        </div>
+        <div class="mx-5">
+            <div class="display mt">
+                <app-input-user-credentials [inputLabel]="'Email Adress'"></app-input-user-credentials>
+            </div>
+            <div class="mt-2 display">
+                <app-input-user-credentials [inputLabel]="'Password'"></app-input-user-credentials>
+            </div>
+            <div class="form-check form-switch mt-3">
+                <input class="form-check-input t" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label text-light" for="flexSwitchCheckDefault">Remember me?</label>
+            </div>
+        </div>
+        <div class="center mt-5">
+            <a routerLink="/login" routerLinkActive="active"><app-generic-button [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button></a>
+        </div>
+        <div class="bottom-button">
+            <div class="row center-or">
+                <p class="col-auto text-center mt-1 mb-1 text-light px-1 or">or</p>
+            </div>
+            <div class="center">
+                <app-generic-button [buttonStyle]="'button'" [btnText]="'Singup'"></app-generic-button>
+            </div>
+        </div>
     </div>
 </div>

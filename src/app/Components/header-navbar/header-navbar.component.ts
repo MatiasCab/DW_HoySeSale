@@ -11,6 +11,7 @@ export class HeaderNavbarComponent implements OnInit {
   @Input() currentIcon1?: string;
   @Input() currentIcon2?: string;
   @Input() currentText?: string;
+  @Input() backPage!: string;
 
 
   constructor() { }
