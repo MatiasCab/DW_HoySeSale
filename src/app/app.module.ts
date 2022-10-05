@@ -27,6 +27,12 @@ import { InputUserCredentialsComponent } from './Components/input-user-credentia
 import { SearchPageComponent } from './Components/search-page/search-page.component';
 import { DisplaySearchInfoComponent } from './Components/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
+import { HomePageComponent } from './Components/home-page/home-page.component';
+import { ChatPageComponent } from './Components/chat-page/chat-page.component';
+import { DisplayChatInfoComponent } from './Components/display-chat-info/display-chat-info.component';
+import { ChatGridComponent } from './Components/chat-grid/chat-grid.component';
+import { ChatComponent } from './Components/chat/chat.component';
+import { UserPhotoComponent } from './Components/user-photo/user-photo.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,13 @@ import { CardsGridComponent } from './Components/cards-grid/cards-grid.component
     InputUserCredentialsComponent,
     SearchPageComponent,
     DisplaySearchInfoComponent,
-    CardsGridComponent
+    CardsGridComponent,
+    HomePageComponent,
+    ChatPageComponent,
+    DisplayChatInfoComponent,
+    ChatGridComponent,
+    ChatComponent,
+    UserPhotoComponent
   ],
   imports: [
     BrowserModule,

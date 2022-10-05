@@ -4,8 +4,12 @@
     border-top: 2px solid #636363;
     background-color: #181818;
     height: 5vh;
-    width: 90vw;
+    //width: 90vw;
     padding: 0;
+    
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
 
     a{
         display: flex;

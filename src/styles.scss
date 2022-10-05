@@ -51,3 +51,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.user-photo-chatPreview .photo-cropper  {
+    
+    width: 3.5rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+    
+    height: 3.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+}

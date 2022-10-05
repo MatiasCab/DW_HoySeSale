@@ -6,12 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './Components/login/login.component';
 import { SearchPageComponent } from './Components/search-page/search-page.component';
 import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
+import { HomePageComponent } from './Components/home-page/home-page.component';
+import { ChatPageComponent } from './Components/chat-page/chat-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
   {path:'login', component: LoginComponent, data: {animation: 'b'}},
   {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
-  {path:'search', component: SearchPageComponent}];
+  {path:'search', component: SearchPageComponent},
+  {path:'home', component: HomePageComponent},
+  {path:'chats', component: ChatPageComponent}];
 
 @NgModule({
   imports: [
