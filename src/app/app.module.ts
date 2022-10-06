@@ -28,6 +28,10 @@ import { SearchPageComponent } from './Components/search-page/search-page.compon
 import { DisplaySearchInfoComponent } from './Components/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
 import { CardNameComponent } from './Components/card-name/card-name.component';
+import { EntertainmentInfoComponent } from './Components/entertainment-info/entertainment-info.component';
+import { ImagesCarouselComponent } from './Components/images-carousel/images-carousel.component';
+import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
+import { DisplayEntertainmentInfoComponent } from './Components/display-entertainment-info/display-entertainment-info.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { CardNameComponent } from './Components/card-name/card-name.component';
     SearchPageComponent,
     DisplaySearchInfoComponent,
     CardsGridComponent,
-    CardNameComponent
+    CardNameComponent,
+    EntertainmentInfoComponent,
+    ImagesCarouselComponent,
+    EntertainmentPageComponent,
+    DisplayEntertainmentInfoComponent
   ],
   imports: [
     BrowserModule,
