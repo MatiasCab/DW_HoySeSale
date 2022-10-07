@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-10 a">
+        <input #messageContent class="form-control" type="text" placeholder="Message..." (keyup.enter)="sendMessage()">
+    </div>
+    <div class="col-2 a">
+        <button class="btn rounded-circle" (click)="sendMessage()"><i class="bi bi-send"></i></button>
+    </div>
+</div>
