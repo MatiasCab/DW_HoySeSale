@@ -38,6 +38,9 @@ import { DisplayChatMessageComponent } from './Components/display-chat-message/d
 import { InputMessageComponent } from './Components/input-message/input-message.component';
 import { MessageGridComponent } from './Components/message-grid/message-grid.component';
 import { MessageComponent } from './Components/message/message.component';
+import { ProfilePageComponent } from './Components/profile-page/profile-page.component';
+import { UserProfileInfoComponent } from './Components/user-profile-info/user-profile-info.component';
+import { DisplayProfileFavoriteInfoComponent } from './Components/display-profile-favorite-info/display-profile-favorite-info.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import { MessageComponent } from './Components/message/message.component';
     DisplayChatMessageComponent,
     InputMessageComponent,
     MessageGridComponent,
-    MessageComponent
+    MessageComponent,
+    ProfilePageComponent,
+    UserProfileInfoComponent,
+    DisplayProfileFavoriteInfoComponent
   ],
   imports: [
     BrowserModule,
