@@ -12,6 +12,10 @@ body {
     overflow: hidden;
 }
 
+.fill {
+    height: 6vh;
+}
+
 .blur-back {
     backdrop-filter: blur(8px);
     height: 100vh;  
@@ -58,5 +62,14 @@ body {
                 //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
     
     height: 3.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+}
+
+.user-chat-message .photo-cropper  {
+    
+    width: 2.5rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+    
+    height: 2.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
                 //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }

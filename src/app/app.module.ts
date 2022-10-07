@@ -33,6 +33,11 @@ import { DisplayChatInfoComponent } from './Components/display-chat-info/display
 import { ChatGridComponent } from './Components/chat-grid/chat-grid.component';
 import { ChatComponent } from './Components/chat/chat.component';
 import { UserPhotoComponent } from './Components/user-photo/user-photo.component';
+import { ChatMessagePageComponent } from './Components/chat-message-page/chat-message-page.component';
+import { DisplayChatMessageComponent } from './Components/display-chat-message/display-chat-message.component';
+import { InputMessageComponent } from './Components/input-message/input-message.component';
+import { MessageGridComponent } from './Components/message-grid/message-grid.component';
+import { MessageComponent } from './Components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,12 @@ import { UserPhotoComponent } from './Components/user-photo/user-photo.component
     DisplayChatInfoComponent,
     ChatGridComponent,
     ChatComponent,
-    UserPhotoComponent
+    UserPhotoComponent,
+    ChatMessagePageComponent,
+    DisplayChatMessageComponent,
+    InputMessageComponent,
+    MessageGridComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

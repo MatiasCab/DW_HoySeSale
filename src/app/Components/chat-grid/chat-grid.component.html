@@ -1,6 +1,7 @@
-<div class="container mt-3">
+<div class="container mt-3" *ngIf="!displa">
     <div *ngFor="let chat of this.chatsArray; let i = index">
-        <app-chat [putBorderBottom]="this.chatsArray.length - 1 == i"></app-chat> 
+        <app-chat [putBorderBottom]="this.chatsArray.length - 1 == i" (click)="openChat()"></app-chat> 
     </div>
     <div class="fill"></div>
 </div>
+<app-chat-message-page #hiddenElement></app-chat-message-page>

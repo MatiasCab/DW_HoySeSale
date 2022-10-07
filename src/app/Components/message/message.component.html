@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-10 text-light my-1 sended" *ngIf="getMessageType == 'send'">
+        <div class="size send">
+            <p>{{message?.message}}</p>
+        </div>
+    </div>
+    <div class="col-auto p-0 mb-1">
+        <div class="user-chat-message">
+            <app-user-photo></app-user-photo>
+        </div>
+    </div>
+    <div class="col-10 text-light my-1" *ngIf="getMessageType == 'recibe'">
+        <div class="size recibe">
+            <p>{{message?.message}}</p>
+        </div>
+    </div>
+</div>
