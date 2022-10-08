@@ -1,0 +1,18 @@
+.fullPage{
+    z-index: 1;
+    position: absolute;
+    background-color:#181818;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.prub{
+    position: fixed;
+    background-color: #181818;
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+}
