@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { ChatMessagePageComponent } from '../ChatView/chat-message-page/chat-message-page.component';
 
 @Component({
   selector: 'app-chat',
