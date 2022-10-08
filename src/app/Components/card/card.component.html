@@ -1,4 +1,6 @@
 <div class="entertainment-card">
     <app-button-icon></app-button-icon>
-    <app-card-name [name]="currentName"></app-card-name>
+    <a [routerLink]="['/entertainment', entretainment.id]">
+        <app-card-name [name]="currentName"></app-card-name>
+    </a>
 </div>
