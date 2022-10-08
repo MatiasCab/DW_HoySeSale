@@ -8,6 +8,7 @@ import { SearchPageComponent } from './Components/search-page/search-page.compon
 import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { ChatPageComponent } from './Components/chat-page/chat-page.component';
+import { ProfilePageComponent } from './Components/profile-page/profile-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
   {path:'search', component: SearchPageComponent},
   {path:'home', component: HomePageComponent},
-  {path:'chats', component: ChatPageComponent}];
+  {path:'chats', component: ChatPageComponent},
+  {path:'profile', component: ProfilePageComponent}];
 
 @NgModule({
   imports: [
