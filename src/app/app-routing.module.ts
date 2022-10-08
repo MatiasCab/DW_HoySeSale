@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LoginComponent } from './Components/login/login.component';
-import { SearchPageComponent } from './Components/search-page/search-page.component';
+import { LoginComponent } from './Components/Login Page/login/login.component';
+import { SearchPageComponent } from './Components/SearchPage/search-page/search-page.component';
 import { PresentationPageComponent } from './Components/presentation-page/presentation-page.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
-import { ChatPageComponent } from './Components/chat-page/chat-page.component';
-import { ProfilePageComponent } from './Components/profile-page/profile-page.component';
+import { ChatPageComponent } from './Components/ChatsPage/chat-page/chat-page.component';
+import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ChatMessagePageComponent } from '../chat-message-page/chat-message-page.component';
+import { ChatMessagePageComponent } from '../ChatView/chat-message-page/chat-message-page.component';
 
 @Component({
   selector: 'app-chat-grid',
