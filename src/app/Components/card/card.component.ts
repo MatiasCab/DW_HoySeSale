@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Entretainment } from 'src/app/models/entretainment';
+import { Entertainment } from 'src/app/models/entertainment';
 
 @Component({
   selector: 'app-card',
@@ -9,10 +9,7 @@ import { Entretainment } from 'src/app/models/entretainment';
 })
 export class CardComponent implements OnInit {
 
-  @Input() entretainment!: Entretainment;
-
-  currentName = this.entretainment.name;
-  currentPicture = this.entretainment.profilePic;
+  @Input() entertainment!: Entertainment;
 
   constructor() { }
 

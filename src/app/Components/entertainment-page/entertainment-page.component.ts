@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Entretainment } from 'src/app/models/entretainment';
+import { Entertainment } from 'src/app/models/entertainment';
 
 @Component({
   selector: 'app-entertainment-page',
@@ -9,9 +10,11 @@ import { Entretainment } from 'src/app/models/entretainment';
 })
 export class EntertainmentPageComponent implements OnInit {
 
-  entertainment!: Entretainment;
+  entertainment!: Entertainment;
+
+  id = Number(this.route.snapshot.paramMap.get('id'));
   
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
   }

@@ -1,4 +1,6 @@
 .search{
     width: 90vw;
-    height: 90vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }

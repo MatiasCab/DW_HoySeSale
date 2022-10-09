@@ -1,8 +1,8 @@
-export interface Entretainment {
+export interface Entertainment {
     id: number,
     name: string;
     description: string,
-    qualification: undefined,
+    qualification?: number,
     profilePic: number;
     gallery: number[];
 }

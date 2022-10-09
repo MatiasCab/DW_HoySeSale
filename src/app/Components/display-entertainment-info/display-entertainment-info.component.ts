@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entretainment } from 'src/app/models/entretainment';
+import { Entertainment } from 'src/app/models/entertainment';
 
 @Component({
   selector: 'app-display-entertainment-info',
@@ -8,7 +8,7 @@ import { Entretainment } from 'src/app/models/entretainment';
 })
 export class DisplayEntertainmentInfoComponent implements OnInit {
 
-  @Input() entertainment!: Entretainment;
+  @Input() entertainment!: Entertainment;
 
   constructor() { }
 

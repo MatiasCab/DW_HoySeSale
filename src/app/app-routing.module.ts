@@ -15,7 +15,8 @@ const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
   {path:'login', component: LoginComponent, data: {animation: 'b'}},
   {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
-  {path:'search', component: SearchPageComponent}];
+  {path:'search', component: SearchPageComponent},
+  {path:'entertainment/:id', component: EntertainmentPageComponent}];
 
 @NgModule({
   imports: [
