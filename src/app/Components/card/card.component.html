@@ -1,2 +1,10 @@
-<p>card works!</p>
-<app-button-icon></app-button-icon>
+<div class="entertainment-card">
+    <app-button-icon></app-button-icon>
+    <a routerLink="/entertainment/{{entertainment.id}}">
+        <div class="image">
+            <img src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+        </div>
+        <p>{{entertainment.name}}</p>
+    </a>
+    <i class="bi bi-bookmark"></i>
+</div>

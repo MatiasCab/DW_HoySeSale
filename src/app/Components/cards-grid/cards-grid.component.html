@@ -1,3 +1,5 @@
 <div class="cards-grid">
-    <div *ngFor="let entretainment of entretainments"></div>
+    <div *ngFor="let entertainment of entertainments">
+        <app-card [entertainment]="entertainment"></app-card>
+    </div>
 </div>
