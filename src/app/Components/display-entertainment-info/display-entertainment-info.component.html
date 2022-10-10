@@ -1,5 +1,12 @@
-<app-images-carousel [gallery]="entertainment.gallery"></app-images-carousel>
-<div class="entertainmentName">
-    <p>{{entertainment.name}}</p>
+<!-- <app-images-carousel [gallery]="entertainment.gallery"></app-images-carousel> -->
+<div class="display-info">
+    <div class="images">
+        <img src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+        <div class="gradient">
+        </div>
+    </div>
+    <div class="entertainmentName">
+        <p>{{entertainment.name}}</p>
+    </div>
+    <app-entertainment-info [entertainment]="entertainment"></app-entertainment-info>
 </div>
-<app-entertainment-info [entertainment]="entertainment"></app-entertainment-info>
