@@ -9,15 +9,14 @@ import { PresentationPageComponent } from './Components/presentation-page/presen
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { ChatPageComponent } from './Components/ChatsPage/chat-page/chat-page.component';
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
+import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
   {path:'login', component: LoginComponent, data: {animation: 'b'}},
   {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
   {path:'search', component: SearchPageComponent},
-  {path:'home', component: HomePageComponent},
-  {path:'chats', component: ChatPageComponent},
-  {path:'profile', component: ProfilePageComponent}];
+  {path:'entertainment/:id', component: EntertainmentPageComponent}];
 
 @NgModule({
   imports: [

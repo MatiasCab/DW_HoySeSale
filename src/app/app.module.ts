@@ -27,6 +27,11 @@ import { InputUserCredentialsComponent } from './Components/Login Page/input-use
 import { SearchPageComponent } from './Components/SearchPage/search-page/search-page.component';
 import { DisplaySearchInfoComponent } from './Components/SearchPage/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
+import { CardNameComponent } from './Components/card-name/card-name.component';
+import { EntertainmentInfoComponent } from './Components/entertainment-info/entertainment-info.component';
+import { ImagesCarouselComponent } from './Components/images-carousel/images-carousel.component';
+import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
+import { DisplayEntertainmentInfoComponent } from './Components/display-entertainment-info/display-entertainment-info.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { ChatPageComponent } from './Components/ChatsPage/chat-page/chat-page.component';
 import { DisplayChatInfoComponent } from './Components/ChatsPage/display-chat-info/display-chat-info.component';
@@ -61,6 +66,11 @@ import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/displa
     SearchPageComponent,
     DisplaySearchInfoComponent,
     CardsGridComponent,
+    CardNameComponent,
+    EntertainmentInfoComponent,
+    ImagesCarouselComponent,
+    EntertainmentPageComponent,
+    DisplayEntertainmentInfoComponent,
     HomePageComponent,
     ChatPageComponent,
     DisplayChatInfoComponent,
