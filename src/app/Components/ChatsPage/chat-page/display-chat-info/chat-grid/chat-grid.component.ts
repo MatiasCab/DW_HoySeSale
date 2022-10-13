@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ChatMessagePageComponent } from '../ChatView/chat-message-page/chat-message-page.component';
-import { ChatComponent } from '../chat/chat.component';
+import { ChatMessagePageComponent } from './chat-message-page/chat-message-page.component';
+import { ChatComponent } from './chat/chat.component';
 
 @Component({
   selector: 'app-chat-grid',
@@ -20,7 +20,7 @@ export class ChatGridComponent implements OnInit {
 
   display: boolean = false;
 
-  openChat(d: ChatComponent){
+  openChat(d?: ChatComponent){
     this.display = true;
     this.chatMessagePage?.show();
   }

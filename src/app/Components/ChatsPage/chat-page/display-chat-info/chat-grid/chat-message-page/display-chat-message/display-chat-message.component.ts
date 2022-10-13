@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MessageGridComponent } from '../message-grid/message-grid.component';
+import { MessageGridComponent } from './message-grid/message-grid.component';
 
 @Component({
   selector: 'app-display-chat-message',

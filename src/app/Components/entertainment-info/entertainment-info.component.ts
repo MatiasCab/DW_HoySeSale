@@ -10,6 +10,8 @@ export class EntertainmentInfoComponent implements OnInit {
 
   @Input() entertainment!: Entertainment;
 
+  rate: number = 3.4;
+
   constructor() { }
 
   ngOnInit(): void {
