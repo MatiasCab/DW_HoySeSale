@@ -1,10 +1,13 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-header-navbar',
   templateUrl: './header-navbar.component.html',
-  styleUrls: ['./header-navbar.component.scss']
+  styleUrls: ['./header-navbar.component.scss'],
+  animations: [appAnimations]
 })
 export class HeaderNavbarComponent implements OnInit {
 
@@ -13,10 +16,16 @@ export class HeaderNavbarComponent implements OnInit {
   @Input() currentText?: string;
   @Input() backPage?: string;
 
+  @Output() icon2Event: EventEmitter<void> = new EventEmitter();
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitEvent(){
+    this.icon2Event.emit();
   }
 
 }

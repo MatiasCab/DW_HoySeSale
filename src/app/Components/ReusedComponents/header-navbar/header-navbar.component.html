@@ -5,8 +5,8 @@
     <div class="ms-3">
         <app-header-text [text]="currentText"></app-header-text>
     </div>
-    <div class="headerIcons">
+    <div class="container-fluid headerIcons p-0">
         <app-button-icon *ngIf="currentIcon1" [iconClass]="currentIcon1"></app-button-icon>
-        <app-button-icon *ngIf="currentIcon2" [iconClass]="currentIcon2"></app-button-icon>
+        <app-button-icon class="ms-3" *ngIf="currentIcon2" [iconClass]="currentIcon2" (click)="emitEvent()" [@favorite]="currentIcon2 == 'bi bi-bookmark' ? 'putFavorite' :'quitFavorite'"></app-button-icon>
     </div>
 </div>
