@@ -22,7 +22,6 @@ const routes: Routes = [
   {path:'chats', component: ChatPageComponent}
 ];
 
-
 @NgModule({
   imports: [
     BrowserModule,
