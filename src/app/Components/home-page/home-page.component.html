@@ -1,6 +1,5 @@
-<div class="home">
-    <app-header-navbar [currentText]="'HOME'"></app-header-navbar>
-    <app-chat-message-page></app-chat-message-page>
+<div class="home mx-3">
+    <app-header-navbar class="prub" [currentText]="'HOME'" [withBackButton]="false"></app-header-navbar>
     <div class="links">
         <a routerLink="/search">
             <div class="bailes">
@@ -20,11 +19,6 @@
         <a routerLink="/search">
             <div class="pubs">
                 <p>PUBS</p>
-            </div>
-        </a>
-        <a routerLink="/search">
-            <div class="mapas">
-                <p>MAPAS</p>
             </div>
         </a>
     </div>

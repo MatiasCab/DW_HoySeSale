@@ -15,7 +15,7 @@ export class HeaderNavbarComponent implements OnInit {
   @Input() currentIcon2?: string;
   @Input() currentText?: string;
   @Input() backPage?: string;
-
+  @Input() withBackButton: boolean = true;
   @Output() icon2Event: EventEmitter<void> = new EventEmitter();
 
 

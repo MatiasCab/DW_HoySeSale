@@ -1,5 +1,5 @@
 <div class="headerNavbar mt-4">
-    <div class="headerBackIcon">
+    <div class="headerBackIcon" *ngIf="withBackButton">
         <a routerLink="{{this.backPage}}"><app-button-icon [iconClass]="'bi bi-chevron-left'"></app-button-icon></a>
     </div>  
     <div class="ms-3">
