@@ -16,7 +16,8 @@ const routes: Routes = [
   {path:'login', component: LoginComponent, data: {animation: 'b'}},
   {path:'presentation', component: PresentationPageComponent, data: {animation: 'a'}},
   {path:'search', component: SearchPageComponent},
-  {path:'entertainment/:id', component: EntertainmentPageComponent}];
+  {path:'entertainment/:id', component: EntertainmentPageComponent},
+  {path:'home', component: HomePageComponent}];
 
 @NgModule({
   imports: [
