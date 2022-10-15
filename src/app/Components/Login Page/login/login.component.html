@@ -1,6 +1,6 @@
 <div class="fondo" >
     <div class="blur-back">
-        <div class="mt-4 mx-3">
+        <div class="mx-3">
             <app-header-navbar [backPage]="'/presentation'"></app-header-navbar>
         </div>
         <div class="display text-light">
@@ -26,7 +26,7 @@
                 <p class="col-auto text-center mt-1 mb-1 text-light px-1 or">or</p>
             </div>
             <div class="center">
-                <app-generic-button [buttonStyle]="'button'" [btnText]="'Singup'"></app-generic-button>
+                <a routerLink="/singUp" routerLinkActive="active"><app-generic-button [buttonStyle]="'button'" [btnText]="'Singup'"></app-generic-button></a>
             </div>
         </div>
     </div>

@@ -1,4 +1,33 @@
-.info{
+.info {
     color: white;
-    overflow-y: auto;
+    //overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    color: rgba(255, 255, 5, 0.938);
+}
+
+.full {
+    color:rgba(255, 255, 5, 0.938);
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: rgba(255, 255, 5, 0.938);
+}
+
+h2 {
+    margin: 0;
+}
+
+.col-auto{
+    display: flex;
+    align-items: flex-end;
 }

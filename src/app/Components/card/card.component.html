@@ -1,10 +1,11 @@
 <div class="entertainment-card">
-    <app-button-icon></app-button-icon>
-    <a routerLink="/entertainment/{{entertainment.id}}">
+    <a routerLink="/entertainment/{{entertainment.id}}" class="text-decoration-none">
         <div class="image">
             <img src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
         </div>
         <p>{{entertainment.name}}</p>
     </a>
-    <i class="bi bi-bookmark"></i>
+    <div class="icon">
+        <app-button-icon [iconClass]="currentIcon" (click)="changeFavoriteIcon()" [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite' "></app-button-icon>
+    </div>
 </div>

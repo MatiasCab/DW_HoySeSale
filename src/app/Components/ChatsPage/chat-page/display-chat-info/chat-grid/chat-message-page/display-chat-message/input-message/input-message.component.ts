@@ -16,7 +16,7 @@ export class InputMessageComponent implements OnInit {
   }
 
   sendMessage(){
-    if(this.inputMessage?.nativeElement.value != null){
+    if(this.inputMessage?.nativeElement.value != null && this.inputMessage?.nativeElement.value != ''){
       this.message.emit(this.inputMessage?.nativeElement.value);
       this.inputMessage!.nativeElement.value = '';
     }

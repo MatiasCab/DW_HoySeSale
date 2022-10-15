@@ -12,11 +12,21 @@ export class EntertainmentPageComponent implements OnInit {
 
   entertainment!: Entertainment;
 
+  favoriteIcon: string = 'bi bi-bookmark';
+
   id = Number(this.route.snapshot.paramMap.get('id'));
   
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+  }
+
+  changFavoriteIcon(){
+    if(this.favoriteIcon == 'bi bi-bookmark'){
+      this.favoriteIcon = 'bi-bookmark-fill';
+    }else{
+      this.favoriteIcon = 'bi bi-bookmark';
+    }
   }
 
 }

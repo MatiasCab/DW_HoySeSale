@@ -1,13 +1,25 @@
-<div class="info">
+<div class="info mt-4">
     <div class="description">
         <h2>DESCRIPCIÓN</h2>
         <p>{{entertainment.description}}</p>
     </div>
     <div class="qualification">
         <h2>CALIFICACIÓN</h2>
-        <p>{{entertainment.qualification}}</p>
+        <div class="row gx-2">
+            <div class="col-auto">
+                <h3 class="fw-light">{{rate}}</h3>
+            </div>
+            <div class="col">
+                <ng-template #rating let-fill="fill"> 
+                    <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9734;
+                    </span>
+                </ng-template>
+                <ngb-rating [(rate)]="rate" [starTemplate]="rating" [readonly]="true" [max]="5"></ngb-rating>
+            </div>
+        </div>
     </div>
-    <div class="ubication">
+    <div class="ubication mt-2">
         <h2>UBICACIÓN</h2>
     </div>
 </div>
