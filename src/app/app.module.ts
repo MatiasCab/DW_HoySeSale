@@ -46,6 +46,7 @@ import { MessageComponent } from './Components/ChatsPage/chat-page/display-chat-
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 import { UserProfileInfoComponent } from './Components/Profile/user-profile-info/user-profile-info.component';
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';
+import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/displa
     MessageComponent,
     ProfilePageComponent,
     UserProfileInfoComponent,
-    DisplayProfileFavoriteInfoComponent
+    DisplayProfileFavoriteInfoComponent,
+    SingUpPageComponent
   ],
   imports: [
     BrowserModule,

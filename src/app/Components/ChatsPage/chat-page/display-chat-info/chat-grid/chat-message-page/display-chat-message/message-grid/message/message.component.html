@@ -1,4 +1,5 @@
-<div class="row">
+
+<div class="row {{getMessageType == 'send' ? 'row-aling' : ''}}">
     <div class="col-10 text-light my-1 sended" *ngIf="getMessageType == 'send'">
         <div class="size send">
             <p>{{message?.message}}</p>
