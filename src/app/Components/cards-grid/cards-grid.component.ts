@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { appAnimations } from 'src/app/animations';
 
 import { Entertainment } from 'src/app/models/entertainment';
 
 @Component({
   selector: 'app-cards-grid',
   templateUrl: './cards-grid.component.html',
-  styleUrls: ['./cards-grid.component.scss']
+  styleUrls: ['./cards-grid.component.scss'],
+  animations: [appAnimations]
 })
 
 export class CardsGridComponent implements OnInit {

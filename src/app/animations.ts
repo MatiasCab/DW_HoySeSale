@@ -4,11 +4,12 @@ import {
     animate,
     transition,
     query,
-    group
+    group,
+    animateChild
 } from '@angular/animations';
 
 export const appAnimations = [
-    trigger("presentationToLogin", [
+    trigger("router", [
         transition('Presentation <=> Login, SingUp <=> Login, Presentation <=> SingUp', [
             query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
             group([
@@ -29,6 +30,25 @@ export const appAnimations = [
     ]), trigger("favorite", [
         transition("putFavorite <=> quitFavorite", [
             animate('0.2s', style({ transform: "scale(0.5)" }))
+        ])
+    ]), trigger("homeCards", [
+        transition(":enter", [
+            style({ transform: "scale(0)" }),
+            animate('0.5s {{delay}}s', style({ transform: "scale(1.155)" })),
+            animate('0.2s', style({ transform: "scale(0.855)" })),
+            animate('0.2s', style({ transform: "scale(1.08)" })),
+            animate('0.2s', style({ transform: "scale(0.9)" })),
+            animate('0.2s', style({ transform: "scale(1)" }))
+        ], { params: { delay: 0 } })
+    ]), trigger("searchedCards", [
+        transition(":enter", [
+            style({ transform: "scale(0)", opacity: 0 }),
+            animate('0.2s {{delay}}s', style({ transform: "scale(1)", opacity: 1 }))
+        ], { params: { delay: 0 } })
+    ]), trigger("chatPage", [
+        transition(":enter", [
+            style({ transform: "translateX(100%)"}),
+            animate('0.3s', style({ transform: "translateX(0%)"}))
         ])
     ])
 ];

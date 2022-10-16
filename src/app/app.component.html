@@ -1,4 +1,4 @@
-<div [@presentationToLogin]="getRouteAnimationData()">
+<div [@router]="getRouteAnimationData()">
     <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <app-navbar *ngIf="(route != '/login') && (route != '/presentation')  && (route != '/singUp')"></app-navbar>

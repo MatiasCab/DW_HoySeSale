@@ -16,7 +16,32 @@
         align-items: center;
         height: 100%;
         color:#636363;
-        border-top: 3px solid #D450E6;
         font-size: 1.3em;
+    }    
+    .anim-link {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .anim-link::before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+        transition: width .3s;
+    }
+    .anim-link.hover:before {
+        width: 100%;
+    }
+
+
+
+    .fillColor{
+        background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
+        -webkit-background-clip: text;
+                background-clip: text;
+        -webkit-text-fill-color: transparent;
+        //border-top: 3px solid #D450E6;
     }
 }

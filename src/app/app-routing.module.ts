@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'singUp', component: SingUpPageComponent, data: {animation: 'SingUp'}},
   {path:'search', component: SearchPageComponent},
   {path:'entertainment/:id', component: EntertainmentPageComponent},
-  {path:'home', component: HomePageComponent},
+  {path:'home', component: HomePageComponent, data: {animation: 'Home'}},
   {path:'profile', component: ProfilePageComponent},
   {path:'chats', component: ChatPageComponent}
 ];
