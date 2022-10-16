@@ -1,17 +1,17 @@
 <!-- <app-images-carousel [gallery]="entertainment.gallery"></app-images-carousel> -->
 <div class="display-info">
-    <!-- <div class="images">
-        <img src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+    <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
+        <img class="{{isAnEvent ? 'static' : ''}}" src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
         <div class="gradient"></div>
-    </div> -->
-    <div class="carousel-container">
+    </div>
+    <div class="carousel-container" *ngIf="!isAnEvent">
         <ngb-carousel class="carousel" #carousel [interval]="3000" 
         [showNavigationIndicators]="false"
         [showNavigationArrows]="false">
             <ng-template ngbSlide *ngFor="let img of images;">
             <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
                 <div class="images">
-                    <img [src]="img" alt="">
+                    <img class="{{isAnEvent ? 'static' : ''}}" [src]="img" alt="">
                     <div class="gradient"></div>
                 </div>
             </a>
@@ -21,5 +21,5 @@
     <div class="entertainmentName">
         <p>{{entertainment.name}}</p>
     </div>
-    <app-entertainment-info [entertainment]="entertainment"></app-entertainment-info>
+    <app-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent"></app-entertainment-info>
 </div>

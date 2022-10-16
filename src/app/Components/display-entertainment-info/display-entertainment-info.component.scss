@@ -9,6 +9,8 @@
             position: absolute;
             z-index: -1;
             width: 100vw;
+            left: 0px;
+            top: 0px;
             height: 60vh;
             object-fit: cover;
         }
@@ -20,7 +22,7 @@
             left: 0px;
             top: 0px;
             width: 100vw;
-            height: 50vh;
+            height: 51vh;
         }
     }
     
@@ -35,6 +37,14 @@
     p {
         margin:0;
     }
+}
+
+.static{
+    height: 50vh !important;
+}
+
+.size{
+    height: 40vh !important;
 }
 
 .carousel-container{

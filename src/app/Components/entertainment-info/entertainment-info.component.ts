@@ -9,6 +9,7 @@ import { Entertainment } from 'src/app/models/entertainment';
 export class EntertainmentInfoComponent implements OnInit {
 
   @Input() entertainment!: Entertainment;
+  @Input() isAnEvent?: boolean;
 
   rate: number = 3.4;
 
