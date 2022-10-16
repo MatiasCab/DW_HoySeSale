@@ -1,94 +1,90 @@
 .home{
-    width: 90vw;
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 
-    .links{
-        width: 100%;
-        height: 85vh;
-        display: flex;
-        flex-wrap: wrap;
+    .content{
+        width: 90vw;
 
-        a{
-            all: unset;
-            color: white;
-            font-size: 1.5em;
-            width: 43%;
-            margin: 3%;
-
-            p{
-                margin-right: 10%;
+        .links{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 85vh;
+    
+            a{
+                all: unset;
+                color: white;
+                font-size: 1.5em;
+    
+                p{
+                    margin-right: 10%;
+                }
             }
-
-            .bailes{
-                background-image: 
-                linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
-                url('../../../assets/images/vonecia-carswell-3cBFqagweZM-unsplash.jpg');
-                background-size: auto 100%;
-                border-radius: 15px;
-                width: 100%;
-                height: 30vh;
+    
+            .locales{
                 display: flex;
-                justify-content: flex-end;
-                align-items: flex-end; 
+                justify-content: space-between;
+                width: 100%;
+                height: 67%;
+    
+                .bares-pubs{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 47%;
+                    
+                    .bares{
+                        background-image: 
+                        linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+                        url('../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg');
+                        background-size: auto 100%;
+                        border-radius: 15px;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+                        height: 48%;
+                    }
+            
+                    .pubs{
+                        background-image: 
+                        linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+                        url('../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg');
+                        background-size: auto 100%;
+                        border-radius: 15px;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+                        height: 48%;
+                    }
+                }
+    
+                .bailes{
+                    background-image: 
+                    linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+                    url('../../../assets/images/vonecia-carswell-3cBFqagweZM-unsplash.jpg');
+                    background-size: auto 100%;
+                    background-position: center;
+                    border-radius: 15px;
+                    width: 47%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end; 
+                }
             }
-
+    
             .eventos{
                 background-image: 
                 linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
                 url('../../../assets/images/tony-pham-FUmDe-Bx1LA-unsplash.jpg');
                 background-size: auto 100%;
+                background-position: center;
                 border-radius: 15px;
-                width: 100%;
-                height: 30vh;
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-end;
-            }
-
-            .bares{
-                background-image: 
-                linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
-                url('../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg');
-                background-size: auto 100%;
-                border-radius: 15px;
-                width: 100%;
-                height: 30vh;
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-end;
-            }
-
-            .pubs{
-                background-image: 
-                linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
-                url('../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg');
-                background-size: auto 100%;
-                border-radius: 15px;
-                width: 100%;
-                height: 30vh;
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-end;
-            }
-
-            .mapas{
-                background-image: 
-                linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
-                url('../../../assets/images/google-maps-marker.png');
-                background-size: auto 100%;
-                border-radius: 15px;
-                width: 83vw;
-                height: 15vh;
+                height: 30%;;
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-end;
             }
         }
     }
-}
-
-.map{
-    width: auto;
 }

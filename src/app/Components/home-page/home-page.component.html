@@ -1,25 +1,23 @@
-<div class="home mx-3">
-    <app-header-navbar class="prub" [currentText]="'HOME'" [withBackButton]="false"></app-header-navbar>
-    <div class="links">
-        <a routerLink="/search">
-            <div class="bailes">
-                <p>BAILES</p>
+<div class="home">
+    <div class="content">
+        <app-header-navbar class="prub" [currentText]="'HOY SE SALE'" [withBackButton]="false"></app-header-navbar>
+        <div class="links">
+            <div class="locales">
+                <div class="bares-pubs">
+                    <a class="bares" routerLink="/search">
+                        <p>BARES</p>
+                    </a>
+                    <a class="pubs" routerLink="/search">
+                        <p>PUBS</p>
+                    </a>
+                </div>
+                <a class="bailes" routerLink="/search">
+                    <p>BAILES</p>
+                </a>
             </div>
-        </a>
-        <a routerLink="/search">
-            <div class="eventos">
+            <a class="eventos" routerLink="/search">
                 <p>EVENTOS</p>
-            </div>
-        </a>
-        <a routerLink="/search">
-            <div class="bares">
-                <p>BARES</p>
-            </div>
-        </a>
-        <a routerLink="/search">
-            <div class="pubs">
-                <p>PUBS</p>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
 </div>
