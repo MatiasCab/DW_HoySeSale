@@ -1,8 +1,22 @@
 <!-- <app-images-carousel [gallery]="entertainment.gallery"></app-images-carousel> -->
 <div class="display-info">
-    <div class="images">
+    <!-- <div class="images">
         <img src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
         <div class="gradient"></div>
+    </div> -->
+    <div class="carousel-container">
+        <ngb-carousel class="carousel" #carousel [interval]="3000" 
+        [showNavigationIndicators]="false"
+        [showNavigationArrows]="false">
+            <ng-template ngbSlide *ngFor="let img of images;">
+            <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
+                <div class="images">
+                    <img [src]="img" alt="">
+                    <div class="gradient"></div>
+                </div>
+            </a>
+            </ng-template>
+        </ngb-carousel>
     </div>
     <div class="entertainmentName">
         <p>{{entertainment.name}}</p>
