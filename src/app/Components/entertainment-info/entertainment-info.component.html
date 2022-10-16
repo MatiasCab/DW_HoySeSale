@@ -3,8 +3,8 @@
         <h2>DESCRIPCIÓN</h2>
         <p>{{entertainment.description}}</p>
     </div>
-    <div class="qualification">
-        <h2>CALIFICACIÓN</h2>
+    <div *ngIf="!isAnEvent">
+        <h3>CALIFICACIÓN</h3>
         <div class="row gx-2">
             <div class="col-auto">
                 <h3 class="fw-light">{{rate}}</h3>
@@ -19,7 +19,12 @@
             </div>
         </div>
     </div>
+    <div *ngIf="isAnEvent">
+        <h3>Fecha y Horarios</h3>
+        <p class="mb-1 mt-1">Fecha: 30/09/2022</p>
+        <p class="mb-1">Horario: 23:00 - 6:00</p> 
+    </div>
     <div class="ubication mt-2">
-        <h2>UBICACIÓN</h2>
+        <h3>UBICACIÓN</h3>
     </div>
 </div>
