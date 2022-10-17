@@ -17,6 +17,7 @@ export class HeaderNavbarComponent implements OnInit {
   @Input() backPage?: string;
   @Input() withBackButton: boolean = true;
   @Output() icon2Event: EventEmitter<void> = new EventEmitter();
+  @Output() icon1Event: EventEmitter<void> = new EventEmitter();
 
 
   constructor() { }
@@ -24,8 +25,15 @@ export class HeaderNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitEvent(){
-    this.icon2Event.emit();
+  emitEvent(eventNumber: number){
+    switch (eventNumber) {
+      case 1:
+        this.icon1Event.emit();
+        break;
+      case 2:
+        this.icon2Event.emit();
+        break;
+    }
   }
 
 }

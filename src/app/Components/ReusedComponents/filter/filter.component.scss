@@ -23,7 +23,7 @@
         width: 0;
         height: 2px;
         background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
-        transition: width .3s;
+        transition: width .5s;
     }
     .colored.hover::after {
         width: 100%;

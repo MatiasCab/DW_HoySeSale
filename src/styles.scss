@@ -82,3 +82,12 @@ body {
     height: 7rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
                 //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }
+
+.backdrop{
+    backdrop-filter: blur(8px);
+}
+
+.modal-content{
+    border-radius: 2rem;
+    background-color: black;
+}

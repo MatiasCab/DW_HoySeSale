@@ -47,6 +47,7 @@ import { ProfilePageComponent } from './Components/Profile/profile-page/profile-
 import { UserProfileInfoComponent } from './Components/Profile/user-profile-info/user-profile-info.component';
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';
 import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
+import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-logout.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-u
     ProfilePageComponent,
     UserProfileInfoComponent,
     DisplayProfileFavoriteInfoComponent,
-    SingUpPageComponent
+    SingUpPageComponent,
+    ModalLogoutComponent,
   ],
   imports: [
     BrowserModule,

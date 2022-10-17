@@ -1,6 +1,9 @@
 <div class="home">
     <div class="content">
-        <app-header-navbar [currentText]="'HOY SE SALE'" [withBackButton]="false" [currentIcon1]="'bi bi-box-arrow-left'"></app-header-navbar>
+        <app-header-navbar [currentText]="'HOY SE SALE'" 
+        [withBackButton]="false" 
+        [currentIcon1]="'bi bi-box-arrow-left'"
+        (icon1Event)="openLogoutModal()"></app-header-navbar>
         <div class="links">
             <div class="locales">
                 <div class="bares-pubs">
