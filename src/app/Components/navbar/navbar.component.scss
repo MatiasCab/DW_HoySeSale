@@ -29,19 +29,17 @@
         width: 0;
         height: 2px;
         background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+        //background: #6B2CF5;
         transition: width .3s;
     }
     .anim-link.hover:before {
         width: 100%;
     }
 
-
-
     .fillColor{
         background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
         -webkit-background-clip: text;
                 background-clip: text;
         -webkit-text-fill-color: transparent;
-        //border-top: 3px solid #D450E6;
     }
 }

@@ -10,6 +10,29 @@
         height: 4vh;
         margin: 0;
         margin-top: 1%;
-        border-bottom: 3px solid #D450E6;
+    }
+
+    .colored {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .colored::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+        transition: width .3s;
+    }
+    .colored.hover::after {
+        width: 100%;
+    }
+
+    .hover p{
+        background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
+        -webkit-background-clip: text;
+                background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
