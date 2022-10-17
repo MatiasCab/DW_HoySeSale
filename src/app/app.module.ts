@@ -19,7 +19,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderTextComponent } from './Components/ReusedComponents/header-navbar/header-text/header-text.component';
 import { ButtonIconComponent } from './Components/ReusedComponents/button-icon/button-icon.component';
 import { HeaderNavbarComponent } from './Components/ReusedComponents/header-navbar/header-navbar.component';
-import { CardComponent } from './Components/card/card.component';
+import { CardComponent } from './Components/cards-grid/card/card.component';
 import { FilterComponent } from './Components/ReusedComponents/filter/filter.component';
 import { SearchInputComponent } from './Components/ReusedComponents/search-input/search-input.component';
 import { SearchEntertainmentComponent } from './Components/SearchPage/search-entertainment/search-entertainment.component';
@@ -27,7 +27,7 @@ import { InputUserCredentialsComponent } from './Components/Login Page/input-use
 import { SearchPageComponent } from './Components/SearchPage/search-page/search-page.component';
 import { DisplaySearchInfoComponent } from './Components/SearchPage/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
-import { CardNameComponent } from './Components/card-name/card-name.component';
+import { CardNameComponent } from './Components/cards-grid/card/card-name/card-name.component';
 import { EntertainmentInfoComponent } from './Components/entertainment-info/entertainment-info.component';
 import { ImagesCarouselComponent } from './Components/images-carousel/images-carousel.component';
 import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
