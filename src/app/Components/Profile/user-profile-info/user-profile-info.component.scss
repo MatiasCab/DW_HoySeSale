@@ -2,8 +2,13 @@
     justify-content: center;
 }
 
-.margin{
+.marginMobile {
     margin-top: 10vh;
+}
+
+.marginDesktop {
+    margin-top: 15vh;
+    align-items: center;
 }
 
 p.text-light{

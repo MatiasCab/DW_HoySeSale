@@ -1,7 +1,11 @@
-<div class="center">
-    <div class="d-flex user-photo-profile margin">
-        <app-user-photo></app-user-photo>
+<div class="{{!isMobile ? '' : 'center'}}">
+    <div class="{{!isMobile ? 'row marginDesktop ms-5' : 'marginMobile'}}">
+        <div class="{{!isMobile ? 'col-auto' : 'd-flex'}} user-photo-profile">
+            <app-user-photo></app-user-photo>
+        </div>
+        <div class="{{!isMobile ? 'col-auto' : ''}}">
+            <h1 class="text-light my-3">Matias</h1>
+            <p class="text-light">@mattiezequie</p>
+        </div>
     </div>
-    <h1 class="text-light my-3">Matias</h1>
-    <p class="text-light">@mattiezequie</p>
 </div>

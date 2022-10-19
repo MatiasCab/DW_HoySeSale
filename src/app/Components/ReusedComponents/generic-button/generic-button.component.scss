@@ -1,8 +1,16 @@
-.style {
-    width: 70%;
+button {
     min-height: 38px;
     border-radius: 46px;
     color:white ;
+}
+
+.buttonMobile{
+    width: 70%;
+}
+
+.buttonDesktop{
+    width: 25%;
+    max-width: 270px;
 }
 
 .fill{
@@ -10,7 +18,7 @@
     border: 0;
 }
 
-button.button {
+button.empty {
     border: solid 2px transparent;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
     background-origin: border-box;

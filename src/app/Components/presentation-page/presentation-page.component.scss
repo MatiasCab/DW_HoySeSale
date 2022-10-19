@@ -1,9 +1,13 @@
-.mt{
+.mtGeneric{
     margin-top: 30vh;
 }
 
-.mb {
+.mtMobile {
     margin-top: 20vh;
+}
+
+.mtDesktop{
+    margin-top: 15vh;
 }
 
 .left {
@@ -29,11 +33,11 @@
 }
 
 .or::before {
-    left: -5em;
+    left: -5rem;
 }
 
 .or::after {
-    right: -5em;
+    right: -5rem;
 }
 
 .center-or {

@@ -1,6 +1,7 @@
-<app-filter></app-filter>
-<div class="d-flex">
-    <div class="cards-grid">
-        <app-cards-grid></app-cards-grid>
+
+<div class="{{!isMobile ? 'container' : ''}}">
+    <app-filter></app-filter>
+    <div *ngIf="isMobile" class="d-flex">
+        <app-cards-grid class="cards-grid"></app-cards-grid>
     </div>
 </div>
