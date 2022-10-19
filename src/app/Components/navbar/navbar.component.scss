@@ -1,45 +1,164 @@
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    border-top: 2px solid #636363;
-    background-color: #181818;
-    height: 5vh;
-    //width: 90vw;
-    padding: 0;
-    
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
+//Consideraciones = no se como hacer para que la barrita esa de color se ponga en el a y no en el p
 
-    a{
+
+@mixin navbar ($height, $justifyContent){
+    display: flex;
+    justify-content: $justifyContent;
+    height: $height;
+}
+
+@mixin animatedLink {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@mixin linkStyle ($fontSize){
         display: flex;
         align-items: center;
         height: 100%;
         color:#636363;
-        font-size: 1.3em;
-    }    
-    .anim-link {
-        display: inline-block;
-        text-decoration: none;
+        font-size: $fontSize;
+}
+
+@mixin animatedLinkEvents{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+    transition: width .3s;
+}
+
+@mixin animatedLinkHover{
+    width: 100%;
+}
+
+@mixin fillColor{
+    background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container-fluid{
+    background-color: #181818;
+    position: fixed;
+    top: 0;
+}
+
+.navbarMobile{
+    position: fixed;
+    bottom: 0;
+    @include navbar(5.2vh, space-around);
+    border-top: 2px solid #636363;
+    padding: 0;
+    width: 100%;
+    a{
+        @include linkStyle(1.3em);
     }
 
-    .anim-link::before {
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
-        //background: #6B2CF5;
-        transition: width .3s;
+    .animatedLink{
+        @include animatedLink();
     }
-    .anim-link.hover:before {
-        width: 100%;
+
+    .animatedLink::before{
+        @include animatedLinkEvents();
+    }
+
+    .animatedLink.hover::before{
+        @include animatedLinkHover();
     }
 
     .fillColor{
-        background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
-        -webkit-background-clip: text;
-                background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include fillColor();
     }
 }
+
+
+.navbarDesktop{
+    @include navbar(7vh, flex-end);
+    border-bottom: 2px solid #636363;
+    padding-top: 2vh;
+
+    a{
+        @include linkStyle(1em);
+        margin-left: 7%;
+    }
+    
+    a.first{
+        margin-left: 0;
+    }
+
+    p {
+        margin:0;
+        height: 100%;
+    }
+
+    .animatedLink{
+        @include animatedLink();
+    }
+
+    .animatedLink::after{
+        @include animatedLinkEvents();
+    }
+
+    .animatedLink.hover::after{
+        @include animatedLinkHover();
+    }
+
+    .hover p{
+        @include fillColor();
+    }
+}
+
+h4{
+    margin-right: auto;
+    margin-left: 0.5%;
+    height: auto;
+}
+
+// .navbar{
+//     display: flex;
+//     justify-content: space-around;
+//     border-top: 2px solid #636363;
+//     //background-color: #181818;
+//     //height: 5vh;
+//     padding: 0;
+    
+//     //position: fixed;
+//     bottom: 0;
+//     //width: 100%;
+
+//     // a{
+//     //     display: flex;
+//     //     align-items: center;
+//     //     height: 100%;
+//     //     color:#636363;
+//     //     font-size: 1.3em;
+//     // }    
+    
+//     // .anim-link {
+//     //     display: inline-block;
+//     //     text-decoration: none;
+//     // }
+
+//     // .anim-link::before {
+//     //     content: '';
+//     //     display: block;
+//     //     width: 0;
+//     //     height: 2px;
+//     //     background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+//     //     transition: width .3s;
+//     // }
+
+//     // .anim-link.hover:before {
+//     //     width: 100%;
+//     // }
+
+//     // .fillColor{
+//     //     background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
+//     //     -webkit-background-clip: text;
+//     //             background-clip: text;
+//     //     -webkit-text-fill-color: transparent;
+//     // }
+// }

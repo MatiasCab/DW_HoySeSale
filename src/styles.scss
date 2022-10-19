@@ -12,7 +12,7 @@ body {
     overflow: hidden;
 }
 
-.fill {
+.fill-section {
     height: 6vh;
 }
 
@@ -90,4 +90,11 @@ body {
 .modal-content{
     border-radius: 2rem;
     background-color: black;
+}
+
+.cards-grid{
+    width: 90vw;
+    height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

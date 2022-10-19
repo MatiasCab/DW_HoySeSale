@@ -94,9 +94,6 @@ import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     AppRoutingModule,
     BrowserAnimationsModule
   ],

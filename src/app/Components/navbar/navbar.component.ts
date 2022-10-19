@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-navbar',
@@ -28,9 +29,22 @@ export class NavbarComponent implements OnInit {
     "bi bi-person-fill fillColor"
   ]
 
-  constructor() { }
+  isMobile: boolean = true;
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
+    .subscribe(result => {
+      const breakpoints = result.breakpoints;
+      console.log(result);
+      if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+        this.isMobile = false;
+        console.log("Cambio");
+      }else{
+        this.isMobile = true;
+      }
+    })
   }
 
   fillIcon(iconNumber: number) {
