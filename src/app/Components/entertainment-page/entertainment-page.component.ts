@@ -14,11 +14,16 @@ export class EntertainmentPageComponent implements OnInit {
 
   favoriteIcon: string = 'bi bi-bookmark';
 
-  id = Number(this.route.snapshot.paramMap.get('id'));
+  isAnEvent: boolean = false;
   
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    const entertainmentID = parseInt(this.route.snapshot.paramMap.get('id')!);
+    console.log(entertainmentID);
+    if(entertainmentID > 2){
+      this.isAnEvent = true;
+    }
   }
 
   changFavoriteIcon(){
