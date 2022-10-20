@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ChildrenOutletContexts, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts} from '@angular/router';
 import { Router } from '@angular/router';
 import { appAnimations } from './animations';
 
@@ -13,11 +13,9 @@ import { appAnimations } from './animations';
 export class AppComponent {
 
   constructor(private contexts: ChildrenOutletContexts,
-              private route: Router,
-              private router: ActivatedRoute) {}
+              private route: Router) {}
 
   get show(){
-    console.log(this.route.url.includes('/search/@'));
     return (this.route.url != '/login') && 
           (this.route.url != '/presentation') && 
           (this.route.url != '/singUp') && 
