@@ -1,11 +1,15 @@
-<div class="{{!isMobile ? '' : 'center'}}">
-    <div class="{{!isMobile ? 'row marginDesktop ms-5' : 'marginMobile'}}">
-        <div class="{{!isMobile ? 'col-auto' : 'd-flex'}} user-photo-profile">
-            <app-user-photo></app-user-photo>
-        </div>
-        <div class="{{!isMobile ? 'col-auto' : ''}}">
-            <h1 class="text-light my-3">Matias</h1>
-            <p class="text-light">@mattiezequie</p>
-        </div>
+
+<div fxLayout.xs="column" 
+    fxLayoutGap="1rem" 
+    fxLayoutGap.xs="0" 
+    fxLayout="row" 
+    fxLayoutAlign=" center" 
+    class="{{!isMobile ? 'marginDesktop ms-5' : 'marginMobile'}}">
+    <div class="user-photo-profile">
+        <app-user-photo></app-user-photo>
+    </div>
+    <div class="center">
+        <h1 class="text-light my-3">Matias</h1>
+        <p class="text-light">@mattiezequie</p>
     </div>
 </div>
