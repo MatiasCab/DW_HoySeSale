@@ -39,11 +39,11 @@ import { DisplayChatInfoComponent } from './Components/ChatsPage/chat-page/displ
 import { ChatGridComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-grid.component';
 import { ChatComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat/chat.component';
 import { UserPhotoComponent } from './Components/ReusedComponents/user-photo/user-photo.component';
-import { ChatMessagePageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/chat-message-page.component';
-import { DisplayChatMessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/display-chat-message.component';
-import { InputMessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/input-message/input-message.component';
-import { MessageGridComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/message-grid/message-grid.component';
-import { MessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/message-grid/message/message.component';
+import { ChatMessagePageComponent } from './Components/ChatsPage/chat-message-page/chat-message-page.component';
+import { DisplayChatMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/display-chat-message.component';
+import { InputMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/input-message/input-message.component';
+import { MessageGridComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message-grid.component';
+import { MessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message/message.component';
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 import { UserProfileInfoComponent } from './Components/Profile/user-profile-info/user-profile-info.component';
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';

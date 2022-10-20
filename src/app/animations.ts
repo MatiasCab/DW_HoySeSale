@@ -21,6 +21,9 @@ export const appAnimations = [
                     style({ filter: 'blur(0px)' }),
                     animate('0.2s', style({ filter: 'blur(10px)' }))], { optional: true }),
             ])
+        ]), transition("ChatsPagde => MessagePage", [
+            style({ transform: "translateX(100%)"}),
+            animate('3s', style({ transform: "translateX(0%)"}))
         ])
     ]), trigger("favoriteInCard", [
         transition("putFavorite <=> quitFavorite", [
@@ -47,6 +50,9 @@ export const appAnimations = [
         ], { params: { delay: 0 } })
     ]), trigger("chatPage", [
         transition(":enter", [
+            style({ transform: "translateX(100%)", position:'absolute', overflow:'hidden'}),
+            animate('50s', style({ transform: "translateX(0%)", overflow:'hidden'}))
+        ]), transition("* => *", [
             style({ transform: "translateX(100%)"}),
             animate('0.3s', style({ transform: "translateX(0%)"}))
         ])
