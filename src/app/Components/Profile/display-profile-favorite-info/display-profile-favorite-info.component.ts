@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-display-profile-favorite-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-profile-favorite-info.component.scss']
 })
 export class DisplayProfileFavoriteInfoComponent implements OnInit {
+
+  @Input() isMobile?: boolean;
 
   constructor() { }
 

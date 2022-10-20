@@ -11,6 +11,7 @@ import { ChatPageComponent } from './Components/ChatsPage/chat-page/chat-page.co
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
 import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
+import { ChatMessagePageComponent } from './Components/ChatsPage/chat-message-page/chat-message-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'entertainment/:id', component: EntertainmentPageComponent},
   {path:'home', component: HomePageComponent, data: {animation: 'Home'}},
   {path:'profile', component: ProfilePageComponent},
-  {path:'chats', component: ChatPageComponent}
+  {path:'chats', component: ChatPageComponent, data: {animation: 'ChatsPage'}},
+  {path:'chats/:username', component: ChatMessagePageComponent, data: {animation: 'MessagePage'}}
 ];
 
 @NgModule({

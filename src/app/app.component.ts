@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts} from '@angular/router';
 import { Router } from '@angular/router';
 import { appAnimations } from './animations';
 
@@ -13,11 +13,14 @@ import { appAnimations } from './animations';
 export class AppComponent {
 
   constructor(private contexts: ChildrenOutletContexts,
-              private router: Router) {}
+              private route: Router) {}
 
-  get route(){
-    return this.router.url
-  }
+  get show(){
+    return (this.route.url != '/login') && 
+          (this.route.url != '/presentation') && 
+          (this.route.url != '/singUp') && 
+          (!this.route.url.includes('/chats/@'));
+  } 
   
   title = 'angular-hoy-se-sale';
   

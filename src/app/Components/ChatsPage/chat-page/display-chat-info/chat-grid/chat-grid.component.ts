@@ -1,6 +1,4 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ChatMessagePageComponent } from './chat-message-page/chat-message-page.component';
-import { ChatComponent } from './chat/chat.component';
 
 @Component({
   selector: 'app-chat-grid',
@@ -16,13 +14,6 @@ export class ChatGridComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @ViewChild('hiddenElement') chatMessagePage?: ChatMessagePageComponent;
-
   display: boolean = false;
-
-  openChat(d?: ChatComponent){
-    this.display = true;
-    this.chatMessagePage?.show();
-  }
 
 }

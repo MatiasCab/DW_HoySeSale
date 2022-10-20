@@ -1,7 +1,7 @@
 <div class="fondo" >
     <div class="blur-back">
         <div class="mx-3">
-            <app-header-navbar [backPage]="'/presentation'"></app-header-navbar>
+            <app-header-navbar [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
         </div>
         <div class="display text-light">
             <h1 class="title_margin mt-5">LOGIN</h1>
@@ -19,14 +19,14 @@
             </div>
         </div>
         <div class="center mt-5">
-            <a routerLink="/home" routerLinkActive="active"><app-generic-button [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button></a>
+            <a routerLink="/home" routerLinkActive="active"><app-generic-button [buttonStyle]="'fill buttonMobile'" [btnText]="'Login'"></app-generic-button></a>
         </div>
         <div class="bottom-button">
             <div class="row center-or">
                 <p class="col-auto text-center mt-1 mb-1 text-light px-1 or">or</p>
             </div>
             <div class="center">
-                <a routerLink="/singUp" routerLinkActive="active"><app-generic-button [buttonStyle]="'button'" [btnText]="'Signup'"></app-generic-button></a>
+                <a routerLink="/singUp" routerLinkActive="active"><app-generic-button [buttonStyle]="'empty buttonMobile'" [btnText]="'Signup'"></app-generic-button></a>
             </div>
         </div>
     </div>
