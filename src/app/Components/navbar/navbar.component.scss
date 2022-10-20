@@ -1,7 +1,10 @@
-@mixin navbar ($height, $justifyContent){
+@mixin navbar1 ($height, $justifyContent){
     display: flex;
     justify-content: $justifyContent;
     height: $height;
+    .animatedLink{
+        @include animatedLink();
+    }
 }
 
 @mixin animatedLink {
@@ -43,22 +46,18 @@
     top: 0;
 }
 
-.navbarMobile{
+.navbarMobile .navbar{
     background-color: #181818;
     position: fixed;
     bottom: 0;
 
-    @include navbar(5.2vh, space-around);
+    @include navbar1(5.2vh, space-around);
     
     border-top: 2px solid #636363;
     padding: 0;
     width: 100%;
     a{
         @include linkStyle(1.3em);
-    }
-
-    .animatedLink{
-        @include animatedLink();
     }
 
     .animatedLink::before{
@@ -75,11 +74,13 @@
 }
 
 
-.navbarDesktop{
-    @include navbar(7vh, flex-end);
+.navbarDesktop .navbar{
+    @include navbar1(7vh, flex-end);
     border-bottom: 2px solid #636363;
     padding-top: 2vh;
     align-items: center;
+    padding-bottom: 0;
+    flex-wrap: nowrap;
 
     a{
         @include linkStyle(1em);
@@ -93,10 +94,6 @@
     p {
         margin:0;
         height: 100%;
-    }
-
-    .animatedLink{
-        @include animatedLink();
     }
 
     .animatedLink::after{
@@ -117,49 +114,3 @@
         height: auto;
     }
 }
-
-// .navbar{
-//     display: flex;
-//     justify-content: space-around;
-//     border-top: 2px solid #636363;
-//     //background-color: #181818;
-//     //height: 5vh;
-//     padding: 0;
-    
-//     //position: fixed;
-//     bottom: 0;
-//     //width: 100%;
-
-//     // a{
-//     //     display: flex;
-//     //     align-items: center;
-//     //     height: 100%;
-//     //     color:#636363;
-//     //     font-size: 1.3em;
-//     // }    
-    
-//     // .anim-link {
-//     //     display: inline-block;
-//     //     text-decoration: none;
-//     // }
-
-//     // .anim-link::before {
-//     //     content: '';
-//     //     display: block;
-//     //     width: 0;
-//     //     height: 2px;
-//     //     background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
-//     //     transition: width .3s;
-//     // }
-
-//     // .anim-link.hover:before {
-//     //     width: 100%;
-//     // }
-
-//     // .fillColor{
-//     //     background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
-//     //     -webkit-background-clip: text;
-//     //             background-clip: text;
-//     //     -webkit-text-fill-color: transparent;
-//     // }
-// }
