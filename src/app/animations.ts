@@ -21,9 +21,28 @@ export const appAnimations = [
                     style({ filter: 'blur(0px)' }),
                     animate('0.2s', style({ filter: 'blur(10px)' }))], { optional: true }),
             ])
-        ]), transition("ChatsPagde => MessagePage", [
-            style({ transform: "translateX(100%)"}),
-            animate('3s', style({ transform: "translateX(0%)"}))
+        ]), transition('MessagePage => ChatsPage', [
+            query(':leave',
+                style({ position: 'fixed', height: '100%', width: '100%', top: '0' }),
+                { optional: true }),
+            group([
+                query(':leave', [
+                    style({ transform: 'translateX(0%)' , background: '#181818', zIndex: '1' }),
+                    animate('0.2s ease-in-out',
+                        style({ transform: 'translateX(100%)' }))
+                ], { optional: true }),
+            ])
+        ]), transition('ChatsPage => MessagePage', [
+            query(':enter, :leave',
+                style({ position: 'absolute', height: '100%', width: '100%', background: '#181818' }),
+                { optional: true }),
+            group([
+                query(':enter', [
+                    style({ transform: 'translateX(100%)' }),
+                    animate('0.2s ease-in-out',
+                        style({ transform: 'translateX(0%)' }))
+                ], { optional: true }),
+            ])
         ])
     ]), trigger("favoriteInCard", [
         transition("putFavorite <=> quitFavorite", [
@@ -50,11 +69,11 @@ export const appAnimations = [
         ], { params: { delay: 0 } })
     ]), trigger("chatPage", [
         transition(":enter", [
-            style({ transform: "translateX(100%)", position:'absolute', overflow:'hidden'}),
-            animate('50s', style({ transform: "translateX(0%)", overflow:'hidden'}))
+            style({ transform: "translateX(100%)", position: 'absolute', height: '100%', width: '100%' }),
+            animate('5s', style({ transform: "translateX(0%)" }))
         ]), transition("* => *", [
-            style({ transform: "translateX(100%)"}),
-            animate('0.3s', style({ transform: "translateX(0%)"}))
+            style({ transform: "translateX(100%)" }),
+            animate('0.3s', style({ transform: "translateX(0%)" }))
         ])
     ])
 ];
