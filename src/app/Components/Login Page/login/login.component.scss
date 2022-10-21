@@ -2,11 +2,6 @@
     margin-top: 8vh;
 }
 
-.display {
-    display: flex;
-    justify-content: center;
-}
-
 .t{
     background-color: rgb(190, 190, 190);
 }
@@ -20,4 +15,8 @@
     position: fixed;
     bottom: 5%;
     width: 100%;
+}
+
+a {
+    all: unset;
 }

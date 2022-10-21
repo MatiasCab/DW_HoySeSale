@@ -4,8 +4,7 @@ import {
     animate,
     transition,
     query,
-    group,
-    animateChild
+    group
 } from '@angular/animations';
 
 export const appAnimations = [
