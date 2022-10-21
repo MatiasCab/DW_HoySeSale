@@ -19,12 +19,13 @@ export class AppComponent {
     return (this.route.url != '/login') && 
           (this.route.url != '/presentation') && 
           (this.route.url != '/singUp') && 
-          (!this.route.url.includes('/chats/@'));
+          (!this.route.url.includes('/chats/@'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
   } 
   
   title = 'angular-hoy-se-sale';
   
   getRouteAnimationData() {
+    //this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username');
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }
