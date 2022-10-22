@@ -43,6 +43,7 @@
                         justify-content: flex-end;
                         align-items: flex-end;
                         height: 48%;
+                        cursor: pointer;
                     }
             
                     .pubs{
@@ -55,6 +56,7 @@
                         justify-content: flex-end;
                         align-items: flex-end;
                         height: 48%;
+                        cursor: pointer;
                     }
                 }
     
@@ -70,6 +72,7 @@
                     display: flex;
                     justify-content: flex-end;
                     align-items: flex-end; 
+                    cursor: pointer;
                 }
             }
     
@@ -84,6 +87,7 @@
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-end;
+                cursor: pointer;
             }
         }
     }
