@@ -10,7 +10,7 @@
     margin-top: 15vh;
 }
 
-.mobileStyle footer .left{
+footer .left{
     border-top: 1px solid rgba(255, 255, 255, 0.596);
 }
 
@@ -55,4 +55,21 @@ footer {
     bottom: 0%;
     width: 100%;
     font-size: small;
+}
+
+
+a {
+    all: unset;
+}
+
+.center-or p{
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+@media screen and (min-width: 600px){
+    .center-or p{
+        margin-top: 0!important;
+        margin-bottom: 0 !important;
+    }
 }

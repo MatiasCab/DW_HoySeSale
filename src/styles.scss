@@ -107,3 +107,20 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+a {
+    cursor: pointer;
+}
+
+.size{
+    width: 70%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 600px){
+    .size{
+        width: 270px;
+    }
+}
