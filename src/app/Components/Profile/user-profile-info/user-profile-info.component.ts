@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-profile-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile-info.component.scss']
 })
 export class UserProfileInfoComponent implements OnInit {
+
+  @Input() isMobile?: boolean;
 
   constructor() { }
 

@@ -1,12 +1,8 @@
 <div class="headerNavbar mt-4">
-    <div class="headerBackIcon" *ngIf="withBackButton">
-        <a routerLink="{{this.backPage}}"><app-button-icon [iconClass]="'bi bi-chevron-left'"></app-button-icon></a>
-    </div>  
-    <div class="ms-3">
-        <app-header-text [text]="currentText"></app-header-text>
-    </div>
+    <a *ngIf="firstIcon" routerLink="{{this.backPage}}"><app-button-icon [iconClass]="firstIcon"></app-button-icon></a> 
+    <app-header-text [text]="currentText"></app-header-text>
     <div class="container-fluid headerIcons p-0">
-        <app-button-icon *ngIf="currentIcon1" [iconClass]="currentIcon1"></app-button-icon>
-        <app-button-icon class="ms-3" *ngIf="currentIcon2" [iconClass]="currentIcon2" (click)="emitEvent()" [@favorite]="currentIcon2 == 'bi bi-bookmark' ? 'putFavorite' :'quitFavorite'"></app-button-icon>
+        <app-button-icon *ngIf="currentIcon1" [iconClass]="currentIcon1" (click)="emitEvent(1)"></app-button-icon>
+        <app-button-icon class="ms-3" *ngIf="currentIcon2" [iconClass]="currentIcon2" (click)="emitEvent(2)" [@favorite]="currentIcon2 == 'bi bi-bookmark' ? 'putFavorite' :'quitFavorite'"></app-button-icon>
     </div>
 </div>

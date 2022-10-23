@@ -1,22 +1,116 @@
-.navbar{
+@mixin navbar1 ($height, $justifyContent){
     display: flex;
-    justify-content: space-around;
-    border-top: 2px solid #636363;
-    background-color: #181818;
-    height: 5vh;
-    //width: 90vw;
-    padding: 0;
-    
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
+    justify-content: $justifyContent;
+    height: $height;
+    .animatedLink{
+        @include animatedLink();
+    }
+}
 
-    a{
+@mixin animatedLink {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@mixin linkStyle ($fontSize){
         display: flex;
         align-items: center;
         height: 100%;
         color:#636363;
-        border-top: 3px solid #D450E6;
-        font-size: 1.3em;
+        font-size: $fontSize;
+}
+
+@mixin animatedLinkEvents{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
+    transition: width .3s;
+}
+
+@mixin animatedLinkHover{
+    width: 100%;
+}
+
+@mixin fillColor{
+    background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container-fluid{
+    background-color: #181818;
+    position: fixed;
+    top: 0;
+}
+
+.navbarMobile .navbar{
+    background-color: #181818;
+    position: fixed;
+    bottom: 0;
+
+    @include navbar1(5.2vh, space-around);
+    
+    border-top: 2px solid #636363;
+    padding: 0;
+    width: 100%;
+    a{
+        @include linkStyle(1.3em);
+    }
+
+    .animatedLink::before{
+        @include animatedLinkEvents();
+    }
+
+    .animatedLink.hover::before{
+        @include animatedLinkHover();
+    }
+
+    .fillColor{
+        @include fillColor();
+    }
+}
+
+
+.navbarDesktop .navbar{
+    @include navbar1(7vh, flex-end);
+    border-bottom: 2px solid #636363;
+    padding-top: 2vh;
+    align-items: center;
+    padding-bottom: 0;
+    flex-wrap: nowrap;
+
+    a{
+        @include linkStyle(1em);
+        margin-left: 7%;
+    }
+    
+    a.first{
+        margin-left: 0;
+    }
+
+    p {
+        margin:0;
+        height: 100%;
+    }
+
+    .animatedLink::after{
+        @include animatedLinkEvents();
+    }
+
+    .animatedLink.hover::after{
+        @include animatedLinkHover();
+    }
+
+    .hover p{
+        @include fillColor();
+    }
+
+    h4 {
+        margin-right: auto;
+        margin-left: 0.5%;
+        height: auto;
     }
 }

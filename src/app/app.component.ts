@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts} from '@angular/router';
 import { Router } from '@angular/router';
 import { appAnimations } from './animations';
 
@@ -13,15 +13,19 @@ import { appAnimations } from './animations';
 export class AppComponent {
 
   constructor(private contexts: ChildrenOutletContexts,
-              private router: Router) {}
+              private route: Router) {}
 
-  get route(){
-    return this.router.url
-  }
+  get show(){
+    return (this.route.url != '/login') && 
+          (this.route.url != '/presentation') && 
+          (this.route.url != '/singUp') && 
+          (!this.route.url.includes('/chats/@'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
+  } 
   
   title = 'angular-hoy-se-sale';
   
   getRouteAnimationData() {
+    //this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username');
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

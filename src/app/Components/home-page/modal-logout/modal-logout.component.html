@@ -1,0 +1,15 @@
+<div class="modal-body">
+    <p class="w-100 text-center text-light fs-5">Seguro quiere salir de la app y perderse de salidas inolvidables?</p>
+    <div class="w-100 row">
+        <div class="col-6">
+            <app-generic-button [buttonStyle]="'fill w-100'" [btnText]="'Quedarme'" (click)="close()">
+            </app-generic-button>
+        </div>
+        <div class="col-6">
+            <a routerLink="/presentation" routerLinkActive="active">
+                <app-generic-button [buttonStyle]="'empty w-100'" [btnText]="'Irme'" (click)="logout()">
+                </app-generic-button>
+            </a>
+        </div>
+    </div>
+</div>

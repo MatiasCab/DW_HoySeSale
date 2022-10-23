@@ -5,17 +5,17 @@
     justify-content: flex-end;
 }
 .position-page{
-    z-index:2;  
+    z-index:3;  
 }
 .position{
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    //background-color:#181818;
     padding-right: 1%;
     padding-left: 3%;
     padding-bottom: 2%;
+    z-index: 3;
 }
 
 .position .a{

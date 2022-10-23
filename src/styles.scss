@@ -1,18 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-
+router-outlet + * {
+    position: absolute;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
 body {
     background-color:#181818;
 }
 
 .fondo{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("./assets/images/aditya-chinchure-ZhQCZjr9fHo-unsplash recortada.jpg");
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("./assets/images/bg.jpg");
     height: 100vh;  
     width: 100vw;
     background-size: auto 100%;
     overflow: hidden;
 }
 
-.fill {
+.fill-section {
     height: 6vh;
 }
 
@@ -43,11 +52,11 @@ body {
 }
 
 .or::before {
-    left: -5em;
+    left: -5rem;
 }
 
 .or::after {
-    right: -5em;
+    right: -5rem;
 }
 
 .center-or {
@@ -81,4 +90,20 @@ body {
     
     height: 7rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
                 //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+}
+
+.backdrop{
+    backdrop-filter: blur(8px);
+}
+
+.modal-content{
+    border-radius: 2rem;
+    background-color: black;
+}
+
+.cards-grid{
+    width: 90vw;
+    height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

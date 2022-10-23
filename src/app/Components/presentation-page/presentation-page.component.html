@@ -1,17 +1,23 @@
-<div class="fondo">
-    <div class="center mt">
+<div class="fondo {{!isMobile ? 'desktopStyle' : 'mobileStyle'}}">
+    <div class="center mtGeneric">
         <app-app-title></app-app-title>
     </div>
-    <div class="center mb">
-    <a routerLink="/login" routerLinkActive="active"><app-generic-button [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button></a>
+    <div fxLayoutAlign="center center" class="margin">
+        <a routerLink="/login" fxFlex="70" fxFlex.gt-xs="270px" routerLinkActive="active">
+            <app-generic-button [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button>
+        </a>
     </div>
-    <div class="row mt-4 center-or">
-        <p class="col-auto text-center mt-1 mb-1 text-light px-1 or">or</p>
+    <div fxLayoutAlign="center center" class="{{!isMobile ? '' : 'mt-4 mb-4'}}">
+        <p class="center my-1 text-light px-1 or">or</p>
     </div>
-    <div class="center mt-4">
-        <a routerLink="/singUp" routerLinkActive="active"><app-generic-button [buttonStyle]="'button'" [btnText]="'Singup'"></app-generic-button></a>
+    <div fxLayoutAlign="center center">
+        <a routerLink="/singUp" fxFlex="70" fxFlex.gt-xs="270px" routerLinkActive="active">
+            <app-generic-button [buttonStyle]="'empty'" [btnText]="'Signup'"></app-generic-button>
+        </a>
     </div>
     <footer>
-        <div class="border-top left right"><p class="fw-light text-light mt-2 text-center">MADE BY MAXIMILIANO Y MATIAS, V 0.1</p></div>
+        <div class="left right">
+            <p class="fw-light text-light mt-2 text-center">MADE BY MAXIMILIANO Y MATIAS, V 0.1</p>
+        </div>
     </footer>
 </div>

@@ -1,7 +1,31 @@
-<div class="navbar">
-    <a routerLink="/home"><i class="bi bi-house"></i></a>
-    <a routerLink="/search"><i class="bi bi-search"></i></a>
-    <a routerLink="/calendar"><i class="bi bi-calendar"></i></a>
-    <a routerLink="/chats"><i class="bi bi-chat"></i></a>
-    <a routerLink="/profile"><i class="bi bi-person"></i></a>
+<div class="{{!isMobile ? 'navbarDesktop container-fluid px-5 pt-3' : 'navbarMobile'}}">
+    <div class="navbar">
+        <h4 *ngIf="!isMobile" class="text-light">Hoy se sale</h4>
+        <a class="animatedLink first {{this.icons[0].includes('fillColor') ? 'hover' : ''}}" routerLink="/home"
+            (click)="fillIcon(0)">
+            <i *ngIf="isMobile" class="{{icons[0]}} px-2"></i>
+            <p class="px-2" *ngIf="!isMobile">Home</p>
+        </a>
+        <a class="animatedLink {{this.icons[1].includes('fillColor') ? 'hover' : ''}}" routerLink="/search"
+            (click)="fillIcon(1)">
+            <i *ngIf="isMobile" class="{{icons[1]}} px-2"></i>
+            <p class="px-2" *ngIf="!isMobile">Buscar</p>
+        </a>
+        <a class="animatedLink {{this.icons[2].includes('fillColor') ? 'hover' : ''}}" routerLink="/calendar"
+            (click)="fillIcon(2)">
+            <i *ngIf="isMobile" class="{{icons[2]}} px-2"></i>
+            <p class="px-2" *ngIf="!isMobile">Calendar</p>
+        </a>
+        <a class="animatedLink {{this.icons[3].includes('fillColor') ? 'hover' : ''}}" routerLink="/chats"
+            (click)="fillIcon(3)">
+            <i *ngIf="isMobile" class="{{icons[3]}} px-2"></i>
+            <p class="px-2" *ngIf="!isMobile">Chats</p>
+        </a>
+        <a class="animatedLink {{this.icons[4].includes('fillColor') ? 'hover' : ''}}" routerLink="/profile"
+            (click)="fillIcon(4)">
+            <i *ngIf="isMobile" class="{{icons[4]}} px-2"></i>
+            <p class="px-2" *ngIf="!isMobile">Profile</p>
+        </a>
+    </div>
+
 </div>

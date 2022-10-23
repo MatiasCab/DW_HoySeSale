@@ -1,9 +1,17 @@
-.mt{
+.mtGeneric{
     margin-top: 30vh;
 }
 
-.mb {
+.desktopStyle .margin {
     margin-top: 20vh;
+}
+
+.mobileStyle .margin{
+    margin-top: 15vh;
+}
+
+.mobileStyle footer .left{
+    border-top: 1px solid rgba(255, 255, 255, 0.596);
 }
 
 .left {
@@ -29,11 +37,11 @@
 }
 
 .or::before {
-    left: -5em;
+    left: -5rem;
 }
 
 .or::after {
-    right: -5em;
+    right: -5rem;
 }
 
 .center-or {

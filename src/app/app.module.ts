@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -19,7 +20,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderTextComponent } from './Components/ReusedComponents/header-navbar/header-text/header-text.component';
 import { ButtonIconComponent } from './Components/ReusedComponents/button-icon/button-icon.component';
 import { HeaderNavbarComponent } from './Components/ReusedComponents/header-navbar/header-navbar.component';
-import { CardComponent } from './Components/card/card.component';
+import { CardComponent } from './Components/cards-grid/card/card.component';
 import { FilterComponent } from './Components/ReusedComponents/filter/filter.component';
 import { SearchInputComponent } from './Components/ReusedComponents/search-input/search-input.component';
 import { SearchEntertainmentComponent } from './Components/SearchPage/search-entertainment/search-entertainment.component';
@@ -27,7 +28,7 @@ import { InputUserCredentialsComponent } from './Components/Login Page/input-use
 import { SearchPageComponent } from './Components/SearchPage/search-page/search-page.component';
 import { DisplaySearchInfoComponent } from './Components/SearchPage/display-search-info/display-search-info.component';
 import { CardsGridComponent } from './Components/cards-grid/cards-grid.component';
-import { CardNameComponent } from './Components/card-name/card-name.component';
+import { CardNameComponent } from './Components/cards-grid/card/card-name/card-name.component';
 import { EntertainmentInfoComponent } from './Components/entertainment-info/entertainment-info.component';
 import { ImagesCarouselComponent } from './Components/images-carousel/images-carousel.component';
 import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
@@ -38,15 +39,16 @@ import { DisplayChatInfoComponent } from './Components/ChatsPage/chat-page/displ
 import { ChatGridComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-grid.component';
 import { ChatComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat/chat.component';
 import { UserPhotoComponent } from './Components/ReusedComponents/user-photo/user-photo.component';
-import { ChatMessagePageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/chat-message-page.component';
-import { DisplayChatMessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/display-chat-message.component';
-import { InputMessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/input-message/input-message.component';
-import { MessageGridComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/message-grid/message-grid.component';
-import { MessageComponent } from './Components/ChatsPage/chat-page/display-chat-info/chat-grid/chat-message-page/display-chat-message/message-grid/message/message.component';
+import { ChatMessagePageComponent } from './Components/ChatsPage/chat-message-page/chat-message-page.component';
+import { DisplayChatMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/display-chat-message.component';
+import { InputMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/input-message/input-message.component';
+import { MessageGridComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message-grid.component';
+import { MessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message/message.component';
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 import { UserProfileInfoComponent } from './Components/Profile/user-profile-info/user-profile-info.component';
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';
 import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
+import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-logout.component';
 
 @NgModule({
   declarations: [
@@ -86,17 +88,16 @@ import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-u
     ProfilePageComponent,
     UserProfileInfoComponent,
     DisplayProfileFavoriteInfoComponent,
-    SingUpPageComponent
+    SingUpPageComponent,
+    ModalLogoutComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

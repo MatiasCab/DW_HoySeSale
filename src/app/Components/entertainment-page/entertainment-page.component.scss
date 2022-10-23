@@ -1,6 +1,10 @@
 .entertainment{
-    width: 90vw;
-    height: 100%;
+    //width: 90vw;
+    //height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.index{
+    z-index: 1;
 }

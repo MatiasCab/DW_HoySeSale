@@ -6,6 +6,7 @@ import {
   transition, 
   // ...
 } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-presentation-page',
@@ -30,14 +31,22 @@ import {
 })
 export class PresentationPageComponent implements OnInit {
 
-  j?:boolean = false;
-  constructor() { }
+  isMobile?: boolean;
+  
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-  }
-
-  c(){
-    this.j = true;
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
+    .subscribe(result => {
+      const breakpoints = result.breakpoints;
+      console.log(result);
+      if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+        this.isMobile = false;
+        console.log("Cambio");
+      }else{
+        this.isMobile = true;
+      }
+    })
   }
 
 }

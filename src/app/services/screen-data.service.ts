@@ -1,18 +1,17 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
-@Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProfilePageComponent implements OnInit {
-  
+export class ScreenDataService {
+
   isMobile?: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit(): void {
+  getIsMobileScreenType() {
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
@@ -22,6 +21,6 @@ export class ProfilePageComponent implements OnInit {
           this.isMobile = true;
         }
       })
+    return of(this.isMobile);
   }
-
 }
