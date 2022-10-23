@@ -1,6 +1,6 @@
-<div class="{{!isMobile ? 'navbarDesktop container-fluid px-5 pt-3' : 'navbarMobile'}}">
+<div class="{{!isMobile ? 'navbarDesktop container-fluid pt-3' : 'navbarMobile'}}">
     <div class="navbar">
-        <h4 *ngIf="!isMobile" class="text-light">Hoy se sale</h4>
+        <h4 *ngIf="!isMobile" class="text-light">HOY SE SALE</h4>
         <a class="animatedLink first {{this.icons[0].includes('fillColor') ? 'hover' : ''}}" routerLink="/home"
             (click)="fillIcon(0)">
             <i *ngIf="isMobile" class="{{icons[0]}} px-2"></i>

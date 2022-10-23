@@ -1,10 +1,8 @@
 .mt {
     margin-top: 8vh;
-}
-
-.display {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .t{
@@ -20,4 +18,8 @@
     position: fixed;
     bottom: 5%;
     width: 100%;
+}
+
+a {
+    all: unset;
 }

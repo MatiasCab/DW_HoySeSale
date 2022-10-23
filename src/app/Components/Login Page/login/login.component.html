@@ -1,33 +1,32 @@
-<div class="fondo" >
+<div class="fondo">
     <div class="blur-back">
         <div class="mx-3">
             <app-header-navbar [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
         </div>
-        <div class="display text-light">
-            <h1 class="title_margin mt-5">LOGIN</h1>
+        <h1 class="text-light title_margin mt-5 center">LOGIN</h1>
+        <div class="mt pb-4">
+            <app-input-user-credentials [inputLabel]="'Nombre'"></app-input-user-credentials>
+            <app-input-user-credentials [inputLabel]="'Apellido'"></app-input-user-credentials>
         </div>
-        <div class="mx-5">
-            <div class="display mt">
-                <app-input-user-credentials [inputLabel]="'Email Adress'"></app-input-user-credentials>
-            </div>
-            <div class="mt-2 display">
-                <app-input-user-credentials [inputLabel]="'Password'"></app-input-user-credentials>
-            </div>
-            <div class="form-check form-switch mt-3">
-                <input class="form-check-input t" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label text-light" for="flexSwitchCheckDefault">Remember me?</label>
-            </div>
-        </div>
-        <div class="center mt-5">
-            <a routerLink="/home" routerLinkActive="active"><app-generic-button [buttonStyle]="'fill buttonMobile'" [btnText]="'Login'"></app-generic-button></a>
+        <div class="mt-5">
+            <a routerLink="/home" routerLinkActive="active">
+                <app-generic-button class="size" [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button>
+            </a>
         </div>
         <div class="bottom-button">
-            <div class="row center-or">
-                <p class="col-auto text-center mt-1 mb-1 text-light px-1 or">or</p>
+            <div class="center-or">
+                <p class="text-center my-1 text-light px-1 or">or</p>
             </div>
-            <div class="center">
-                <a routerLink="/singUp" routerLinkActive="active"><app-generic-button [buttonStyle]="'empty buttonMobile'" [btnText]="'Signup'"></app-generic-button></a>
+            <div fxLayoutAlign="center center">
+                <a routerLink="/singUp" routerLinkActive="active">
+                    <app-generic-button class="size" [buttonStyle]="'empty'" [btnText]="'Signup'"></app-generic-button>
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- <div class="form-check form-switch">
+    <input class="form-check-input t" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <label class="form-check-label text-light" for="flexSwitchCheckDefault">Remember me?</label>
+</div> -->

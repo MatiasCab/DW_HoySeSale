@@ -43,7 +43,7 @@ import { ChatMessagePageComponent } from './Components/ChatsPage/chat-message-pa
 import { DisplayChatMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/display-chat-message.component';
 import { InputMessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/input-message/input-message.component';
 import { MessageGridComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message-grid.component';
-import { MessageComponent } from './Components/ChatsPage/chat-message-page/display-chat-message/message-grid/message/message.component';
+import { MessageComponent } from './Components/ChatsPage/message/message.component';
 import { ProfilePageComponent } from './Components/Profile/profile-page/profile-page.component';
 import { UserProfileInfoComponent } from './Components/Profile/user-profile-info/user-profile-info.component';
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';
@@ -96,8 +96,7 @@ import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-
     NgbModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
