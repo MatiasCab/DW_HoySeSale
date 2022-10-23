@@ -3,16 +3,14 @@
         <div class="mx-3">
             <app-header-navbar [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
         </div>
-        <div class="text-light" fxLayoutAlign="center center">
-            <h1 class="title_margin mt-5">LOGIN</h1>
-        </div>
-        <div class="mt pb-4" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <h1 class="text-light title_margin mt-5 center">LOGIN</h1>
+        <div class="mt pb-4">
             <app-input-user-credentials [inputLabel]="'Nombre'"></app-input-user-credentials>
             <app-input-user-credentials [inputLabel]="'Apellido'"></app-input-user-credentials>
         </div>
-        <div class="mt-5" fxLayoutAlign="center center">
-            <a routerLink="/home" routerLinkActive="active" fxFlex="70">
-                <app-generic-button [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button>
+        <div class="mt-5">
+            <a routerLink="/home" routerLinkActive="active">
+                <app-generic-button class="size" [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button>
             </a>
         </div>
         <div class="bottom-button">
@@ -20,8 +18,8 @@
                 <p class="text-center my-1 text-light px-1 or">or</p>
             </div>
             <div fxLayoutAlign="center center">
-                <a routerLink="/singUp" routerLinkActive="active" fxFlex="70">
-                    <app-generic-button [buttonStyle]="'empty'" [btnText]="'Signup'"></app-generic-button>
+                <a routerLink="/singUp" routerLinkActive="active">
+                    <app-generic-button class="size" [buttonStyle]="'empty'" [btnText]="'Signup'"></app-generic-button>
                 </a>
             </div>
         </div>

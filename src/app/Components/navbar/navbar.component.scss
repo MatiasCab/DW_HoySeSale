@@ -1,7 +1,6 @@
-@mixin navbar1 ($height, $justifyContent){
+@mixin navbar1 ($justifyContent){
     display: flex;
     justify-content: $justifyContent;
-    height: $height;
     .animatedLink{
         @include animatedLink();
     }
@@ -13,9 +12,7 @@
 }
 
 @mixin linkStyle ($fontSize){
-        display: flex;
         align-items: center;
-        height: 100%;
         color:#636363;
         font-size: $fontSize;
 }
@@ -44,6 +41,8 @@
     background-color: #181818;
     position: fixed;
     top: 0;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 .navbarMobile .navbar{
@@ -51,13 +50,15 @@
     position: fixed;
     bottom: 0;
 
-    @include navbar1(5.2vh, space-around);
+    @include navbar1(space-around);
     
     border-top: 2px solid #636363;
     padding: 0;
     width: 100%;
+    height: 5vh;
     a{
         @include linkStyle(1.3em);
+        height: 100%;
     }
 
     .animatedLink::before{
@@ -75,7 +76,7 @@
 
 
 .navbarDesktop .navbar{
-    @include navbar1(7vh, flex-end);
+    @include navbar1(flex-end);
     border-bottom: 2px solid #636363;
     padding-top: 2vh;
     align-items: center;
@@ -85,6 +86,7 @@
     a{
         @include linkStyle(1em);
         margin-left: 7%;
+        height: 2rem;
     }
     
     a.first{
@@ -112,5 +114,10 @@
         margin-right: auto;
         margin-left: 0.5%;
         height: auto;
+        margin-bottom: 0;
     }
+}
+
+.bi::before{
+    line-height: 2;
 }

@@ -41,7 +41,6 @@ export class NavbarComponent implements OnInit {
       console.log(result);
       if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
         this.isMobile = false;
-        console.log("Cambio");
       }else{
         this.isMobile = true;
       }

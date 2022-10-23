@@ -1,6 +1,2 @@
-<div fxFlex.gt-xs="73" class="mx-auto">
-    <app-filter></app-filter>
-    <div *ngIf="isMobile" fxLayout="column" fxLayoutAlign=" center">
-        <app-cards-grid class="cards-grid"></app-cards-grid>
-    </div>
-</div>
+<app-filter></app-filter>
+<app-cards-grid *ngIf="isMobile" class="cards-grid mx-auto"></app-cards-grid>
