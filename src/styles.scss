@@ -124,3 +124,31 @@ a {
         width: 270px;
     }
 }
+
+.carouselCards .entertainment-card{
+    width: 100% !important;
+    height: 60vh !important;
+    a .image{
+        height: 100% !important;
+    }
+
+    .prub {
+        top: -12% !important;
+    }
+}
+
+#carouselDesktop button.carousel-control-prev{
+    justify-content: flex-start;
+    height: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+}
+
+#carouselDesktop button.carousel-control-next{
+    justify-content: flex-end;
+    height: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+}

@@ -45,7 +45,6 @@ export const appAnimations = [
         ])
     ]), trigger("favoriteInCard", [
         transition("putFavorite <=> quitFavorite", [
-            style({ position: 'absolute' }),
             animate('0.2s', style({ transform: "scale(0.5)" }))
         ])
     ]), trigger("favorite", [
