@@ -1,11 +1,13 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { appAnimations } from 'src/app/animations';
 import { Entertainment } from 'src/app/models/entertainment';
 
 @Component({
   selector: 'app-desktop-card-carousel',
   templateUrl: './desktop-card-carousel.component.html',
-  styleUrls: ['./desktop-card-carousel.component.scss']
+  styleUrls: ['./desktop-card-carousel.component.scss'],
+  animations: [appAnimations]
 })
 export class DesktopCardCarouselComponent implements OnInit {
 
