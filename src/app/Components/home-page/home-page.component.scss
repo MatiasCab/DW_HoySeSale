@@ -1,4 +1,4 @@
-.home{
+.homeMobile .home{
     display: flex;
     justify-content: center;
 
@@ -90,5 +90,89 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+.homeDesktop .home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    .links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 75%;
+
+        a{
+            all: unset;
+            color: white;
+            font-size: 1.5em;
+            height: 70vh;
+            width: 17vw;
+
+            p{
+                margin-right: 10%;
+            }
+        }
+
+        .bares{
+            background-image: 
+            linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+            url('../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg');
+            background-size: auto 100%;
+            background-position: center;
+            border-radius: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+
+        .pubs{
+            background-image: 
+            linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+            url('../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg');
+            background-size: auto 100%;
+            background-position: center;
+            border-radius: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+
+        .bailes{
+            background-image: 
+            linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+            url('../../../assets/images/vonecia-carswell-3cBFqagweZM-unsplash.jpg');
+            background-size: auto 100%;
+            background-position: center;
+            border-radius: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end; 
+            cursor: pointer;
+        }
+
+        .eventos{
+            background-image: 
+            linear-gradient(235deg, rgba(212, 80, 230, 0.7), rgba(107, 44, 245, 0.7)),
+            url('../../../assets/images/tony-pham-FUmDe-Bx1LA-unsplash.jpg');
+            background-size: auto 100%;
+            background-position: center;
+            border-radius: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+    }
+
+    .footer{
+        border-top: 2px solid red;
     }
 }

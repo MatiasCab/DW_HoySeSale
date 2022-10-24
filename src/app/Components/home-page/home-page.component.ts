@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { appAnimations } from 'src/app/animations';
@@ -12,11 +13,22 @@ import { ModalLogoutComponent } from './modal-logout/modal-logout.component';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) {  }
+  constructor(private modalService: NgbModal, private breakpointObserver: BreakpointObserver) {  }
+
+  isMobile: boolean = true;
 
   ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
+    .subscribe(result => {
+      const breakpoints = result.breakpoints;
+      console.log(result);
+      if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+        this.isMobile = false;
+      }else{
+        this.isMobile = true;
+      }
+    })
   }
-
 
   openLogoutModal() {
     this.modalService.open(ModalLogoutComponent, {
