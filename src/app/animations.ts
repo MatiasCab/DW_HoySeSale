@@ -45,7 +45,6 @@ export const appAnimations = [
         ])
     ]), trigger("favoriteInCard", [
         transition("putFavorite <=> quitFavorite", [
-            style({ position: 'absolute' }),
             animate('0.2s', style({ transform: "scale(0.5)" }))
         ])
     ]), trigger("favorite", [
@@ -65,6 +64,11 @@ export const appAnimations = [
         transition(":enter", [
             style({ transform: "scale(0)", opacity: 0 }),
             animate('0.2s {{delay}}s', style({ transform: "scale(1)", opacity: 1 }))
+        ], { params: { delay: 0 } })
+    ]),trigger("searchedCardsDesktop", [
+        transition(":enter", [
+            style({ transform: "translateX(100%)", opacity: 0 }),
+            animate('0.2s {{delay}}s', style({ transform: "translateX(0%)", opacity: 1 }))
         ], { params: { delay: 0 } })
     ]), trigger("chatPage", [
         transition(":enter", [

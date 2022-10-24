@@ -1,14 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-router-outlet + * {
-    position: absolute;
-    display: block;
-    height: 100vh;
-    width: 100vw;
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
+
 body {
     background-color:#181818;
 }
@@ -102,10 +93,8 @@ body {
 }
 
 .cards-grid{
-    width: 90vw;
     height: 80vh;
     overflow-y: auto;
-    overflow-x: hidden;
 }
 
 a {
@@ -122,5 +111,71 @@ a {
 @media screen and (min-width: 600px){
     .size{
         width: 270px;
+    }
+}
+
+.profile .carouselCards .entertainment-card{
+    width: 100% !important;
+    height: 60vh !important;
+    a .image{
+        height: 100% !important;
+    }
+
+    .prub {
+        top: -12% !important;
+    }
+}
+
+.search .carouselCards .entertainment-card{
+    width: 100% !important;
+    height: 70vh !important;
+    a .image{
+        height: 100% !important;
+    }
+
+    .prub {
+        top: -12% !important;
+    }
+}
+
+#carouselDesktop button.carousel-control-prev{
+    justify-content: flex-start;
+    height: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+}
+
+#carouselDesktop button.carousel-control-next{
+    justify-content: flex-end;
+    height: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+}
+
+.marginDesktopContainer{
+    max-width: 65%;
+    .filterSpacing {
+        margin-top: 1.5rem;
+    }
+}
+
+#carouselDesktop .row {
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        background: linear-gradient(0deg, rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), radial-gradient(37.82% 58.5% at 50% 53.22%, rgba(0, 0, 0, 0.6) 0%, #181818 100%), url("./assets/images/desktopBG1.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .fondo{
+        background: none;
     }
 }

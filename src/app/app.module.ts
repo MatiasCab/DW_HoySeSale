@@ -49,6 +49,7 @@ import { UserProfileInfoComponent } from './Components/Profile/user-profile-info
 import { DisplayProfileFavoriteInfoComponent } from './Components/Profile/display-profile-favorite-info/display-profile-favorite-info.component';
 import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
 import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-logout.component';
+import { DesktopCardCarouselComponent } from './Components/desktop-card-carousel/desktop-card-carousel.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { ModalLogoutComponent } from './Components/home-page/modal-logout/modal-
     DisplayProfileFavoriteInfoComponent,
     SingUpPageComponent,
     ModalLogoutComponent,
+    DesktopCardCarouselComponent,
   ],
   imports: [
     BrowserModule,
