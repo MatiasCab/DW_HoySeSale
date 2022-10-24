@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-display-search-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-search-info.component.scss']
 })
 export class DisplaySearchInfoComponent implements OnInit {
+
+  @Input() isMobile?: boolean;
 
   constructor() { }
 
