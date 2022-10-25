@@ -155,7 +155,7 @@ a {
 }
 
 .marginDesktopContainer{
-    max-width: 65%;
+    max-width: 60%;
     .filterSpacing {
         margin-top: 1.5rem;
     }
@@ -165,7 +165,7 @@ a {
     margin-top: 2rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
     body {
         background: linear-gradient(0deg, rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), radial-gradient(37.82% 58.5% at 50% 53.22%, rgba(0, 0, 0, 0.6) 0%, #181818 100%), url("./assets/images/desktopBG1.jpg");
         background-size:cover;

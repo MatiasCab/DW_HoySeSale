@@ -18,11 +18,12 @@ export class HomePageComponent implements OnInit {
   isMobile: boolean = true;
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
+    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
     .subscribe(result => {
       const breakpoints = result.breakpoints;
       console.log(result);
-      if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+      if(breakpoints['(min-width: 900px)'] || breakpoints[Breakpoints.HandsetLandscape]){
         this.isMobile = false;
       }else{
         this.isMobile = true;

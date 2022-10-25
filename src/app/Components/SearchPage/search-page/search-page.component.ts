@@ -14,12 +14,12 @@ export class SearchPageComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(min-width: 800px)', Breakpoints.HandsetLandscape])
+    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
     .subscribe(result => {
       const breakpoints = result.breakpoints;
       console.log(result);
       //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 800px)'] || breakpoints[Breakpoints.HandsetLandscape]){
+      if(breakpoints['(min-width: 900px)'] || breakpoints[Breakpoints.HandsetLandscape]){
         this.isMobile = false;
       }else{
         this.isMobile = true;

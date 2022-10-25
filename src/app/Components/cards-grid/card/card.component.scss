@@ -1,5 +1,4 @@
 .entertainment-card{
-    width: 90vw;
     height: 20vh;  
     margin-bottom: 2.5vh;  
 
@@ -31,6 +30,9 @@
         align-items: baseline; 
         p {
             font-size: 1.5em;
+        }
+        a{
+            color: white;
         }
     }
 

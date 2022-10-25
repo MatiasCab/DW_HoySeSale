@@ -4,12 +4,13 @@
     justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid #636363;
-    color: #636363;
+    color: white;
 
     p{
         height: 100%;
         margin: 0;
         cursor: pointer;
+        text-transform: uppercase;
     }
 
     .colored {
