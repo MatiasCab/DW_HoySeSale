@@ -10,7 +10,7 @@ import {
 export const appAnimations = [
     trigger("router", [
         transition('Presentation <=> Login, SingUp <=> Login, Presentation <=> SingUp', [
-            query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+            query(':enter, :leave', style({ position: 'fixed', width: '100%', height: '100%' }), { optional: true }),
             group([
                 query(':enter', [
                     style({ opacity: 0 }),

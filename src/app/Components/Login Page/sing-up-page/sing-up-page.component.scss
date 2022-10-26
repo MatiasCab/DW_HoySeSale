@@ -1,13 +1,14 @@
-.mt {
-    margin-top: 8vh;
-}
-
-.mx-5.pb-4{
+.size{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
+.k{
+    padding-bottom: 100%;
+}
+.title_margin{
+    padding-top: 22vh !important;
+}
 .display {
     display: flex;
     justify-content: center;

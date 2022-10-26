@@ -1,15 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-
-body {
-    background-color:#181818;
+html {
+    height: 100%;
+    //abackground-color: #181818;
 }
 
-.fondo{
+body {
+    background-color: #181818;
+    height: 100%;
+}
+
+.fondo {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("./assets/images/bg.jpg");
-    height: 100vh;  
+    height: 100%;
     width: 100vw;
     background-size: auto 100%;
-    overflow: hidden;
 }
 
 .fill-section {
@@ -18,13 +22,14 @@ body {
 
 .blur-back {
     backdrop-filter: blur(8px);
-    height: 100vh;  
+    height: 100%;
     width: 100vw;
     background-size: auto 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.center{
+.center {
     text-align: center;
 }
 
@@ -33,7 +38,8 @@ body {
     position: relative;
 }
 
-.or::after, .or::before{
+.or::after,
+.or::before {
     content: "";
     position: absolute;
     width: 5em;
@@ -56,43 +62,43 @@ body {
     justify-content: center;
 }
 
-.user-photo-chatPreview .photo-cropper  {
-    
+.user-photo-chatPreview .photo-cropper {
+
     width: 3.5rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
-    
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+
     height: 3.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }
 
-.user-chat-message .photo-cropper  {
-    
+.user-chat-message .photo-cropper {
+
     width: 2.5rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
-    
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+
     height: 2.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }
 
-.user-photo-profile .photo-cropper  {
-    
+.user-photo-profile .photo-cropper {
+
     width: 7rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
-    
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+
     height: 7rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
-                //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }
 
-.backdrop{
+.backdrop {
     backdrop-filter: blur(8px);
 }
 
-.modal-content{
+.modal-content {
     border-radius: 2rem;
     background-color: black;
 }
 
-.cards-grid{
+.cards-grid {
     height: 80vh;
     overflow-y: auto;
 }
@@ -101,23 +107,24 @@ a {
     cursor: pointer;
 }
 
-.size{
-    width: 70%;
+.size {
+    width: 80%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media screen and (min-width: 600px){
-    .size{
+@media screen and (min-width: 600px) {
+    .size {
         width: 270px;
     }
 }
 
-.profile .carouselCards .entertainment-card{
+.profile .carouselCards .entertainment-card {
     width: 100% !important;
-    height: 60vh !important;
-    a .image{
+    height: 56vh !important;
+
+    a .image {
         height: 100% !important;
     }
 
@@ -126,10 +133,11 @@ a {
     }
 }
 
-.search .carouselCards .entertainment-card{
+.search .carouselCards .entertainment-card {
     width: 100% !important;
-    height: 70vh !important;
-    a .image{
+    height: 66vh !important;
+
+    a .image {
         height: 100% !important;
     }
 
@@ -138,7 +146,11 @@ a {
     }
 }
 
-#carouselDesktop button.carousel-control-prev{
+.size .transparent {
+    width: 100% !important;
+}
+
+#carouselDesktop button.carousel-control-prev {
     justify-content: flex-start;
     height: 10%;
     margin-top: auto;
@@ -146,7 +158,7 @@ a {
     width: auto;
 }
 
-#carouselDesktop button.carousel-control-next{
+#carouselDesktop button.carousel-control-next {
     justify-content: flex-end;
     height: 10%;
     margin-top: auto;
@@ -154,8 +166,9 @@ a {
     width: auto;
 }
 
-.marginDesktopContainer{
+.marginDesktopContainer {
     max-width: 60%;
+
     .filterSpacing {
         margin-top: 1.5rem;
     }
@@ -168,14 +181,13 @@ a {
 @media screen and (min-width: 900px) {
     body {
         background: linear-gradient(0deg, rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), radial-gradient(37.82% 58.5% at 50% 53.22%, rgba(0, 0, 0, 0.6) 0%, #181818 100%), url("./assets/images/desktopBG1.jpg");
-        background-size:cover;
+        background-size: cover;
         background-repeat: no-repeat;
-        height: 100vh;
         width: 100vw;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
-    .fondo{
+    .fondo {
         background: none;
     }
 }
