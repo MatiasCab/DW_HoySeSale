@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 html {
     height: 100%;
-    //abackground-color: #181818;
 }
 
 body {
     background-color: #181818;
-    height: 100%;
 }
 
 .fondo {
@@ -185,9 +183,14 @@ a {
         background-repeat: no-repeat;
         width: 100vw;
         overflow-x: hidden;
+        background-color: #181818;
     }
 
     .fondo {
         background: none;
     }
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }

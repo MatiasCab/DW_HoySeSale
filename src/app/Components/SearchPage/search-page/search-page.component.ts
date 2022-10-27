@@ -19,7 +19,7 @@ export class SearchPageComponent implements OnInit {
       const breakpoints = result.breakpoints;
       console.log(result);
       //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 900px)'] || breakpoints[Breakpoints.HandsetLandscape]){
+      if(breakpoints['(min-width: 900px)']){
         this.isMobile = false;
       }else{
         this.isMobile = true;
