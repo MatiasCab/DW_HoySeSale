@@ -186,11 +186,20 @@ a {
         background-color: #181818;
     }
 
+    .bottom-button
+
     .fondo {
         background: none;
+    }
+}
+
+@media screen and (max-height: 610px){
+    .bottom-button{
+        position: relative !important;
     }
 }
 
 body::-webkit-scrollbar {
     width: 10px;
   }
+

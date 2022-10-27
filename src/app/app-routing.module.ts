@@ -25,7 +25,7 @@ const routes: Routes = [
   {path:'profile', component: ProfilePageComponent},
   //{path:'chats', component: ChatPageComponent, data: {animation: 'ChatsPage'}},
   {path:'chats/:username', component: ChatMessagePageComponent, data: {animation: 'MessagePage'}},
-  {path:'chats', component: DesktopChatPageComponent}
+  {path:'chats', component: DesktopChatPageComponent,}
 ];
 
 @NgModule({
