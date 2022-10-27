@@ -3,7 +3,7 @@
         <div class="row carouselCards mx-4">
             <app-card [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}" class="col" [entertainment]="entertainment"></app-card>
             <app-card [@searchedCardsDesktop]="{value:'', params:{delay:2/10}}" class="col" [entertainment]="entertainment"></app-card>
-            <app-card [@searchedCardsDesktop]="{value:'', params:{delay:3/10}}" *ngIf="!reduceCards"class="col" [entertainment]="entertainment"></app-card>
+            <app-card [@searchedCardsDesktop]="{value:'', params:{delay:3/10}}" *ngIf="!reduceCards" class="col" [entertainment]="entertainment"></app-card>
         </div>
     </ng-template>
 </ngb-carousel>

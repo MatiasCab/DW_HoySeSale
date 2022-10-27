@@ -16,10 +16,14 @@
 
 .bottom-button {
     position: fixed;
-    bottom: 5%;
+    bottom: 0%;
     width: 100%;
 }
 
 a {
     all: unset;
+}
+
+.title_margin{
+    margin-top: 22vh !important;
 }

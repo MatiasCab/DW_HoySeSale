@@ -1,5 +1,7 @@
-.mtGeneric{
-    margin-top: 30vh;
+
+
+.ptGeneric{
+    padding-top: 30vh;
 }
 
 .desktopStyle .margin {
@@ -67,7 +69,7 @@ a {
     margin-bottom: 1.5rem !important;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 900px){
     .center-or p{
         margin-top: 0!important;
         margin-bottom: 0 !important;

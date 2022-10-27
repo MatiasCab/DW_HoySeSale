@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 searchInput">
+            <app-search-input class="w-100"></app-search-input>
+        </div>
+        <div class="col-8">
+            <div class="row border-bottom">
+                <div class="col-auto p-0 my-3">
+                    <div class="user-photo-chatPreview">
+                        <app-user-photo></app-user-photo>
+                    </div>
+                </div>
+                <div class="col text-light my-3">
+                    <h5 class="text-uppercase">Matias</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 colum pt-3">
+            <app-chat-grid></app-chat-grid>
+        </div>
+        <div class="col-8 messagesView colum">  
+            <app-message-grid #messageGrid class="margin width pb-2 mx-auto"></app-message-grid>
+            <div class="bottom-position pb-1 margin">
+                <app-input-message (message)="sendMessage($event)"></app-input-message>
+            </div>
+        </div>
+    </div>
+</div>

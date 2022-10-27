@@ -12,6 +12,7 @@ import { ProfilePageComponent } from './Components/Profile/profile-page/profile-
 import { EntertainmentPageComponent } from './Components/entertainment-page/entertainment-page.component';
 import { SingUpPageComponent } from './Components/Login Page/sing-up-page/sing-up-page.component';
 import { ChatMessagePageComponent } from './Components/ChatsPage/chat-message-page/chat-message-page.component';
+import { DesktopChatPageComponent } from './Components/ChatsPage/desktop-chat-page/desktop-chat-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
@@ -22,8 +23,9 @@ const routes: Routes = [
   {path:'entertainment/:id', component: EntertainmentPageComponent},
   {path:'home', component: HomePageComponent, data: {animation: 'Home'}},
   {path:'profile', component: ProfilePageComponent},
-  {path:'chats', component: ChatPageComponent, data: {animation: 'ChatsPage'}},
-  {path:'chats/:username', component: ChatMessagePageComponent, data: {animation: 'MessagePage'}}
+  //{path:'chats', component: ChatPageComponent, data: {animation: 'ChatsPage'}},
+  {path:'chats/:username', component: ChatMessagePageComponent, data: {animation: 'MessagePage'}},
+  {path:'chats', component: DesktopChatPageComponent}
 ];
 
 @NgModule({

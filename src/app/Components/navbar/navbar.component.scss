@@ -11,9 +11,9 @@
     text-decoration: none;
 }
 
-@mixin linkStyle ($fontSize){
+@mixin linkStyle ($fontSize,$color){
         align-items: center;
-        color: white;
+        color: $color;
         font-size: $fontSize;
 }
 
@@ -56,7 +56,7 @@
     padding: 0;
     width: 100%;
     a{
-        @include linkStyle(1.3em);
+        @include linkStyle(1.3em, #636363);
         height: 100%;
     }
 
@@ -83,7 +83,7 @@
     flex-wrap: nowrap;
 
     a{
-        @include linkStyle(1em);
+        @include linkStyle(1em, white);
         margin-left: 7%;
         height: 2rem;
     }
