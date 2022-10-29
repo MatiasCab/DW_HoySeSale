@@ -1,8 +1,0 @@
-<div class="container-fluid" *ngIf="!display">
-    <div *ngFor="let chat of this.chatsArray; let i = index">
-        <a routerLink="/chats/@mattiezequie">
-            <app-chat [putBorderBottom]="this.chatsArray.length - 1 == i"></app-chat>
-        </a>
-    </div>
-    <div class="fill"></div>
-</div>

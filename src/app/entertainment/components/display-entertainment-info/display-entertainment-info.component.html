@@ -1,0 +1,29 @@
+<!-- <app-images-carousel [gallery]="entertainment.gallery"></app-images-carousel> -->
+<div class="display-info">
+    <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
+        <img class="{{isAnEvent ? 'static' : ''}}" src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+        <div class="gradient"></div>
+    </div>
+    <div class="carousel-container" *ngIf="!isAnEvent">
+        <ngb-carousel class="carousel" #carousel [interval]="3000" 
+        [showNavigationIndicators]="false"
+        [showNavigationArrows]="false">
+            <ng-template ngbSlide *ngFor="let img of images;">
+            <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
+                <div class="images">
+                    <img class="{{isAnEvent ? 'static' : ''}}" [src]="img" alt="">
+                    <div class="gradient"></div>
+                </div>
+            </a>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="entertainmentName">
+        <p>{{entertainment.name}}</p>
+    </div>
+    <app-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent"></app-entertainment-info>
+    <h3 class="text-light">EVENTOS</h3>
+    <div class="cards-grid">
+        <app-cards-grid></app-cards-grid>
+    </div>
+</div>
