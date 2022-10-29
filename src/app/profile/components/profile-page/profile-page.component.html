@@ -1,0 +1,7 @@
+<div class="px-3">
+    <app-header-navbar *ngIf="isMobile" class="bar-style" [currentText]="'PERFIL'"></app-header-navbar>
+    <div class="{{!isMobile ? 'marginDesktopContainer profile container' : 'marginMobile'}}">
+        <app-user-profile-info [isMobile]="isMobile"></app-user-profile-info>
+        <app-display-profile-favorite-info class="mt-3" [isMobile]="isMobile"></app-display-profile-favorite-info>
+    </div>
+</div>

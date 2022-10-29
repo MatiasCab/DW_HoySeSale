@@ -16,10 +16,10 @@ export class AppComponent {
               private route: Router) {}
 
   get show(){
-    return (this.route.url != '/login') && 
+    return (this.route.url != '/presentation/login') && 
           (this.route.url != '/presentation') && 
-          (this.route.url != '/singUp') && 
-          (!this.route.url.includes('/chats/@'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
+          (this.route.url != '/presentation/singUp') && 
+          (!this.route.url.includes('/chat/@'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
   } 
   
   title = 'angular-hoy-se-sale';
