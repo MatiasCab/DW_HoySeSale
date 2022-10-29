@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Entertainment } from 'src/app/models/entertainment';
 
@@ -15,8 +16,10 @@ export class EntertainmentPageComponent implements OnInit {
   favoriteIcon: string = 'bi bi-bookmark';
 
   isAnEvent: boolean = false;
+
+  isMobile: boolean = true;
   
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     const entertainmentID = parseInt(this.route.snapshot.paramMap.get('id')!);
@@ -24,6 +27,16 @@ export class EntertainmentPageComponent implements OnInit {
     if(entertainmentID > 2){
       this.isAnEvent = true;
     }
+    
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.WebLandscape])
+    .subscribe(result => {
+      const breakpoints = result.breakpoints;
+      if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+        this.isMobile = false;
+      }else{
+        this.isMobile = true;
+      }
+    })
   }
 
   changFavoriteIcon(){
