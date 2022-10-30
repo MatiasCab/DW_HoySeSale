@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Local } from 'src/app/core/models/local';
+import { SearchCardsService } from '../../services/SearchCards.service';
 
 @Component({
   selector: 'app-display-search-info',
@@ -7,11 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DisplaySearchInfoComponent implements OnInit {
 
+  entertainments?: Local[];
+
   @Input() isMobile?: boolean;
 
-  constructor() { }
+  constructor(private searchService: SearchCardsService) { }
 
   ngOnInit(): void {
+    this.searchService.getAllLocals().subscribe(
+      locals => this.entertainments = locals
+    )
   }
 
 }

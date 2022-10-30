@@ -1,4 +1,4 @@
-<div class="info mt-4">
+<div class="info mt-4" *ngIf="entertainment">
     <div class="description">
         <h2>DESCRIPCIÓN</h2>
         <p>{{entertainment.description}}</p>
@@ -21,11 +21,11 @@
     </div>
     <div *ngIf="isAnEvent">
         <h3>Fecha y Horarios</h3>
-        <p class="mb-1 mt-1">Fecha: 30/09/2022</p>
-        <p class="mb-1">Horario: 23:00 - 6:00</p> 
+        <p class="mb-1 mt-1">{{getDate()}}</p>
+        <p class="mb-1">{{getDate()}}</p> 
     </div>
     <div class="ubication mt-2">
         <h3>UBICACIÓN</h3>
-        <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0xD450E6%7C{{ubication.lat}},{{ubication.long}}&center={{ubication.lat}}, {{ubication.long}}&zoom=17&size=300x300&key=AIzaSyB3I7IivhrGbnu07pdRW3mflhN3xilRUwQ&map_id=dd44d28a312be6da" (click)="openMap()">
+        <img class="map" src="{{mapAPIURL}}" (click)="openMap()">
     </div>
 </div>

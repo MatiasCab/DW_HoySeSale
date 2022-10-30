@@ -1,5 +1,5 @@
 <app-search-entertainment></app-search-entertainment>
 <div class="cards-grid" *ngIf="isMobile">
-    <app-cards-grid></app-cards-grid>
+    <app-cards-grid [entertainments]="entertainments"></app-cards-grid>
 </div>
 <app-desktop-card-carousel *ngIf="!isMobile"></app-desktop-card-carousel>

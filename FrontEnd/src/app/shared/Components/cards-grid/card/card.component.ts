@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { appAnimations } from 'src/app/animations';
+import { Local } from 'src/app/core/models/local';
 
 import { Entertainment } from 'src/app/models/entertainment';
 
@@ -12,7 +13,7 @@ import { Entertainment } from 'src/app/models/entertainment';
 })
 export class CardComponent implements OnInit {
 
-  @Input() entertainment!: Entertainment;
+  @Input() entertainment!: Local;
   currentIcon: string = 'bi bi-bookmark';
 
   constructor() { }

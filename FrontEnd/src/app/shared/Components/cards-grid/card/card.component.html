@@ -1,16 +1,16 @@
 <div class="entertainment-card">
-    <a routerLink="/entertainment/{{entertainment.id}}" class="text-decoration-none">
+    <a routerLink="/entertainment/{{entertainment._id}}" class="text-decoration-none">
         <div class="image">
-            <img src="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+            <img src="{{entertainment.images[0]}}" alt="">
         </div>
     </a>
     <div class="prub">
         <div class="decoration mx-3">
-            <a routerLink="/entertainment/{{entertainment.id}}" class="text-decoration-none">
+            <a routerLink="/entertainment/{{entertainment._id}}" class="text-decoration-none">
                 <p>{{entertainment.name}}</p>
             </a>
             <app-button-icon [iconClass]="currentIcon" (click)="changeFavoriteIcon()"
-                [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite' "></app-button-icon>
+                [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
         </div>
     </div>
 </div>
