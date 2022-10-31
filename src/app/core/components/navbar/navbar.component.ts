@@ -7,6 +7,7 @@ import { ScreenDataService } from 'src/app/services/screen-data.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+
 export class NavbarComponent implements OnInit {
 
   icons: string[] = [

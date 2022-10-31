@@ -1,14 +1,37 @@
-<div class="info mt-4">
-    <div class="description">
-        <h2>DESCRIPCIÓN</h2>
-        <p>{{entertainment.description}}</p>
+<div class="{{isMobile ? 'infoMobile' : 'infoDesktop'}}">
+
+    <div class="local-images cont-1">
+        <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
+            <img class="{{isAnEvent ? 'static' : ''}}" src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+            <div class="gradient"></div>
+        </div>
+        <div class="carousel-container" *ngIf="!isAnEvent">
+            <ngb-carousel class="carousel" #carousel [interval]="3000" 
+            [showNavigationIndicators]="false"
+            [showNavigationArrows]="false">
+                <ng-template ngbSlide *ngFor="let img of images;">
+                <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
+                    <div class="images">
+                        <img class="{{isAnEvent ? 'static' : ''}}" [src]="img" alt="">
+                        <div class="gradient"></div>
+                    </div>
+                </a>
+                </ng-template>
+            </ngb-carousel>
+        </div>
     </div>
-    <div *ngIf="!isAnEvent">
-        <h3>CALIFICACIÓN</h3>
+
+    <div class="header cont-2">
+        <p>{{entertainment.name}}</p>
+        <!-- <app-header-navbar class="index" [backPage]="'/search'" 
+        [currentIcon2]="favoriteIcon" 
+        [currentIcon1]="'bi bi-chat-left'"
+        (icon2Event)="changFavoriteIcon()"></app-header-navbar> -->
+    </div>
+
+    <div *ngIf="!isAnEvent" class="calification cont-3">
+        <h2 *ngIf="isMobile">CALIFICACIÓN</h2>
         <div class="row gx-2">
-            <div class="col-auto">
-                <h3 class="fw-light">{{rate}}</h3>
-            </div>
             <div class="col">
                 <ng-template #rating let-fill="fill"> 
                     <span class="star" [class.full]="fill === 100">
@@ -19,13 +42,18 @@
             </div>
         </div>
     </div>
-    <div *ngIf="isAnEvent">
-        <h3>Fecha y Horarios</h3>
-        <p class="mb-1 mt-1">Fecha: 30/09/2022</p>
-        <p class="mb-1">Horario: 23:00 - 6:00</p> 
+
+    <div class="description cont-4">
+        <h2 *ngIf="isMobile">DESCRIPCIÓN</h2>
+        <p>{{entertainment.description}}</p>
     </div>
-    <div class="ubication mt-2">
-        <h3>UBICACIÓN</h3>
+
+    <div class="ubication cont-5">
+        <h2>UBICACIÓN</h2>
         <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0xD450E6%7C{{ubication.lat}},{{ubication.long}}&center={{ubication.lat}}, {{ubication.long}}&zoom=17&size=300x300&key=AIzaSyB3I7IivhrGbnu07pdRW3mflhN3xilRUwQ&map_id=dd44d28a312be6da" (click)="openMap()">
+    </div>
+
+    <div class="events cont-6">
+        <h2>EVENTOS</h2>
     </div>
 </div>

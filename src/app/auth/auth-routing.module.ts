@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationPageComponent } from './components/presentation-page/presentation-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { SingUpPageComponent } from './components/sing-up-page/sing-up-page.component';

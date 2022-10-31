@@ -1,6 +1,19 @@
 div{
     height: 100%;
-    position: absolute;
+    //position: absolute;
     width: 100%;
-    top:0;
+    //top:0;
+}
+
+.container-fluid{
+    height: 8vh;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.footerDesktop{
+
+    .border-top{
+        border-top: 2px solid #636363;
+    }
 }
