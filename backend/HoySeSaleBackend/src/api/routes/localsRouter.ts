@@ -1,8 +1,9 @@
 import express from 'express';
-import { getAllLocals } from '../controllers/localsController';
+import { getAllLocals, getLocalById } from '../controllers/localsController';
 const router = express.Router();
 
 router.get("/", getAllLocals);
+router.get("/:id", getLocalById);
 
 
 

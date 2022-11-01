@@ -24,10 +24,11 @@ app.use(morgan('combined'));
 
 
 // define the routers
-const entertaiment = require("./api/routes/entertainmentRouter");
+//const entertaiment = require("./api/routes/entertainmentRouter");
 const locals = require("./api/routes/localsRouter");
+const searchResults = require("./api/routes/searchResults");
 
-app.use(`${API_URL}/entertainments`, entertaiment);
+app.use(`${API_URL}/searchResults`, searchResults);
 app.use(`${API_URL}/locals`, locals);
 
 
