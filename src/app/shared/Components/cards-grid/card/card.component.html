@@ -1,0 +1,17 @@
+<div class="entertainment-card" *ngIf="entertainment">
+    <a routerLink="/entertainment/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.id}}" class="text-decoration-none">
+        <div class="image">
+            <img src="{{entertainment.imageLink}}" alt="">
+        </div>
+    </a>
+    <div class="prub">
+        <div class="decoration mx-3">
+            <a routerLink="/entertainment/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.id}}" class="text-decoration-none">
+                <p class="mb-0">{{entertainment.name}}</p>
+                <p>{{getEntertainmentType()}}</p>
+            </a>
+            <app-button-icon [iconClass]="currentIcon" (click)="changeFavoriteIcon()"
+                [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
+        </div>
+    </div>
+</div>
