@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LocalEvent } from 'src/app/core/models/event';
-import { Local } from 'src/app/core/models/local';
+import { Entertaiment } from 'src/app/core/models/entertainment';
 
 @Component({
   selector: 'app-display-entertainment-info',
@@ -9,9 +8,11 @@ import { Local } from 'src/app/core/models/local';
 })
 export class DisplayEntertainmentInfoComponent implements OnInit {
 
-  @Input() entertainment?: Local | LocalEvent;
+  @Input() entertainment?: Entertaiment;
 
   @Input() isAnEvent?: boolean;
+
+  @Input() isMobile?: boolean;
   
   constructor() { }
 

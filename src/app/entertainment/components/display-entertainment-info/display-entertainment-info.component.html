@@ -1,28 +1,29 @@
-<div class="display-info" *ngIf="entertainment">
-    <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
-        <img class="{{isAnEvent ? 'static' : ''}}" src ="{{entertainment.images[0]}}" alt="">
-        <div class="gradient"></div>
-    </div>
-    <div class="carousel-container" *ngIf="!isAnEvent">
-        <ngb-carousel class="carousel" #carousel [interval]="3000" 
-        [showNavigationIndicators]="false"
-        [showNavigationArrows]="false">
-            <ng-template ngbSlide *ngFor="let img of entertainment.images;">
-            <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
-                <div class="images">
-                    <img [src]="img" alt="">
-                    <div class="gradient"></div>
-                </div>
-            </a>
-            </ng-template>
-        </ngb-carousel>
-    </div>
-    <div class="entertainmentName">
-        <p>{{entertainment.name}}</p>
-    </div>
-    <app-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent"></app-entertainment-info>
-    <h3 class="text-light">EVENTOS</h3>
-    <div class="cards-grid">
-        <app-cards-grid></app-cards-grid>
-    </div>
+<div *ngIf="isMobile; else elseBlock" class="display-info-mobile">
+        <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
+            <img class="{{isAnEvent ? 'static' : ''}}" src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
+            <div class="gradient"></div>
+        </div>
+        <div class="carousel-container" *ngIf="!isAnEvent">
+            <ngb-carousel class="carousel" #carousel [interval]="3000" 
+            [showNavigationIndicators]="false"
+            [showNavigationArrows]="false">
+                <ng-template ngbSlide *ngFor="let img of entertainment?.images">
+                <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
+                    <div class="images">
+                        <img class="{{isAnEvent ? 'static' : ''}}" [src]="img" alt="">
+                        <div class="gradient"></div>
+                    </div>
+                </a>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="entertainmentName">
+            <p>{{entertainment}}</p>
+        </div>
+        <app-entertainment-info [isAnEvent]="isAnEvent"></app-entertainment-info>
 </div>
+<ng-template #elseBlock>
+    <div class="display-info-desktop">
+        <app-entertainment-info class="entertainment" [isAnEvent]="isAnEvent"></app-entertainment-info>
+    </div>
+</ng-template>

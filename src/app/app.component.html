@@ -1,4 +1,7 @@
 <div [@router]="getRouteAnimationData()">
     <app-navbar *ngIf="show" [setIconColor]="navbarSelection"></app-navbar>
     <router-outlet #outlet="outlet"></router-outlet>
+    <!-- <div class="footerDesktop container-fluid" *ngIf="show">
+        <div class="border-top"></div>
+    </div> -->
 </div>

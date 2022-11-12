@@ -8,14 +8,20 @@ import { Local } from 'src/app/core/models/local';
   templateUrl: './entertainment-info.component.html',
   styleUrls: ['./entertainment-info.component.scss']
 })
+
 export class EntertainmentInfoComponent implements OnInit {
 
   @Input() entertainment?: LocalEvent | Local;
   @Input() isAnEvent?: boolean;
+  @Input() isMobile?: boolean;
+
+  images: string[] = ["../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg", "../../../assets/images/tony-pham-FUmDe-Bx1LA-unsplash.jpg"];
 
   mapAPIURL?: string;
 
   rate: number = 0;
+
+  favoriteIcon: string = 'bi bi-bookmark';
 
   constructor() { }
 
@@ -33,6 +39,14 @@ export class EntertainmentInfoComponent implements OnInit {
 
   getDate(){
     return (this.entertainment as LocalEvent).schedule;
+  }
+
+  changFavoriteIcon(){
+    if(this.favoriteIcon == 'bi bi-bookmark'){
+      this.favoriteIcon = 'bi-bookmark-fill';
+    }else{
+      this.favoriteIcon = 'bi bi-bookmark';
+    }
   }
 
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LocalEvent } from 'src/app/core/models/event';
-import { Local } from 'src/app/core/models/local';
-
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Entertaiment } from 'src/app/core/models/entertainment';
 import { SearchCardsService } from 'src/app/search/services/SearchCards.service';
 
 @Component({
@@ -12,13 +11,14 @@ import { SearchCardsService } from 'src/app/search/services/SearchCards.service'
 })
 export class EntertainmentPageComponent implements OnInit {
 
-  entertainment!: Local | LocalEvent;
+  entertainment!: Entertaiment;
 
   favoriteIcon: string = 'bi bi-bookmark';
 
   isAnEvent: boolean = false;
-
-  constructor(private route: ActivatedRoute, private searchService: SearchCardsService) { }
+  isMobile: boolean = true;
+  
+  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver, searchService: SearchCardsService) {}
 
   ngOnInit(): void {
     const entertainmentID = Number(this.route.snapshot.paramMap.get('id'));
@@ -28,6 +28,18 @@ export class EntertainmentPageComponent implements OnInit {
     }else{
       
     }
+    
+    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
+    .subscribe(result => {
+      const breakpoints = result.breakpoints;
+      console.log(result);
+      //if(breakpoints[Breakpoints.Small]  breakpoints[Breakpoints.Medium]  breakpoints[Breakpoints.WebLandscape]){
+      if(breakpoints['(min-width: 900px)']){
+        this.isMobile = false;
+      }else{
+        this.isMobile = true;
+      }
+    })
   }
 
   changFavoriteIcon() {
@@ -38,7 +50,7 @@ export class EntertainmentPageComponent implements OnInit {
     }
   }
 
-  private instanceOfEntertainment(object: any): object is LocalEvent {
+  private instanceOfEntertainment(object: any) {
     return 'schedule' in object && 'localSponsorID' in object;
   }
 }
