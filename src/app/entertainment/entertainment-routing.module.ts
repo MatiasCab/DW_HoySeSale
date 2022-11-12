@@ -4,7 +4,7 @@ import { EntertainmentPageComponent } from './components/entertainment-page/ente
 
 const routes: Routes = [
     {
-        path: ':id',
+        path: ':type/:id',
         component: EntertainmentPageComponent
     }
 ];

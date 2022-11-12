@@ -1,0 +1,6 @@
+<app-search-entertainment (searchEvent)="getEntertianments($event)"></app-search-entertainment>
+<div (scroll)="scrollInteraction($event)" class="cards-grid" *ngIf="isMobile">
+    <app-cards-grid [setEntertainments]="searchView"></app-cards-grid>
+</div>
+<app-desktop-card-carousel *ngIf="!isMobile" [setEntertainments]="searchView"
+    (moreSlidesEvent)="getEntertianments(this.lastSearchInfo, this.searchIndex)"></app-desktop-card-carousel>
