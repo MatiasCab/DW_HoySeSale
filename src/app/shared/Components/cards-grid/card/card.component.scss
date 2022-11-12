@@ -1,6 +1,6 @@
 .entertainment-card{
     height: 20vh;  
-    margin-bottom: 2.5vh;  
+    margin-top: 2.5vh;
 
 
     a{
@@ -30,14 +30,22 @@
         align-items: baseline; 
         p {
             font-size: 1.5em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        p.type{
+            font-size: small;
         }
         a{
             color: white;
+            max-width: 85%;
+            padding-right: 5%;
         }
     }
 
     .prub{
         position: relative;
-        top: -34%;
+        top: -45%;
     }
 }

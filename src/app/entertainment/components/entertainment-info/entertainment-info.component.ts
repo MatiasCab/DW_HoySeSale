@@ -20,7 +20,7 @@ export class EntertainmentInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.mapAPIURL = `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xD450E6%7C${this.entertainment?.ubication.lat},${this.entertainment?.ubication.long}&center=${this.entertainment?.ubication.lat}, ${this.entertainment?.ubication.long}&zoom=17&size=300x300&key=AIzaSyB3I7IivhrGbnu07pdRW3mflhN3xilRUwQ&map_id=dd44d28a312be6da`;
+    this.mapAPIURL = `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xD450E6%7C${this.entertainment?.ubication.lat},${this.entertainment?.ubication.long}&center=${this.entertainment?.ubication.lat},${this.entertainment?.ubication.long}&zoom=17&size=300x300&key=AIzaSyB3I7IivhrGbnu07pdRW3mflhN3xilRUwQ&map_id=dd44d28a312be6da`;
     if(!this.isAnEvent){
       this.rate = (this.entertainment as Local).qualification;
     }

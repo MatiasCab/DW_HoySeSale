@@ -1,7 +1,9 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { ignoreElements } from 'rxjs';
 import { appAnimations } from 'src/app/animations';
-import { Entertainment } from 'src/app/models/entertainment';
+import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
+import { searchView } from 'src/app/core/models/searchInfo';
 
 @Component({
   selector: 'app-desktop-card-carousel',
@@ -11,33 +13,69 @@ import { Entertainment } from 'src/app/models/entertainment';
 })
 export class DesktopCardCarouselComponent implements OnInit {
 
-  entertainments: Entertainment[] = [
-    {id: 1, name: 'Valiant', description: 'Toro', qualification: 4, profilePic: 9, gallery: [1, 2]},
-    {id: 2, name: 'Ginebra', description: 'Barrios', qualification: 4.5, profilePic: 13, gallery: [3, 4]},
-    {id: 3, name: 'Dulas', description: 'Sarabia', qualification: 3, profilePic: 10, gallery: [5, 6]},
-    {id: 4, name: 'Reynaldo', description: 'Rincón', qualification: 3.5, profilePic: 12, gallery: [7, 8]},
-    {id: 5, name: 'Valiant', description: 'Toro', qualification: 4, profilePic: 9, gallery: [1, 2]},
-    {id: 6, name: 'Ginebra', description: 'Barrios', qualification: 4.5, profilePic: 13, gallery: [3, 4]},
-    {id: 7, name: 'Dulas', description: 'Sarabia', qualification: 3, profilePic: 10, gallery: [5, 6]},
-    {id: 8, name: 'Reynaldo', description: 'Rincón', qualification: 3.5, profilePic: 12, gallery: [7, 8]}
-  ];
+  showedEntertainments?: entertainmentCardPreview[][];
+  
+  @ViewChild('carousel') carousel?: NgbCarousel;
 
-  reduceCards?: boolean;
+  @Output() moreSlidesEvent: EventEmitter<void> = new EventEmitter();
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  @Input() public set setEntertainments(entertainmentsInfo: searchView | undefined) {
+    if (entertainmentsInfo) {
+      this.setCards(entertainmentsInfo);
+    }
+  };
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(max-width: 940px)', Breakpoints.HandsetLandscape])
-    .subscribe(result => {
-      const breakpoints = result.breakpoints;
-      console.log(result);
-      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(max-width: 940px)'] || breakpoints[Breakpoints.HandsetLandscape]){
-        this.reduceCards = true;
-      }else{
-        this.reduceCards = false;
-      }
-    })
   }
+
+  setCards(searchView: searchView) {
+    let changeIndex = 3;
+    let newEntertainmentArray: entertainmentCardPreview[][] = [];
+    let newEntertainmentSet: entertainmentCardPreview[] = [];
+    let incommingEntertainments = searchView.entertainments;
+
+    if (searchView.action == 'extends') {
+      const lastSet = this.showedEntertainments![this.showedEntertainments!.length - 1];
+      let index = 0;
+      for (let i = lastSet.length; i < 3; i++) {
+        let cardEntertainment = incommingEntertainments.shift()
+        if(cardEntertainment){
+          lastSet.push(cardEntertainment);
+        }
+      }
+    }
+
+    for (const entertainment of incommingEntertainments) {
+      if (changeIndex == 0) {
+        newEntertainmentArray.push(newEntertainmentSet);
+        newEntertainmentSet = [];
+        changeIndex = 3;
+      }
+      newEntertainmentSet.push(entertainment);
+      changeIndex--;
+    }
+
+    if (newEntertainmentSet.length > 0) {
+      newEntertainmentArray.push(newEntertainmentSet);
+    }
+    if (searchView.action == 'extends') {
+      this.showedEntertainments = [...this.showedEntertainments!, ...newEntertainmentArray];
+    } else {
+      this.showedEntertainments = newEntertainmentArray;
+    }
+  }
+
+
+  chargeMoreCards() {
+    const slideNumber = Number(this.carousel?.activeId.split('-')[2]);
+    if (slideNumber + 1 == this.showedEntertainments?.length) {
+      this.moreSlidesEvent.emit();
+    }
+    console.log(slideNumber);
+  }
+
+
 
 }

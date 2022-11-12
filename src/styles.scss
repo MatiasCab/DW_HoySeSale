@@ -97,7 +97,7 @@ body {
 }
 
 .cards-grid {
-    height: 80vh;
+    height: 79vh;
     overflow-y: auto;
 }
 
@@ -112,12 +112,6 @@ a {
     margin-right: auto;
 }
 
-@media screen and (min-width: 600px) {
-    .size {
-        width: 270px;
-    }
-}
-
 .profile .carouselCards .entertainment-card {
     width: 100% !important;
     height: 56vh !important;
@@ -127,7 +121,7 @@ a {
     }
 
     .prub {
-        top: -12% !important;
+        top: -16% !important;
     }
 }
 
@@ -140,12 +134,16 @@ a {
     }
 
     .prub {
-        top: -12% !important;
+        top: -14% !important;
     }
 }
 
 .size .transparent {
     width: 100% !important;
+}
+
+.carousel-inner {
+    padding-bottom: 3vh;
 }
 
 #carouselDesktop button.carousel-control-prev {
@@ -166,6 +164,7 @@ a {
 
 .marginDesktopContainer {
     max-width: 60%;
+    min-width: 720px;
 
     .filterSpacing {
         margin-top: 1.5rem;
@@ -186,20 +185,23 @@ a {
         background-color: #181818;
     }
 
-    .bottom-button
-
-    .fondo {
+    .bottom-button .fondo {
         background: none;
     }
 }
 
-@media screen and (max-height: 610px){
-    .bottom-button{
+@media screen and (max-height: 610px) {
+    .bottom-button {
         position: relative !important;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .size {
+        width: 270px;
     }
 }
 
 body::-webkit-scrollbar {
     width: 10px;
-  }
-
+}

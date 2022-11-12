@@ -8,9 +8,9 @@
         <div class="decoration mx-3">
             <a routerLink="/entertainment/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.id}}" class="text-decoration-none">
                 <p class="mb-0">{{entertainment.name}}</p>
-                <p>{{getEntertainmentType()}}</p>
+                <p class="type mb-0">{{getEntertainmentType()}}</p>
             </a>
-            <app-button-icon [iconClass]="currentIcon" (click)="changeFavoriteIcon()"
+            <app-button-icon [iconClass]="currentIcon" class="my-auto" (click)="changeFavoriteIcon()"
                 [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
         </div>
     </div>

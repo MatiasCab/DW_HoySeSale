@@ -22,15 +22,37 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getType() {
+    let type;
+    for (const section of this.sections) {
+      if(section[1] == 'hover'){
+        type = section[0]
+        break;
+      }
+    }
+    switch (type) {
+      case 'Bares':
+        return 'bar';
+      case 'Pubs':
+        return 'pub';
+      case 'Bailes':
+        return 'dancingParty';
+      case 'Eventos':
+        return 'event';
+      default:
+        return undefined;
+    }
+  }
+
   filter(indexText: number){
     for(let i = 0; i < this.sections.length; i++){
       if(indexText == i){
         this.sections[i][1] = "hover";
-        this.sectionClick.emit(this.sections[i][0]);
       }else{
         this.sections[i][1] = "";
       }
     }
+    this.sectionClick.emit(this.getType());
   }
 
 }
