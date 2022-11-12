@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { ignoreElements } from 'rxjs';
 import { appAnimations } from 'src/app/animations';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
@@ -14,7 +14,7 @@ import { searchView } from 'src/app/core/models/searchInfo';
 export class DesktopCardCarouselComponent implements OnInit {
 
   showedEntertainments?: entertainmentCardPreview[][];
-  
+
   @ViewChild('carousel') carousel?: NgbCarousel;
 
   @Output() moreSlidesEvent: EventEmitter<void> = new EventEmitter();
@@ -69,11 +69,13 @@ export class DesktopCardCarouselComponent implements OnInit {
 
 
   chargeMoreCards() {
-    const slideNumber = Number(this.carousel?.activeId.split('-')[2]);
+    const slideNumber = Number(this.carousel?.activeId);
     if (slideNumber + 1 == this.showedEntertainments?.length) {
       this.moreSlidesEvent.emit();
     }
-    console.log(slideNumber);
+    console.log('cards',this.showedEntertainments?.length);
+    
+    console.log('carousel',slideNumber);
   }
 
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { ScreenDataService } from 'src/app/services/screen-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -32,7 +33,12 @@ export class NavbarComponent implements OnInit {
 
   isMobile: boolean = true;
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  @Input() set setIconColor(iconNumber: number) {
+    this.fillIcon(iconNumber);
+  }
+  
+
+  constructor(private breakpointObserver: BreakpointObserver, private route: Router) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -48,7 +54,7 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  fillIcon(iconNumber: number) {
+  fillIcon(iconNumber: number) { //fijarese si esto aun sige siendo util con el tema de rout
     for(let i = 0; i < this.icons.length; i++){
       if(iconNumber == i){
         this.icons[i] = this.baseIcons[this.baseIcons.length/2 + i];

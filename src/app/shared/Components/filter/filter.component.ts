@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router';
+import { ConnectableObservable } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
@@ -17,10 +19,19 @@ export class FilterComponent implements OnInit {
     ["Eventos",""]
   ]
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
-  }
+    this.activatedRoute.queryParamMap.subscribe((params) => {
+      let types = [null, 'dancingParty', 'bar', 'pub', 'event'];
+      for (let i = 0; i < types.length; i++) {
+        if(types[i] == params.get('type')) {
+          this.filter(i);
+          break;
+        }
+      }
+    })
+  };
 
   getType() {
     let type;
@@ -44,13 +55,22 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  filter(indexText: number){
+  filter(indexText: number, navigateRoute?: string | null){
     for(let i = 0; i < this.sections.length; i++){
       if(indexText == i){
         this.sections[i][1] = "hover";
       }else{
         this.sections[i][1] = "";
       }
+    }
+    if(navigateRoute){
+      this.route.navigate(
+        [],{
+          relativeTo: this.activatedRoute,
+          queryParams: {type: navigateRoute}, 
+          queryParamsHandling: 'merge'
+        }
+      )
     }
     this.sectionClick.emit(this.getType());
   }

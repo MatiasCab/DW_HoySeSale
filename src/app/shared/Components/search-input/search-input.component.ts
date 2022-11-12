@@ -21,8 +21,11 @@ export class SearchInputComponent implements OnInit {
   }
   
 
-  keyEnter(){
-    this.searchEvent.emit(this.getSearchInfo);
+  keyEnter(key: KeyboardEvent){
+    let reg = 'qwertyuiopñlkjhgfdsazxcvbnmQWERTYUIOPÑLKJHGFDSAZXCVBNM-*/1234567890!¡¿?';
+    if(reg.includes(key.key) || ('Backspace'== key.key)){
+      this.searchEvent.emit(this.getSearchInfo);
+    }
   }
 
 

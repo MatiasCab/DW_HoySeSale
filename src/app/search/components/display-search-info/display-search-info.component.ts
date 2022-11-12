@@ -20,7 +20,6 @@ export class DisplaySearchInfoComponent implements OnInit {
   constructor(private searchService: SearchCardsService) { }
 
   ngOnInit(): void {
-    this.getEntertianments();
   }
 
   getEntertianments(searchInfo?: searchInfo, searchIndex?: number) {

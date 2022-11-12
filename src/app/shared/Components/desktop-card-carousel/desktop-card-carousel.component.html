@@ -1,5 +1,5 @@
-<ngb-carousel *ngIf="showedEntertainments && showedEntertainments!.length > 0" #carousel="ngbCarousel" (slid)="chargeMoreCards()" [wrap]="false" id="carouselDesktop" class="carousel" [interval]="0" [showNavigationIndicators]="false">
-    <ng-template ngbSlide *ngFor="let entertainments of showedEntertainments">
+<ngb-carousel *ngIf="showedEntertainments && showedEntertainments!.length > 0" #carousel (slid)="chargeMoreCards()" [wrap]="false" id="carouselDesktop" class="carousel" [interval]="0" [showNavigationIndicators]="false">
+    <ng-template #carousel2  ngbSlide *ngFor="let entertainments of showedEntertainments; let i = index" [id]="i.toString()">
         <div class="row carouselCards mx-4">
             <app-card class="p" [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}" class="col" [entertainment]="entertainments[0]"></app-card>
             <app-card class="p" [@searchedCardsDesktop]="{value:'', params:{delay:2/10}}" class="col" [entertainment]="entertainments[1]"></app-card>
