@@ -1,6 +1,7 @@
 .homeMobile .home{
     display: flex;
     justify-content: center;
+    height: 100%;
 
     .content{
         width: 90vw;
@@ -180,4 +181,8 @@
     .footer{
         border-top: 2px solid red;
     }
+}
+
+.homeMobile{
+    height: 100%;
 }

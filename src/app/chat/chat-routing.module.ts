@@ -7,7 +7,7 @@ import { DesktopChatPageComponent } from './components/desktop-chat-page/desktop
 const routes: Routes = [
     {
         path: '',
-        component: DesktopChatPageComponent,
+        component: ChatPageComponent,
         data: { animation: 'ChatsPage' }
     },
     {

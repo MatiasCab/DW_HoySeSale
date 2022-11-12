@@ -1,0 +1,55 @@
+.container{
+    max-width: 70%;
+    max-height: 90%;
+    margin-top: 12vh;
+    padding-top: 0.5rem;
+}
+
+.colum{
+   //overflow-y: auto;
+    max-height: 70vh;
+    overflow-x: hidden;
+}
+
+.colum::-webkit-scrollbar {
+    width: 0;
+}
+
+.uno{
+    overflow-y: auto;
+}
+
+.messagesView{
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+}
+
+.bottom-position{
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+}
+
+.searchInput{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+.border-bottom{
+    margin-left: 20px;
+}
+
+.margin{
+    margin-left: 20px;
+}
+
+.width{
+    max-width: 80%;
+}
+
+div.col.text-light.my-3{
+    display: flex;
+    align-items: center;
+}
