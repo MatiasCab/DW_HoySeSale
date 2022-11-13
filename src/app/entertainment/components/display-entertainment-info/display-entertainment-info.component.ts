@@ -13,10 +13,14 @@ export class DisplayEntertainmentInfoComponent implements OnInit {
   @Input() isAnEvent?: boolean;
 
   @Input() isMobile?: boolean;
+
+  images: string[] = ["../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg", "../../../assets/images/tony-pham-FUmDe-Bx1LA-unsplash.jpg"];
   
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.isMobile);
+    
   }
 
 }

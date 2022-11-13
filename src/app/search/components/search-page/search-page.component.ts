@@ -24,6 +24,6 @@ export class SearchPageComponent implements OnInit {
       }else{
         this.isMobile = true;
       }
-    })
+    });
   }
 }

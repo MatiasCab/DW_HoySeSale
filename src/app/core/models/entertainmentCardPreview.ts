@@ -1,5 +1,5 @@
 export interface entertainmentCardPreview {
-    id: number;
+    entertainmentID: number;
     name: string;
     type: 'bar' | 'pub' | 'dancingParty' | 'event';
     imageLink: string;

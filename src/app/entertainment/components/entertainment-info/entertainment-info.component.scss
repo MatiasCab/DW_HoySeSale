@@ -52,8 +52,8 @@
     }
 
     .local-images{
-        background-color: aqua;
-    
+        //background-color: aqua;
+        height: 40vh;
         .carousel-container{
             width: 100%;
             height: 100%;
@@ -64,10 +64,9 @@
 
                 .images{
                     width: 100%;
-                    height: 100%;
                     overflow: hidden;
                     border-radius: 2rem;
-    
+                    height: 40vh;
                     img{
                         width: 100%;
                         height: 100%;
@@ -79,30 +78,11 @@
     }
 
     .header{
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: bold;
 
         p{
             margin: 0;
-        }
-    }
-
-    .calification{
-
-        .star {
-            font-size: 2rem;
-            color: #FFC700;
-        }
-        
-        .full {
-            color:#FFC700;
-        }
-        
-        .half {
-            position: absolute;
-            display: inline-block;
-            overflow: hidden;
-            color: #FFC700;
         }
     }
 
@@ -192,4 +172,34 @@
     }
 
     
+}
+
+.calification{
+    width: auto;
+    .row{
+        flex-wrap: nowrap;
+        align-items: baseline;
+    }
+    .star {
+        font-size: 2rem;
+        color: #FFC700;
+    }
+    
+    .full {
+        color:#FFC700;
+    }
+    
+    .half {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        color: #FFC700;
+    }
+}
+
+p.col-10{
+    padding-right: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

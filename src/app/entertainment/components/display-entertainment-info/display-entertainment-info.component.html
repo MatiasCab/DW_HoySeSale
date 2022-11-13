@@ -1,4 +1,4 @@
-<div *ngIf="isMobile; else elseBlock" class="display-info-mobile">
+<div *ngIf="false; else elseBlock" class="display-info-mobile">
         <div class="images {{isAnEvent ? 'size' : ''}}" *ngIf="isAnEvent">
             <img class="{{isAnEvent ? 'static' : ''}}" src ="../../../assets/images/louis-hansel-vm4g1MBZUv4-unsplash.jpg" alt="">
             <div class="gradient"></div>
@@ -20,10 +20,10 @@
         <div class="entertainmentName">
             <p>{{entertainment}}</p>
         </div>
-        <app-entertainment-info [isAnEvent]="isAnEvent"></app-entertainment-info>
+        <app-entertainment-info [isAnEvent]="isAnEvent" [isMobile]="isMobile"></app-entertainment-info>
 </div>
 <ng-template #elseBlock>
     <div class="display-info-desktop">
-        <app-entertainment-info class="entertainment" [isAnEvent]="isAnEvent"></app-entertainment-info>
+        <app-entertainment-info class="entertainment" [isAnEvent]="isAnEvent" [isMobile]="isMobile"></app-entertainment-info>
     </div>
 </ng-template>

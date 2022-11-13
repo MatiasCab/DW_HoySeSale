@@ -21,7 +21,7 @@
     content: '';
     display: block;
     width: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(180deg, #D450E6 0%, #6B2CF5 100%);
     transition: width .3s;
 }
@@ -38,10 +38,6 @@
 }
 
 .container-fluid{
-    //background-color: #181818;
-    //position: fixed;
-    //top: 0;
-    height: 8vh;
     padding-left: 8%;
     padding-right: 8%;
 }
@@ -75,51 +71,47 @@
     }
 }
 
-.navbarDesktop{
-    display: flex;
+
+.navbarDesktop .navbar{
+    @include navbar1(flex-end);
+    border-bottom: 2px solid #636363;
+    padding-top: 2vh;
+    align-items: center;
+    padding-bottom: 0;
     flex-wrap: nowrap;
-    align-items: flex-end;
 
-    .navbar{
-        @include navbar1(flex-end);
-        border-bottom: 2px solid #636363;
-        width: 100%;
+    a{
+        @include linkStyle(1em, white);
+        margin-left: 7%;
+        height: 2rem;
+    }
+    
+    a.first{
+        margin-left: 0;
+    }
+
+    p {
+        margin:0;
         height: 100%;
-        padding: 0;
+    }
 
-        a{
-            @include linkStyle(1em, white);
-            margin-left: 7%;
-            height: 2rem;
-        }
-        
-        a.first{
-            margin-left: 0;
-        }
+    .animatedLink::after{
+        @include animatedLinkEvents();
+    }
 
-        p {
-            margin:0;
-            height: 100%;
-        }
+    .animatedLink.hover::after{
+        @include animatedLinkHover();
+    }
 
-        .animatedLink::after{
-            @include animatedLinkEvents();
-        }
+    .hover p{
+        @include fillColor();
+    }
 
-        .animatedLink.hover::after{
-            @include animatedLinkHover();
-        }
-
-        .hover p{
-            @include fillColor();
-        }
-
-        h4 {
-            margin-right: auto;
-            margin-left: 0.5%;
-            height: auto;
-            margin-bottom: 0;
-        }
+    h4 {
+        margin-right: auto;
+        margin-left: 0.5%;
+        height: auto;
+        margin-bottom: 0;
     }
 }
 
