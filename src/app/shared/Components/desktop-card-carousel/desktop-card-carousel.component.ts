@@ -21,6 +21,7 @@ export class DesktopCardCarouselComponent implements OnInit {
 
   @Input() public set setEntertainments(entertainmentsInfo: searchView | undefined) {
     if (entertainmentsInfo) {
+      console.log(entertainmentsInfo);
       this.setCards(entertainmentsInfo);
     }
   };

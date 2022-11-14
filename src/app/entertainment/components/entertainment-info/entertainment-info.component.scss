@@ -101,7 +101,7 @@
 
         img{
             width: 100%;
-            height: 85%;
+            height: 30vh;
             object-fit: cover;
             border: 1px solid #636363;
             border-radius: 2rem;
@@ -112,11 +112,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
-        .carousel-events{
-            height: 85%;
-        }
     }
+}
+
+.carousel-inner{
+    padding-bottom: 3vh;
 }
 
 
@@ -181,6 +181,8 @@
         align-items: baseline;
     }
     .star {
+        position: relative;
+        display: inline-block;
         font-size: 2rem;
         color: #FFC700;
     }
@@ -188,7 +190,6 @@
     .full {
         color:#FFC700;
     }
-    
     .half {
         position: absolute;
         display: inline-block;
@@ -202,4 +203,8 @@ p.col-10{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.p{
+    position: relative;
 }

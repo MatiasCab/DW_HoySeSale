@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Local } from 'src/app/core/models/local';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
-import { LocalEvent } from 'src/app/core/models/event';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchResponse } from 'src/app/core/models/searchInfo';
 
@@ -28,11 +27,17 @@ constructor(private http: HttpClient) { }
     );
   }
 
-  getLocalById(id:number){
-    return this.http.get<Local | LocalEvent>(`${API_URL}/entertainments/${id}`).pipe(
-      catchError( this.handleError<Local | LocalEvent>('getEntertainmentById'))
+  getEventById(id: number){
+    return this.http.get<any>(`${API_URL}/events/${id}`).pipe(
+      catchError( this.handleError<any>('getEventById'))
     );
-  };
+  }
+
+  getLocalById(id: number){
+    return this.http.get<any>(`${API_URL}/locals/${id}`).pipe(
+      catchError( this.handleError<any>('getLocalById'))
+    );
+  }
 
   private handleError<T>(operation: string, result?: T){
     return (error: any): Observable<T> => {

@@ -1,44 +1,58 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Coordinates } from 'src/app/core/models/coordinates';
-import { LocalEvent } from 'src/app/core/models/event';
 import { Local } from 'src/app/core/models/local';
+import { Event } from 'src/app/core/models/event';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-entertainment-info',
   templateUrl: './entertainment-info.component.html',
-  styleUrls: ['./entertainment-info.component.scss']
+  styleUrls: ['./entertainment-info.component.scss'],
+  animations: [appAnimations]
 })
 
 export class EntertainmentInfoComponent implements OnInit {
 
-  @Input() entertainment?: LocalEvent | Local;
+  @Input() entertainment?: Event | Local;
   @Input() isAnEvent?: boolean;
   @Input() isMobile?: boolean;
 
-  images: string[] = ["../../../assets/images/alex-voulgaris-jfoIIFLw3_Y-unsplash.jpg", "../../../assets/images/tony-pham-FUmDe-Bx1LA-unsplash.jpg"];
-
   mapAPIURL?: string;
+  rate?: number;
 
-  rate: number = 0;
+  get Rate(){
+    if(!this.isAnEvent && this.entertainment){
+      if(this.rate){
+        return this.rate;
+      }
+      return (this.entertainment as Local).qualification;
+    }
+    return 0;
+  }
 
+  set Rate(rate: number){
+    this.rate = rate;
+  }
+
+  get entertainmentEvents(){
+    if(this.entertainment){
+      return (this.entertainment as Local).localEvents;
+    }
+    return [];
+  }
   favoriteIcon: string = 'bi bi-bookmark';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.mapAPIURL = `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xD450E6%7C${this.entertainment?.ubication.lat},${this.entertainment?.ubication.long}&center=${this.entertainment?.ubication.lat},${this.entertainment?.ubication.long}&zoom=17&size=300x300&key=AIzaSyB3I7IivhrGbnu07pdRW3mflhN3xilRUwQ&map_id=dd44d28a312be6da`;
-    if(!this.isAnEvent){
-      this.rate = (this.entertainment as Local).qualification;
-    }
   }
   
 
   openMap(){
-    window.open(`http://www.google.com/maps/place/${this.entertainment?.ubication}, ${this.entertainment?.ubication}`,'_blank', 'location=yes')
+    window.open(`http://www.google.com/maps/place/${this.entertainment?.lat}, ${this.entertainment?.lon}`,'_blank', 'location=yes');
   }
 
   getDate(){
-    return (this.entertainment as LocalEvent).schedule;
+    return (this.entertainment as Event).schedule;
   }
 
   changFavoriteIcon(){

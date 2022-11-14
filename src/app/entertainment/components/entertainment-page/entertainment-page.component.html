@@ -5,9 +5,9 @@
         [currentIcon2]="favoriteIcon" 
         [currentIcon1]="'bi bi-chat-left'"
         (icon2Event)="changFavoriteIcon()"></app-header-navbar>
-        <app-display-entertainment-info [isAnEvent]="isAnEvent" [isMobile]="isMobile"></app-display-entertainment-info>
+        <app-display-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent" [isMobile]="isMobile"></app-display-entertainment-info>
     </div>
 </div>
 <ng-template #elseBlock>
-    <app-display-entertainment-info [isAnEvent]="isAnEvent" [isMobile]="isMobile" class="entertainmentDesktop"></app-display-entertainment-info>   
+    <app-display-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent" [isMobile]="isMobile" class="entertainmentDesktop"></app-display-entertainment-info>   
 </ng-template>

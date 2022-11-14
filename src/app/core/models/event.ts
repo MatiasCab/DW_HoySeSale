@@ -1,6 +1,6 @@
-import { Entertaiment } from "./entertainment";
+import { Entertainment } from "./entertainment";
 
-export interface LocalEvent extends Entertaiment {
-    localSponsorID: number;
-    schedule: Date;
+export interface Event extends Entertainment {
+    sponsorName: string;
+    schedule: string;
 }
