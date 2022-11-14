@@ -205,3 +205,15 @@ a {
 body::-webkit-scrollbar {
     width: 10px;
 }
+
+.carousel-events .entertainment-card{
+    height: 30vh !important;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0 !important;
+}
+
+.carousel-events .carousel-inner{
+    padding-bottom: 0;
+}

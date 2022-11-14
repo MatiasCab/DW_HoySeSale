@@ -44,7 +44,8 @@ import { DesktopCardCarouselComponent } from './Components/desktop-card-carousel
     SearchInputComponent,
     UserPhotoComponent,
     CardsGridComponent,
-    DesktopCardCarouselComponent
+    DesktopCardCarouselComponent,
+    CardComponent
   ]
 })
 export class SharedModule { }

@@ -1,8 +1,13 @@
-<div class="entertainment mx-3">
-    <app-header-navbar class="index" [backPage]="'/search'" 
-    [firstIcon]="'bi bi-chevron-left'"
-    [currentIcon2]="favoriteIcon" 
-    [currentIcon1]="'bi bi-chat-left'"
-    (icon2Event)="changFavoriteIcon()"></app-header-navbar>
-    <app-display-entertainment-info [isAnEvent]="isAnEvent" [entertainment]="entertainment"></app-display-entertainment-info>
+<div *ngIf="isMobile; else elseBlock" class="entertainmentMobile">
+    <div class="entertainment">
+        <app-header-navbar class="index" [backPage]="'/search'" 
+        [firstIcon]="'bi bi-chevron-left'"
+        [currentIcon2]="favoriteIcon" 
+        [currentIcon1]="'bi bi-chat-left'"
+        (icon2Event)="changFavoriteIcon()"></app-header-navbar>
+        <app-display-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent" [isMobile]="isMobile"></app-display-entertainment-info>
+    </div>
 </div>
+<ng-template #elseBlock>
+    <app-display-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent" [isMobile]="isMobile" class="entertainmentDesktop"></app-display-entertainment-info>   
+</ng-template>

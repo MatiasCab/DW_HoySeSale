@@ -1,10 +1,10 @@
-import { Coordinates } from "./coordinates";
-import { Entertaiment } from "./entertainment";
+import { Entertainment } from "./entertainment";
+import { entertainmentCardPreview } from "./entertainmentCardPreview";
 
 type localType = "bar" | "dancingParty" | "pub";
 
-export interface Local extends Entertaiment {
+export interface Local extends Entertainment {
+    localType: localType,
     qualification: number;
-    events: string[];
-    type: localType;
+    localEvents: entertainmentCardPreview[];
 }

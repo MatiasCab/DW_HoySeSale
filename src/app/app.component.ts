@@ -28,6 +28,7 @@ export class AppComponent {
     for (let i = 0; i < urls.length; i++) {
       if(this.route.url.includes(urls[i])) return i;
     }
+    if(this.route.url.includes('/entertainment')) return 1;
     return 0;
   }
 
