@@ -26,8 +26,8 @@ export class CardsGridComponent implements OnInit {
   }
 
   setCards(entertainmentsInfo?: searchView){
-    if (entertainmentsInfo?.action == 'extends') {
-      this.entertainments = [...this.entertainments!, ...entertainmentsInfo.entertainments];
+    if (entertainmentsInfo?.action == 'extends' && this.entertainments && false) {
+      //this.entertainments = [...this.entertainments!, ...entertainmentsInfo.entertainments];
     } else {
       this.entertainments = entertainmentsInfo?.entertainments;
     }

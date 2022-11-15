@@ -30,7 +30,7 @@ export class DisplaySearchInfoComponent implements OnInit {
         this.searchIndex = response.searchIndex;
         this.searchView = {
           action: searchIndex ? 'extends' : 'new',
-          entertainments: response.entertainments
+          entertainments: this.searchView ? [...this.searchView.entertainments,...response.entertainments] : response.entertainments
         }
       }
     );

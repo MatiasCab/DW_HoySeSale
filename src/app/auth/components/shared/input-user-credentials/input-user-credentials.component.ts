@@ -16,6 +16,7 @@ export class InputUserCredentialsComponent implements OnInit {
   get InputInfo(){
     return this.inputInfo?.nativeElement.value;
   }
+  
   constructor() { }
 
   ngOnInit(): void {

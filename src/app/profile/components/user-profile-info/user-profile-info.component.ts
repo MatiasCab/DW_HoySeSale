@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-user-profile-info',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserProfileInfoComponent implements OnInit {
 
   @Input() isMobile?: boolean;
+  @Input() user?: User;
 
   constructor() { }
 

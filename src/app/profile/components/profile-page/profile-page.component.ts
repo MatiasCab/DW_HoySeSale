@@ -1,5 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/core/models/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -9,8 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProfilePageComponent implements OnInit {
   
   isMobile?: boolean;
+  user?: User;
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -24,6 +27,13 @@ export class ProfilePageComponent implements OnInit {
         this.isMobile = true;
       }
     })
+
+    this.userService.getThisUser().subscribe(user => {
+      console.log(user);
+      this.user = user;
+    })
+
+
   }
 
 }

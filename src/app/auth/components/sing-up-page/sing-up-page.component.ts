@@ -1,9 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
 import { AuthService } from '../../services/auth.service';
-import { InputUserCredentialsComponent } from '../shared/input-user-credentials/input-user-credentials.component';
 
 @Component({
   selector: 'app-sing-up-page',
@@ -15,8 +13,9 @@ export class SingUpPageComponent implements OnInit {
   isMobile?: boolean;
   infocontainer: Map<string, string> = new Map();
   enableSignup: string = 'disabled';
-  
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private authService: AuthService) { }
+  errorMessage?: string;
+
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -30,11 +29,11 @@ export class SingUpPageComponent implements OnInit {
           this.isMobile = true;
         }
       })
-      console.log(this.infocontainer);
+    console.log(this.infocontainer);
   }
 
-  signup(){
-    if(this.enableSignup == ''){
+  signup() {
+    if (this.enableSignup == '') {
       const user: SignupInfo = {
         name: this.infocontainer.get('name')!,
         lastname: this.infocontainer.get('lastname')!,
@@ -43,28 +42,32 @@ export class SingUpPageComponent implements OnInit {
         password: this.infocontainer.get('password')!,
       };
       this.authService.signup(user).subscribe(res => {
-        if(res.error){
-          
-        }else{
+        if (res.error) {
+          if (res.type == 'RepitedCredentials') {
+            this.errorMessage = 'El nombre de usuario o email ya se encuentran en nuestra base de datos.';
+          } else {
+            this.errorMessage = 'Lo sentimos, no hemos podido procesar su solicitud.';
+          }
+        } else {
 
         }
       });
     }
   }
 
-  enableSignupRegulator(){
+  enableSignupRegulator() {
     console.log(this.infocontainer);
-    if(this.infocontainer.size >= 5){
+    if (this.infocontainer.size >= 5) {
       this.enableSignup = '';
-    }else{
+    } else {
       this.enableSignup = 'disabled'
     }
   }
 
   reguleGenericInfo(info: string, type: 'name' | 'lastname') {
     if (info != '') {
-      this.infocontainer.set(type,info);
-    }else{
+      this.infocontainer.set(type, info);
+    } else {
       this.infocontainer.delete(type);
     }
     this.enableSignupRegulator();
@@ -72,8 +75,8 @@ export class SingUpPageComponent implements OnInit {
 
   reguleUsername(info: string) {
     if (info != '' && !info.includes(' ')) {
-      this.infocontainer.set('username',info);
-    }else{
+      this.infocontainer.set('username', info);
+    } else {
       this.infocontainer.delete('username');
     }
     this.enableSignupRegulator();
@@ -81,8 +84,8 @@ export class SingUpPageComponent implements OnInit {
 
   reguleEmail(info: string) {
     if (info != '' && info.includes('@')) {
-      this.infocontainer.set('email',info);
-    }else{
+      this.infocontainer.set('email', info);
+    } else {
       this.infocontainer.delete('email');
     }
     this.enableSignupRegulator();
@@ -90,8 +93,8 @@ export class SingUpPageComponent implements OnInit {
 
   regulePassword(info: string) {
     if (info != '' && info.length >= 8) {
-      this.infocontainer.set('password',info);
-    }else{
+      this.infocontainer.set('password', info);
+    } else {
       this.infocontainer.delete('password');
     }
     this.enableSignupRegulator();

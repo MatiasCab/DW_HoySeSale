@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   trigger,
   style,
@@ -7,6 +7,9 @@ import {
   // ...
 } from '@angular/animations';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { InputUserCredentialsComponent } from '../shared/input-user-credentials/input-user-credentials.component';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,9 +33,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('username') usernameInput?: InputUserCredentialsComponent;
+  @ViewChild('password') passwordInput?: InputUserCredentialsComponent;
+
+  errorMessage?: string;
   isMobile?: boolean;
   
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -46,6 +53,22 @@ export class LoginComponent implements OnInit {
         this.isMobile = true;
       }
     })
+  }
+
+  login(){
+    let username = this.usernameInput?.InputInfo ? this.usernameInput?.InputInfo : '';
+    const password = this.passwordInput?.InputInfo ? this.passwordInput?.InputInfo : '';
+    this.authService.login(username, password).subscribe(response => {
+      if(response.error){
+        if(response.type == 'InvalidCredentials'){
+          this.errorMessage = 'Nombre de usuario y/o contraseña incorrectos';
+        }else{
+          this.errorMessage = 'Lo sentimos no hemos podido procesar su solicitud';
+        }
+      }else{
+        this.router.navigateByUrl('/home');
+      }
+    });
   }
 
 }

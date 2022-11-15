@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
+import { API_URL } from 'src/app/core/consts';
 import { searchResponse } from 'src/app/core/models/searchInfo';
-
-const API_URL = 'http://localhost:3001/api/v1';
 
 @Injectable({
   providedIn: 'root'
