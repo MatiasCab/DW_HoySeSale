@@ -8,7 +8,6 @@ import { SearchInputComponent } from './Components/search-input/search-input.com
 import { UserPhotoComponent } from './Components/user-photo/user-photo.component';
 import { HeaderNavbarComponent } from './Components/header-navbar/header-navbar.component';
 import { HeaderTextComponent } from './Components/header-navbar/header-text/header-text.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CardNameComponent } from './Components/cards-grid/card/card-name/card-name.component';
 import { CardComponent } from './Components/cards-grid/card/card.component';

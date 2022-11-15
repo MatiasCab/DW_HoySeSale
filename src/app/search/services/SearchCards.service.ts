@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Local } from 'src/app/core/models/local';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
-import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchResponse } from 'src/app/core/models/searchInfo';
 
 const API_URL = 'http://localhost:3001/api/v1';

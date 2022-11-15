@@ -4,3 +4,5 @@ export interface entertainmentCardPreview {
     type: 'bar' | 'pub' | 'dancingParty' | 'event';
     imageLink: string;
 }
+
+//FIJASE DE CAMBIAR A MAYUSCULAS LOS NOMBRES DE INTERFACES.

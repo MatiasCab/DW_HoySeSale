@@ -1,5 +1,3 @@
-import { Coordinates } from "./coordinates";
-
 export interface Entertainment {
     entertainmentID: number;
     name: string,
