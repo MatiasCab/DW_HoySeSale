@@ -2,9 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { appAnimations } from 'src/app/animations';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
-import { Local } from 'src/app/core/models/local';
-
-import { Entertainment } from 'src/app/models/entertainment';
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
 
 @Component({
   selector: 'app-card',
@@ -15,19 +13,36 @@ import { Entertainment } from 'src/app/models/entertainment';
 export class CardComponent implements OnInit {
 
   @Input() entertainment?: entertainmentCardPreview;
-  currentIcon: string = 'bi bi-bookmark';
+  currentIcon?: string;
+  prevIcon?: string;
 
-  constructor() { }
+  constructor(private favoriteService: FavoriteService) { }
+
+  public get  Icon() : string {
+    if(this.currentIcon){
+      return this.currentIcon;
+    }
+    if(this.entertainment && !this.currentIcon){
+      this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+      return this.currentIcon;
+    }
+    return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+  }
+  
 
   ngOnInit(): void {
   }
 
   changeFavoriteIcon() {
-    if (this.currentIcon == 'bi bi-bookmark') {
-      this.currentIcon = 'bi-bookmark-fill';
-    } else {
-      this.currentIcon = 'bi bi-bookmark';
-    }
+    const newFavoriteData = this.favoriteService.favoriteAction(this.Icon, this.entertainment!.entertainmentID);
+    this.prevIcon = this.currentIcon;
+    this.currentIcon = newFavoriteData.icon;
+    newFavoriteData.serverStatus.subscribe(response => {
+      if(response.error){
+        this.currentIcon = this.prevIcon!;
+        alert('Lo sentimos no hemos podido procesar su solicitud.');
+      }
+    })
   }
 
   getEntertainmentType() {

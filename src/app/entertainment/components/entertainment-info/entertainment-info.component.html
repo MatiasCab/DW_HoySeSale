@@ -53,7 +53,7 @@
         <div class="header cont-2 row">
             <p class="col-10">{{entertainment?.name}}</p>
             <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" 
-            [currentIcon2]="favoriteIcon" 
+            [currentIcon2]="currentIcon" 
             [currentIcon1]="'bi bi-chat-left'"
             (icon2Event)="changFavoriteIcon()"></app-header-navbar>
         </div>

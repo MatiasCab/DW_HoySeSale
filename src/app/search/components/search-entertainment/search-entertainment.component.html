@@ -1,4 +1,4 @@
-<app-search-input #searchBar (searchEvent)="searchByInput($event)"></app-search-input>
+<app-search-input *ngIf="showSearchBar" #searchBar (searchEvent)="searchByInput($event)"></app-search-input>
 <div class="mt-2">
     <app-filter #filter (sectionClick)="searchByFilters($event)"></app-filter>
 </div>

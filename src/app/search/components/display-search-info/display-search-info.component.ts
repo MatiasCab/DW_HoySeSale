@@ -16,7 +16,10 @@ export class DisplaySearchInfoComponent implements OnInit {
   limitReached: boolean = false;
 
   @Input() isMobile?: boolean;
+  @Input() showSearchBar?: boolean = true;
+  @Input() onlyFavorites: boolean = false;
   @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
+
   constructor(private searchService: SearchCardsService) { }
 
   ngOnInit(): void {
@@ -30,9 +33,8 @@ export class DisplaySearchInfoComponent implements OnInit {
     }
 
     if (!sameSearch || searchIndex) {
-      console.log('aaaaaaaaaaaaaa');
 
-      this.searchService.getEntertainments(searchIndex ? searchIndex : 0, searchInfo?.type, searchInfo?.searchInput).subscribe(
+      this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput).subscribe( //Fijarse si esto no da eror por tener dos parametros opcionales.
         response => {
           this.searchIndex = response.searchIndex;
           console.log(response);

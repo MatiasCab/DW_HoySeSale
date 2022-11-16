@@ -2,6 +2,8 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
 import { appAnimations } from 'src/app/animations';
+import { UserService } from 'src/app/profile/services/user.service';
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
 
 @Component({
   selector: 'app-entertainment-info',
@@ -39,9 +41,10 @@ export class EntertainmentInfoComponent implements OnInit {
     }
     return [];
   }
-  favoriteIcon: string = 'bi bi-bookmark';
+  currentIcon: string = 'bi bi-bookmark';
+  prevIcon?: string;
 
-  constructor() { }
+  constructor(private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
   }
@@ -56,11 +59,15 @@ export class EntertainmentInfoComponent implements OnInit {
   }
 
   changFavoriteIcon(){
-    if(this.favoriteIcon == 'bi bi-bookmark'){
-      this.favoriteIcon = 'bi-bookmark-fill';
-    }else{
-      this.favoriteIcon = 'bi bi-bookmark';
-    }
+    const newFavoriteData = this.favoriteService.favoriteAction(this.currentIcon, this.entertainment!.entertainmentID);
+    this.prevIcon = this.currentIcon;
+    this.currentIcon = newFavoriteData.icon;
+    newFavoriteData.serverStatus.subscribe(response => {
+      if(response.error){
+        this.currentIcon = this.prevIcon!;
+        alert('Lo sentimos no hemos podido procesar su solicitud.');
+      }
+    })
   }
 
 }

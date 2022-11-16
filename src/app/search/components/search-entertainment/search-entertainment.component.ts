@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { searchInfo } from 'src/app/core/models/searchInfo';
 import { FilterComponent } from 'src/app/shared/Components/filter/filter.component';
 import { SearchInputComponent } from 'src/app/shared/Components/search-input/search-input.component';
@@ -12,6 +12,7 @@ export class SearchEntertainmentComponent implements OnInit {
 
   @ViewChild('searchBar') searchBar?: SearchInputComponent;
   @ViewChild('filter') filter?: FilterComponent;
+  @Input() showSearchBar?: boolean;
   @Output() searchEvent: EventEmitter<searchInfo> = new EventEmitter();
 
   constructor() { }

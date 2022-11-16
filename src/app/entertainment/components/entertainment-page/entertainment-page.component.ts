@@ -4,6 +4,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SearchCardsService } from 'src/app/search/services/SearchCards.service';
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
+import { UserService } from 'src/app/profile/services/user.service';
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
 
 @Component({
   selector: 'app-entertainment-page',
@@ -14,14 +16,16 @@ export class EntertainmentPageComponent implements OnInit {
 
   entertainment?: Local | Event;
 
-  favoriteIcon: string = 'bi bi-bookmark';
+  currentIcon: string = 'bi bi-bookmark';
+  prevIcon?: string;
 
   isAnEvent: boolean = false;
   isMobile: boolean = true;
 
   constructor(private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
-    public searchService: SearchCardsService) { }
+    public searchService: SearchCardsService,
+    private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
     const entertainmentID = Number(this.route.snapshot.paramMap.get('id'));
@@ -53,10 +57,14 @@ export class EntertainmentPageComponent implements OnInit {
   }
 
   changFavoriteIcon() {
-    if (this.favoriteIcon == 'bi bi-bookmark') {
-      this.favoriteIcon = 'bi-bookmark-fill';
-    } else {
-      this.favoriteIcon = 'bi bi-bookmark';
-    }
+    const newFavoriteData = this.favoriteService.favoriteAction(this.currentIcon, this.entertainment!.entertainmentID);
+    this.prevIcon = this.currentIcon;
+    this.currentIcon = newFavoriteData.icon;
+    newFavoriteData.serverStatus.subscribe(response => {
+      if(response.error){
+        this.currentIcon = this.prevIcon!;
+        alert('Lo sentimos no hemos podido procesar su solicitud.');
+      }
+    })
   }
 }

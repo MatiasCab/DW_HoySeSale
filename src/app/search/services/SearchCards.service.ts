@@ -11,8 +11,8 @@ export class SearchCardsService {
 
 constructor(private http: HttpClient) { }
 
-  getEntertainments(searchIndex: Number, type?: string, searchInfo?: string){
-    let params =`?startIndex=${searchIndex}&`;
+  getEntertainments(searchIndex: Number, onlyFavorites: boolean, type?: string, searchInfo?: string){
+    let params =`?startIndex=${searchIndex}&onlyFavorites=${onlyFavorites}&`;
     if(type){
       params += `type=${type}&`;
     }
