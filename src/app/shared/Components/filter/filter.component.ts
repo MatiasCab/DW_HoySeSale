@@ -26,11 +26,11 @@ export class FilterComponent implements OnInit {
       let types = [null, 'dancingParty', 'bar', 'pub', 'event'];
       for (let i = 0; i < types.length; i++) {
         if(types[i] == params.get('type')) {
-          this.filter(i);
+          this.filter(i, types[i]);
           break;
         }
       }
-    })
+    }).unsubscribe();
   };
 
   getType() {
@@ -68,6 +68,14 @@ export class FilterComponent implements OnInit {
         [],{
           relativeTo: this.activatedRoute,
           queryParams: {type: navigateRoute}, 
+          queryParamsHandling: 'merge'
+        }
+      )
+    }else{
+      this.route.navigate(
+        [],{
+          relativeTo: this.activatedRoute,
+          queryParams: {type: null}, 
           queryParamsHandling: 'merge'
         }
       )

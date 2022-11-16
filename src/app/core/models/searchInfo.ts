@@ -11,6 +11,7 @@ export interface searchResponse {
 }
 
 export interface searchView{
-    entertainments: entertainmentCardPreview[],
-    action: 'new' | 'extends'
+    oldEntertainments: entertainmentCardPreview[];
+    action: 'new' | 'extends';
+    newEntertainments: entertainmentCardPreview[];
 }

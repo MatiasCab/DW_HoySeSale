@@ -35,7 +35,7 @@ export class DesktopCardCarouselComponent implements OnInit {
     let changeIndex = 3;
     let newEntertainmentArray: entertainmentCardPreview[][] = [];
     let newEntertainmentSet: entertainmentCardPreview[] = [];
-    let incommingEntertainments = searchView.entertainments;
+    let incommingEntertainments = searchView.newEntertainments;
 
     if (searchView.action == 'extends' && this.showedEntertainments) {
       const lastSet = this.showedEntertainments[this.showedEntertainments.length - 1];
@@ -46,6 +46,8 @@ export class DesktopCardCarouselComponent implements OnInit {
           lastSet.push(cardEntertainment);
         }
       }
+    }else if(searchView.action == 'extends'){
+      incommingEntertainments = searchView.oldEntertainments;
     }
 
     for (const entertainment of incommingEntertainments) {
@@ -64,6 +66,7 @@ export class DesktopCardCarouselComponent implements OnInit {
     if (searchView.action == 'extends' && this.showedEntertainments) {
       this.showedEntertainments = [...this.showedEntertainments, ...newEntertainmentArray];
     } else {
+      this.carousel?.select('0');
       this.showedEntertainments = newEntertainmentArray;
     }
   }
