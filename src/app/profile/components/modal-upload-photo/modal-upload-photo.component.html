@@ -1,0 +1,8 @@
+<div class="modal-body">
+    <label class="fi-button  px-2 mb-3" for="file">Seleccione una imagen...</label>
+    <input #imageInput id="file" type="file" class="fi-button" name="postImg" accept="image/*" hidden>
+    <div class="max-width mx-auto">
+        <app-generic-button [buttonStyle]="'empty'" [btnText]="'Subir'" (click)="chargeImage()">
+        </app-generic-button>
+    </div>
+</div>
