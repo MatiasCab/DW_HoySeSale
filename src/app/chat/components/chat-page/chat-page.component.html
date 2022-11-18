@@ -1,33 +1,36 @@
 <div class="mx-3" *ngIf="isMobile">
     <app-header-navbar [currentText]="'CHATS'"></app-header-navbar>
     <div class="mt-1">
-        <app-display-chat-info></app-display-chat-info>
+        <app-search-input (searchEvent)="searchChat($event)"></app-search-input>
+        <div class="mt-3">
+            <app-chat-grid [routering]="isMobile" [chatsPreview]="chatsPreview"></app-chat-grid>
+        </div>
     </div>
 </div>
 
 <div class="container" *ngIf="!isMobile">
     <div class="row">
         <div class="col-4 searchInput">
-            <app-search-input class="w-100"></app-search-input>
+            <app-search-input class="w-100" (searchEvent)="searchChat($event)"></app-search-input>
         </div>
         <div class="col-8">
             <div class="row border-bottom">
                 <div class="col-auto p-0 my-3">
                     <div class="user-photo-chatPreview">
-                        <app-user-photo></app-user-photo>
+                        <app-user-photo [imageURL]="selectedChat?.imageLink"></app-user-photo>
                     </div>
                 </div>
                 <div class="col text-light my-3">
-                    <h5 class="text-uppercase">Matias</h5>
+                    <h5 class="text-uppercase">{{selectedChat?.name}}</h5>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row h-100">
         <div class="col-4 colum pt-3">
-            <app-chat-grid></app-chat-grid>
+            <app-chat-grid [chatsPreview]="chatsPreview" (chatSelected)="chatSelected($event)"></app-chat-grid>
         </div>
-        <div class="col-8 messagesView colum">  
+        <div class="col-8 messagesView colum">
             <app-message-grid #messageGrid class="margin width pb-2 mx-auto"></app-message-grid>
             <div class="bottom-position pb-1 margin">
                 <app-input-message (message)="sendMessage($event)"></app-input-message>

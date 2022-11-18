@@ -16,11 +16,23 @@ export class EntertainmentPageComponent implements OnInit {
 
   entertainment?: Local | Event;
 
-  currentIcon: string = 'bi bi-bookmark';
+  currentIcon?: string;
   prevIcon?: string;
 
   isAnEvent: boolean = false;
   isMobile: boolean = true;
+
+  public get  Icon() : string {
+    if(this.currentIcon){
+      return this.currentIcon;
+    }
+    if(this.entertainment && !this.currentIcon){
+      this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+      return this.currentIcon;
+    }
+    return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+  }
+  
 
   constructor(private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
@@ -57,7 +69,7 @@ export class EntertainmentPageComponent implements OnInit {
   }
 
   changFavoriteIcon() {
-    const newFavoriteData = this.favoriteService.favoriteAction(this.currentIcon, this.entertainment!.entertainmentID);
+    const newFavoriteData = this.favoriteService.favoriteAction(this.Icon, this.entertainment!.entertainmentID);
     this.prevIcon = this.currentIcon;
     this.currentIcon = newFavoriteData.icon;
     newFavoriteData.serverStatus.subscribe(response => {

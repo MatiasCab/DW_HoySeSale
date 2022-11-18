@@ -178,6 +178,11 @@ a {
     margin-top: 2rem;
 }
 
+
+.display-info-mobile .carousel-inner {
+    padding-bottom: 0;
+}
+
 @media screen and (min-width: 900px) {
     body {
         background: linear-gradient(0deg, rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), radial-gradient(37.82% 58.5% at 50% 53.22%, rgba(0, 0, 0, 0.6) 0%, #181818 100%), url("./assets/images/desktopBG1.jpg");

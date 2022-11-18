@@ -1,4 +1,4 @@
-<div class="fondo">
+<div class="{{isMobile ? 'fondo' : ''}}">
     <div class="blur-back">
         <p class="alert pe-3" *ngIf="errorMessage">
             <ngb-alert [type]="'danger'" (closed)="errorMessage = undefined">{{errorMessage}}</ngb-alert>

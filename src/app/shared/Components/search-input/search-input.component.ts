@@ -10,16 +10,14 @@ export class SearchInputComponent implements OnInit {
   @ViewChild('searchBar') searchBar?: ElementRef<HTMLInputElement>;
   @Output() searchEvent: EventEmitter<string> = new EventEmitter();
 
+  public get getSearchInfo() : string | undefined{
+    return this.searchBar?.nativeElement.value == '' ? undefined : this.searchBar?.nativeElement.value;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  
-  public get getSearchInfo() : string | undefined{
-    return this.searchBar?.nativeElement.value == '' ? undefined : this.searchBar?.nativeElement.value;
-  }
-  
 
   keyEnter(key: KeyboardEvent){
     let reg = 'qwertyuiopñlkjhgfdsazxcvbnmQWERTYUIOPÑLKJHGFDSAZXCVBNM-*/1234567890!¡¿?';

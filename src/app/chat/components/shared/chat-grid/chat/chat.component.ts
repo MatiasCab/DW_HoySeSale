@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 
 @Component({
   selector: 'app-chat',
@@ -7,16 +8,14 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 })
 export class ChatComponent implements OnInit {
 
-  @Input() putBorderBottom!: boolean
-  @Input() chatInfo!: string;
-
-  hola: string = "j";
+  @Input() putBorderBottom?: boolean
+  @Input() chatInfo?: ChatsPreview;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
+  
 
 }

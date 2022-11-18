@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 
 @Component({
   selector: 'app-chat-grid',
@@ -7,13 +8,18 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class ChatGridComponent implements OnInit {
 
-  @Input() chatsArray: string[] = ["0","1","2", "3","0","1","2", "3", "0","1","2", "3", "0","1","2", "3", "0","1","2", "3"];
+  @Input() chatsPreview?: ChatsPreview[];
+  @Input() routering?: boolean;
+  @Output() chatSelected: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  display: boolean = false;
+  selectedChat(chatId: number){
+    console.log(chatId);
+    this.chatSelected.emit(chatId);
+  }
 
 }
