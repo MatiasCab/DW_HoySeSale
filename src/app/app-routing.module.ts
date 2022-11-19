@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorPageComponent } from './core/components/error-page/error-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'presentation', pathMatch:"full"},
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'entertainment', loadChildren: () => import('./entertainment/entertainment.module').then(m => m.EntertainmentModule)},
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
   {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
-  {path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule)}
+  {path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule)},
+  {path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({

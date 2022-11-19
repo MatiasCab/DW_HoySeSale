@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/authInterceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 
@@ -13,7 +14,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     RouterModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    ErrorPageComponent
   ],
   exports: [
     NavbarComponent
