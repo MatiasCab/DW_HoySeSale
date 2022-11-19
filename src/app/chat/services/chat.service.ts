@@ -9,6 +9,8 @@ import { Message } from 'src/app/core/models/messages';
 })
 export class ChatService {
 
+  private readonly CHAT_API_URL = `${API_URL}/chats`;
+
   constructor(private http: HttpClient) { }
 
   getChatsPreview(searchFilter?: string) {
@@ -16,18 +18,18 @@ export class ChatService {
     if (searchFilter) {
       params = `?searchInfo=${searchFilter}`;
     }
-    return this.http.get<ChatsPreview[]>(`${API_URL}/chats${params}`);
+    return this.http.get<ChatsPreview[]>(`${this.CHAT_API_URL}${params}`);
   }
 
   getEspecificChat(entertainmentId: number) {
-    return this.http.get<ChatsPreview>(`${API_URL}/chats/${entertainmentId}`);
+    return this.http.get<ChatsPreview>(`${this.CHAT_API_URL}/${entertainmentId}`);
   } //HACER EL HANDLER ERROR
 
   sendMessage(messageContent: string, chatId: number) {
-    return this.http.post<any>(`${API_URL}/chats/${chatId}/messages`, {messageContent});
+    return this.http.post<any>(`${this.CHAT_API_URL}/${chatId}/messages`, {messageContent});
   }
 
   getMessages(chatId: number) {
-    return this.http.get<Message[]>(`${API_URL}/chats/${chatId}/messages`);
+    return this.http.get<Message[]>(`${this.CHAT_API_URL}/${chatId}/messages`);
   }
 }

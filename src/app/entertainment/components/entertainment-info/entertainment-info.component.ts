@@ -5,6 +5,7 @@ import { appAnimations } from 'src/app/animations';
 import { searchView } from '../../../core/models/searchInfo'
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
 import { Router } from '@angular/router';
+import { ClockService } from '../../services/clock.service';
 
 @Component({
   selector: 'app-entertainment-info',
@@ -22,6 +23,12 @@ export class EntertainmentInfoComponent implements OnInit {
   rate?: number;
   currentIcon?: string;
   prevIcon?: string;
+  countdown = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  }
 
   get Rate() {
     if (!this.isAnEvent && this.entertainment) {
@@ -61,11 +68,21 @@ export class EntertainmentInfoComponent implements OnInit {
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
 
-  constructor(private favoriteService: FavoriteService, private router: Router) { }
+  public get Schedule(): Date{
+    return new Date((this.entertainment as Event).schedule);
+  }
+
+  constructor(
+    private favoriteService: FavoriteService, 
+    private router: Router,
+    private clockService: ClockService) { }
 
   ngOnInit(): void {
     console.log(this.entertainment);
-    
+    this.clockService.time(this.Schedule).subscribe(
+      countdown => {this.countdown = countdown; console.log(this.countdown);}
+      
+    )
   }
 
 

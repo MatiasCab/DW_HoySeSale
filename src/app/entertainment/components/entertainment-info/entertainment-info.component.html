@@ -50,11 +50,9 @@
 
         <div class="header cont-2 row">
             <p class="col-10">{{entertainment.name}}</p>
-            <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" 
-            [currentIcon2]="Icon" 
-            [currentIcon1]="'bi bi-chat-left'"
-            (icon2Event)="changFavoriteIcon()"
-            (icon1Event)="redirectToChat()"></app-header-navbar>
+            <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" [currentIcon2]="Icon"
+                [currentIcon1]="'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()" (icon1Event)="redirectToChat()">
+            </app-header-navbar>
         </div>
 
         <div *ngIf="!isAnEvent" class="calification">
@@ -82,15 +80,40 @@
             <img class="map" src="{{'data:image/png;base64,' + entertainment.locationImage}}" (click)="openMap()">
         </div>
 
-        <div class="events cont-6">
+        <div class="events cont-6" *ngIf="!isAnEvent">
             <h3>EVENTOS</h3>
-            <div class="carousel-events" *ngIf="!isAnEvent">
-                <ngb-carousel *ngIf="entertainmentEvents.length > 0" [wrap]="false" id="carouselDesktop" class="carousel" [interval]="3000" [showNavigationIndicators]="false">
+            <div class="carousel-events">
+                <ngb-carousel *ngIf="entertainmentEvents.length > 0" [wrap]="false" id="carouselDesktop"
+                    class="carousel" [interval]="3000" [showNavigationIndicators]="false">
                     <ng-template ngbSlide *ngFor="let entertainments of entertainmentEvents; let i = index">
-                            <app-card [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}" [entertainment]="entertainments"></app-card>
+                        <app-card [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}"
+                            [entertainment]="entertainments"></app-card>
                     </ng-template>
                 </ngb-carousel>
-                <!-- <app-desktop-card-carousel *ngIf="!isMobile" [setEntertainments]="{entertainments:entertainmentEvents, action: 'new'}"></app-desktop-card-carousel> -->
+            </div>
+        </div>
+        <div class="timer cont-6" *ngIf="isAnEvent">
+            <h3>FALTA POCO!!</h3>
+            <div class="pos">
+                <div class="mx-2">
+                    <p>{{this.countdown.days}}</p>
+                    <span class="title">Days</span>
+                </div>
+                <p class="separator">:</p>  
+                <div class="mx-2">
+                    <p>{{this.countdown.hours}}</p>
+                    <span class="title">Horas</span>
+                </div>
+                <p class="separator">:</p>
+                <div class="mx-2">
+                    <p>{{this.countdown.minutes}}</p>
+                    <span class="title">Minutos</span>
+                </div>
+                <p class="separator">:</p>
+                <div class="mx-2">
+                    <p>{{this.countdown.seconds}}</p>
+                    <span class="title">Segundos</span>
+                </div>
             </div>
         </div>
     </div>
