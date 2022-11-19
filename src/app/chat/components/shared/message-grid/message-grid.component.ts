@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Message, MessageFullInfo } from 'src/app/core/models/messages';
 
 @Component({
   selector: 'app-message-grid',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MessageGridComponent implements OnInit {
 
-  messages: string[] = [];
+  @Input() messages?: MessageFullInfo[];
   @Input() messageToSend?: string;
 
   constructor() { }
@@ -15,8 +16,8 @@ export class MessageGridComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newMessage(message: string ){
-    this.messages.push(message)
+  newMessage(messageInfo: MessageFullInfo){
+    this.messages?.push(messageInfo);
   }
 
 }

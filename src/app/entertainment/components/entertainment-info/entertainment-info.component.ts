@@ -4,6 +4,7 @@ import { Event } from 'src/app/core/models/event';
 import { appAnimations } from 'src/app/animations';
 import { UserService } from 'src/app/profile/services/user.service';
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entertainment-info',
@@ -18,8 +19,9 @@ export class EntertainmentInfoComponent implements OnInit {
   @Input() isAnEvent?: boolean;
   @Input() isMobile?: boolean;
 
-  mapAPIURL?: string;
   rate?: number;
+  currentIcon?: string;
+  prevIcon?: string;
 
   get Rate(){
     if(!this.isAnEvent && this.entertainment){
@@ -41,8 +43,6 @@ export class EntertainmentInfoComponent implements OnInit {
     }
     return [];
   }
-  currentIcon?: string;
-  prevIcon?: string;
 
   public get  Icon() : string {
     if(this.currentIcon){
@@ -55,9 +55,10 @@ export class EntertainmentInfoComponent implements OnInit {
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
 
-  constructor(private favoriteService: FavoriteService) { }
+  constructor(private favoriteService: FavoriteService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.entertainment);
   }
   
 
@@ -79,6 +80,10 @@ export class EntertainmentInfoComponent implements OnInit {
         alert('Lo sentimos no hemos podido procesar su solicitud.');
       }
     })
+  }
+
+  redirectToChat(){
+    this.router.navigateByUrl(`/chat?entertainemt=${this.entertainment?.entertainmentID}`);
   }
 
 }

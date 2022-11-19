@@ -34,12 +34,12 @@
 </div>
 <!--ME PARECE QUE HAY COMO MUCHOS DIV, CAPAZ SE PUEDE ACORTAR UN POCO-->
 <ng-template #elseBlock>
-    <div class="infoDesktop">
+    <div class="infoDesktop" *ngIf="entertainment">
         <div class="local-images cont-1">
             <div class="carousel-container">
                 <ngb-carousel class="carousel" #carousel [interval]="3000" [showNavigationIndicators]="false"
                     [showNavigationArrows]="false">
-                    <ng-template ngbSlide *ngFor="let img of entertainment?.imagesLinks">
+                    <ng-template ngbSlide *ngFor="let img of entertainment.imagesLinks">
                         <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
                             <div class="images">
                                 <img [src]="img" alt="">
@@ -51,11 +51,12 @@
         </div>
 
         <div class="header cont-2 row">
-            <p class="col-10">{{entertainment?.name}}</p>
+            <p class="col-10">{{entertainment.name}}</p>
             <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" 
             [currentIcon2]="Icon" 
             [currentIcon1]="'bi bi-chat-left'"
-            (icon2Event)="changFavoriteIcon()"></app-header-navbar>
+            (icon2Event)="changFavoriteIcon()"
+            (icon1Event)="redirectToChat()"></app-header-navbar>
         </div>
 
         <div *ngIf="!isAnEvent" class="calification">
@@ -75,17 +76,17 @@
         </div>
 
         <div class="description cont-4">
-            <p>{{entertainment?.description}}</p>
+            <p>{{entertainment.description}}</p>
         </div>
 
         <div class="ubication cont-5">
             <h3>UBICACIÓN</h3>
-            <img class="map" src="{{'data:image/png;base64,' + entertainment?.locationImage}}" (click)="openMap()">
+            <img class="map" src="{{'data:image/png;base64,' + entertainment.locationImage}}" (click)="openMap()">
         </div>
 
         <div class="events cont-6">
             <h3>EVENTOS</h3>
-            <div class="carousel-events">
+            <div class="carousel-events" *ngIf="!isAnEvent">
                 <ngb-carousel *ngIf="entertainmentEvents.length > 0" [wrap]="false" id="carouselDesktop" class="carousel" [interval]="3000" [showNavigationIndicators]="false">
                     <ng-template ngbSlide *ngFor="let entertainments of entertainmentEvents; let i = index">
                             <app-card [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}" [entertainment]="entertainments"></app-card>

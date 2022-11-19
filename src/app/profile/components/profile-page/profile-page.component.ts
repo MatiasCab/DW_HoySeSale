@@ -28,11 +28,14 @@ export class ProfilePageComponent implements OnInit {
       }
     })
 
-    this.userService.getThisUser().subscribe(user => {
-      console.log(user);
-      this.user = user;
-    })
-
+    this.user = this.userService.User;
+    if(!this.user){
+      this.userService.getThisUser().subscribe(
+        user => {
+          this.user = user;
+        }
+      )
+    }
 
   }
 

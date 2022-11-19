@@ -31,7 +31,7 @@
             <app-chat-grid [chatsPreview]="chatsPreview" (chatSelected)="chatSelected($event)"></app-chat-grid>
         </div>
         <div class="col-8 messagesView colum">
-            <app-message-grid #messageGrid class="margin width pb-2 mx-auto"></app-message-grid>
+            <app-message-grid #messageGrid class="margin width pb-2" [messages]="messages"></app-message-grid>
             <div class="bottom-position pb-1 margin">
                 <app-input-message (message)="sendMessage($event)"></app-input-message>
             </div>

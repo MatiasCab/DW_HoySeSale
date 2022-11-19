@@ -16,7 +16,7 @@ export class DesktopChatPageComponent implements OnInit {
   }
 
   sendMessage(message: string){
-    this.messageGrid?.newMessage(message);
+    //this.messageGrid?.newMessage(message);
   }
 
 }

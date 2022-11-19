@@ -1,6 +1,6 @@
 <div class="container-fluid" *ngIf="chatsPreview">
     <div *ngFor="let chat of chatsPreview; let i = index">
-        <a routerLink="{/chat/{{chat.messageChatId}}}" *ngIf="routering">
+        <a routerLink="/chat/{{chat.localId}}" *ngIf="routering">
             <app-chat [chatInfo]="chat" [putBorderBottom]="chatsPreview.length - 1 == i" (click)="selectedChat(chat.messageChatId)"></app-chat>
         </a>
         <app-chat *ngIf="!routering" [chatInfo]="chat" [putBorderBottom]="chatsPreview.length - 1 == i" (click)="selectedChat(chat.messageChatId)"></app-chat>

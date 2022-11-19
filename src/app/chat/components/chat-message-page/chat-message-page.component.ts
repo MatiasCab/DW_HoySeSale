@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { appAnimations } from 'src/app/animations';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
+import { Message, MessageFullInfo } from 'src/app/core/models/messages';
+import { UserService } from 'src/app/profile/services/user.service';
 import { ChatService } from '../../services/chat.service';
 
 @Component({
@@ -10,18 +13,37 @@ import { ChatService } from '../../services/chat.service';
   animations: [appAnimations]
 })
 export class ChatMessagePageComponent implements OnInit {
-  
 
-  constructor(private chatService: ChatService, private route: ActivatedRoute) { }
+  chat?: ChatsPreview;
+  messages?: MessageFullInfo[];
+
+  constructor(private chatService: ChatService, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
-    const chatId = this.route.snapshot.paramMap.get('chatId');
+    const entertainmentId = this.route.snapshot.paramMap.get('entertainmentId');
 
-    if(+chatId! == NaN) return;
+    if (+entertainmentId! == NaN) return;
 
-    this.chatService.getChatById(Number(chatId)).subscribe( 
+    this.chatService.getEspecificChat(Number(entertainmentId)).subscribe(
       res => {
-
-    })
+        console.log(res);
+        this.chat = res;
+        this.chatService.getMessages(this.chat!.messageChatId).subscribe(
+          messages => {
+            console.log(messages);
+            const messagesCont: MessageFullInfo[] = []
+            messages.forEach(message => {
+              const isSender = message.receiver == Number(entertainmentId);
+              messagesCont?.push({
+                message,
+                type: isSender ? 'send' : 'recibe',
+                senderImage: isSender ? this.userService.User!.imageLink : this.chat!.imageLink,
+                recieverIMage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
+              })
+            })
+            this.messages = messagesCont;
+          }
+        )
+      })
   }
 }

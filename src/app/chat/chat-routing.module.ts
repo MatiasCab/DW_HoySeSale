@@ -13,7 +13,7 @@ const routes: Routes = [
         data: { animation: 'ChatsPage' }
     },
     {
-        path: ':chatId',
+        path: ':entertainmentId',
         component: ChatMessagePageComponent,
         data: { animation: 'MessagePage' }
     }

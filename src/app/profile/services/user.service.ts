@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { API_URL } from 'src/app/core/consts';
 import { User } from 'src/app/core/models/user';
 
@@ -11,10 +11,23 @@ export class UserService {
 
   imageUploaded: EventEmitter<string> = new EventEmitter();
 
-  constructor(private http: HttpClient) { }
+  private userInfo?: User;
+
+  constructor(private http: HttpClient) { 
+  }
+
+
+  get User(){
+    return this.userInfo;
+  }
+
+  SetUser(user: User){
+    this.userInfo = user;
+  }
 
   getThisUser() {
     return this.http.get<User>(`${API_URL}/users`).pipe(
+      tap(user => this.SetUser(user)),
       catchError(this.handleError('getThisUser'))
     );
   }

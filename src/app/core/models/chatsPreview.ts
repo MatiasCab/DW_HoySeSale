@@ -4,4 +4,5 @@ export interface ChatsPreview {
     imageLink: string;
     messageChatId: number;
     type: 'local';
+    localId: number;
 }
