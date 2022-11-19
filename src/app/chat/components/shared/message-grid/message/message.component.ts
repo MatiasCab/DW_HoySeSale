@@ -13,7 +13,6 @@ export class MessageComponent implements OnInit {
   @Input() messageInfo?: MessageFullInfo;
 
   get getMessageType(){
-    console.log(this.messageInfo);
     return this.messageInfo?.type;
   }
 

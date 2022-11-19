@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 import { Message, MessageFullInfo } from 'src/app/core/models/messages';
 import { User } from 'src/app/core/models/user';
@@ -21,7 +22,12 @@ export class ChatPageComponent implements OnInit {
   messages?: MessageFullInfo[];
 
 
-  constructor(private breakpointObserver: BreakpointObserver, private chatService: ChatService, private userService: UserService) { }
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private chatService: ChatService, 
+    private userService: UserService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -69,7 +75,6 @@ export class ChatPageComponent implements OnInit {
       messages => {
         this.userService.getThisUser().subscribe(
           user => {
-            console.log(messages);
             const messagesCont: MessageFullInfo[] = []
             messages.forEach(message => {
               const isSender = message.receiver == Number(this.selectedChat?.localId);
@@ -88,13 +93,27 @@ export class ChatPageComponent implements OnInit {
   }
 
   searchChat(searchInfo?: string) {
+    const entertainmentId = this.route.snapshot.queryParamMap.get('entertainment');
+    if(entertainmentId){ //regular si el usuario cambia la ruta.
+      this.chatService.getEspecificChat(Number(entertainmentId)).subscribe(chat => {
+        this.selectedChat = chat;
+        this.getChatsPreview(false, searchInfo);
+      })
+    }else{
+      this.getChatsPreview(true, searchInfo);
+    }
+  }
+
+  getChatsPreview(putSelectedChat: boolean, searchInfo?: string){
     this.chatService.getChatsPreview(searchInfo).subscribe(
       res => {
         this.chatsPreview = res;
         console.log(this.chatsPreview);
         if (this.chatsPreview.length > 0) {
-          this.selectedChat = this.chatsPreview[0];
-          this.chatSelected(this.selectedChat.messageChatId);
+          if(putSelectedChat){
+            this.selectedChat = this.chatsPreview[0];
+          }
+          this.chatSelected(this.selectedChat!.messageChatId);
         }
       }
     )
