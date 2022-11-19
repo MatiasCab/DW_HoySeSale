@@ -26,7 +26,7 @@ export const appAnimations = [
                 { optional: true }),
             group([
                 query(':leave', [
-                    style({ transform: 'translateX(0%)' , background: '#181818', zIndex: '1' }),
+                    style({ transform: 'translateX(0%)', background: '#181818', zIndex: '1' }),
                     animate('0.2s ease-in-out',
                         style({ transform: 'translateX(100%)' }))
                 ], { optional: true }),
@@ -65,7 +65,7 @@ export const appAnimations = [
             style({ transform: "scale(0)", opacity: 0 }),
             animate('0.2s {{delay}}s', style({ transform: "scale(1)", opacity: 1 }))
         ], { params: { delay: 0 } })
-    ]),trigger("searchedCardsDesktop", [
+    ]), trigger("searchedCardsDesktop", [
         transition(":enter", [
             style({ transform: "translateX(100%)", opacity: 0 }),
             animate('0.2s {{delay}}s', style({ transform: "translateX(0%)", opacity: 1 }))
@@ -78,5 +78,10 @@ export const appAnimations = [
             style({ transform: "translateX(100%)" }),
             animate('0.3s', style({ transform: "translateX(0%)" }))
         ])
+    ]), trigger("alertMessages", [
+        transition(":enter", [
+            style({ transform: "translateY(100%)", opacity: 0}),
+            animate('0.2s {{delay}}s', style({ transform: "translateY(0%)", opacity: 1 }))
+        ], { params: { delay: 0 } })
     ])
 ];

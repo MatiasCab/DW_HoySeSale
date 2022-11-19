@@ -25,16 +25,16 @@ export class ChatPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
-    .subscribe(result => {
-      const breakpoints = result.breakpoints;
-      console.log(result);
-      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 900px)']){
-        this.isMobile = false;
-      }else{
-        this.isMobile = true;
-      }
-    })
+      .subscribe(result => {
+        const breakpoints = result.breakpoints;
+        console.log(result);
+        //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
+        if (breakpoints['(min-width: 900px)']) {
+          this.isMobile = false;
+        } else {
+          this.isMobile = true;
+        }
+      })
     this.searchChat();
   }
 
@@ -46,49 +46,53 @@ export class ChatPageComponent implements OnInit {
           this.userService.getThisUser().subscribe(
             user => this.setMessageInfo(message, user)
           )
-        }else{
+        } else {
           this.setMessageInfo(message, user);
         }
       }
     )
   }
 
-    setMessageInfo(message: Message, user: User){
-      this.messageGrid?.newMessage({
-        message, 
-        type: 'send', 
-        senderImage: user.imageLink,
-        recieverIMage: this.selectedChat!.imageLink
-      })
-    }
+  setMessageInfo(message: Message, user: User) {
+    this.messageGrid?.newMessage({
+      message,
+      type: 'send',
+      senderImage: user.imageLink,
+      recieverIMage: this.selectedChat!.imageLink
+    })
+  }
 
-  chatSelected(chatId: number){
+  chatSelected(chatId: number) {
     this.selectedChat = this.chatsPreview?.filter((chat) => chat.messageChatId == chatId)[0];
     console.log(this.selectedChat);
     this.chatService.getMessages(chatId).subscribe(
       messages => {
-        console.log(messages);
-        const messagesCont: MessageFullInfo[] = []
-        messages.forEach(message => {
-          const isSender = message.receiver == Number(this.selectedChat?.localId);
-          messagesCont?.push({
-            message,
-            type: isSender ? 'send' : 'recibe',
-            senderImage: isSender ? this.userService.User!.imageLink : this.selectedChat!.imageLink,
-            recieverIMage: isSender ? this.selectedChat!.imageLink : this.userService.User!.imageLink
-          })
-        })
-        this.messages = messagesCont;
+        this.userService.getThisUser().subscribe(
+          user => {
+            console.log(messages);
+            const messagesCont: MessageFullInfo[] = []
+            messages.forEach(message => {
+              const isSender = message.receiver == Number(this.selectedChat?.localId);
+              messagesCont?.push({
+                message,
+                type: isSender ? 'send' : 'recibe',
+                senderImage: isSender ? user.imageLink : this.selectedChat!.imageLink,
+                recieverIMage: isSender ? this.selectedChat!.imageLink : user.imageLink
+              })
+            })
+            this.messages = messagesCont;
+          }
+        )
       }
     )
   }
 
-  searchChat(searchInfo?: string){
+  searchChat(searchInfo?: string) {
     this.chatService.getChatsPreview(searchInfo).subscribe(
       res => {
         this.chatsPreview = res;
         console.log(this.chatsPreview);
-        if(this.chatsPreview.length > 0){
+        if (this.chatsPreview.length > 0) {
           this.selectedChat = this.chatsPreview[0];
           this.chatSelected(this.selectedChat.messageChatId);
         }

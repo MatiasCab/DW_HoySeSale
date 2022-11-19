@@ -11,11 +11,13 @@ import { InputUserCredentialsComponent } from '../shared/input-user-credentials/
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/profile/services/user.service';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [appAnimations]
 })
 export class LoginComponent implements OnInit {
 

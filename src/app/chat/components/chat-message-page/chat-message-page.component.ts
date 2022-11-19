@@ -30,20 +30,23 @@ export class ChatMessagePageComponent implements OnInit {
         this.chat = res;
         this.chatService.getMessages(this.chat!.messageChatId).subscribe(
           messages => {
-            console.log(messages);
-            const messagesCont: MessageFullInfo[] = []
-            messages.forEach(message => {
-              const isSender = message.receiver == Number(entertainmentId);
-              messagesCont?.push({
-                message,
-                type: isSender ? 'send' : 'recibe',
-                senderImage: isSender ? this.userService.User!.imageLink : this.chat!.imageLink,
-                recieverIMage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
-              })
-            })
-            this.messages = messagesCont;
-          }
-        )
+            this.userService.getThisUser().subscribe(
+              user => {
+                console.log(messages);
+                const messagesCont: MessageFullInfo[] = []
+                messages.forEach(message => {
+                  const isSender = message.receiver == Number(entertainmentId);
+                  messagesCont?.push({
+                    message,
+                    type: isSender ? 'send' : 'recibe',
+                    senderImage: isSender ? this.userService.User!.imageLink : this.chat!.imageLink,
+                    recieverIMage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
+                  })
+                })
+                this.messages = messagesCont;
+              }
+            )
+          })
       })
   }
 }

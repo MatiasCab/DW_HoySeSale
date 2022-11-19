@@ -1,5 +1,5 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { appAnimations } from 'src/app/animations';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
@@ -16,21 +16,22 @@ export class CardComponent implements OnInit {
   currentIcon?: string;
   prevIcon?: string;
 
-  constructor(private favoriteService: FavoriteService) { }
+  constructor(private favoriteService: FavoriteService, private router: Router) { }
 
-  public get  Icon() : string {
-    if(this.currentIcon){
+  public get Icon(): string {
+    if (this.currentIcon) {
       return this.currentIcon;
     }
-    if(this.entertainment && !this.currentIcon){
+    if (this.entertainment && !this.currentIcon) {
       this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
       return this.currentIcon;
     }
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
-  
+
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   changeFavoriteIcon() {
@@ -38,7 +39,7 @@ export class CardComponent implements OnInit {
     this.prevIcon = this.currentIcon;
     this.currentIcon = newFavoriteData.icon;
     newFavoriteData.serverStatus.subscribe(response => {
-      if(response.error){
+      if (response.error) {
         this.currentIcon = this.prevIcon!;
         alert('Lo sentimos no hemos podido procesar su solicitud.');
       }
@@ -58,5 +59,4 @@ export class CardComponent implements OnInit {
     }
     return;
   }
-
 }

@@ -23,10 +23,12 @@ export class AuthInterceptor implements HttpInterceptor {
         );
       }
     }
-    return next.handle(req);
+    return next.handle(req).pipe(
+      catchError(this.handleError())
+    ); //PREGUNATR SOBRE TENER ESTO ACA
   }
 
-  private handleError() {
+  private handleError() { //PREGUNTAR SOBRE ESTO.
     return (error: HttpErrorResponse) => {
       if(error.error.name == 'NoJWT' || error.error.name == 'JWTInvalid'){
         this.router.navigateByUrl('/presentation/login');

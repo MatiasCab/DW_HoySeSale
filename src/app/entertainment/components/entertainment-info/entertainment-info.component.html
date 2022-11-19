@@ -27,9 +27,7 @@
 
     <div *ngIf="!isAnEvent" class="events mt-2">
         <h3>EVENTOS</h3>
-        <div class="carousel-events">
-            <app-desktop-card-carousel *ngIf="!isMobile"></app-desktop-card-carousel>
-        </div>
+        <app-cards-grid [setEntertainments]="EntertainmentEventsMobile"></app-cards-grid>
     </div>
 </div>
 <!--ME PARECE QUE HAY COMO MUCHOS DIV, CAPAZ SE PUEDE ACORTAR UN POCO-->

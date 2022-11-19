@@ -1,13 +1,15 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { appAnimations } from 'src/app/animations';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sing-up-page',
   templateUrl: './sing-up-page.component.html',
-  styleUrls: ['./sing-up-page.component.scss']
+  styleUrls: ['./sing-up-page.component.scss'],
+  animations: [appAnimations]
 })
 export class SingUpPageComponent implements OnInit {
 

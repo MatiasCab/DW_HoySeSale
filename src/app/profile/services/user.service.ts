@@ -15,8 +15,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { 
   }
-
-
+  
   get User(){
     return this.userInfo;
   }
@@ -26,10 +25,14 @@ export class UserService {
   }
 
   getThisUser() {
-    return this.http.get<User>(`${API_URL}/users`).pipe(
-      tap(user => this.SetUser(user)),
-      catchError(this.handleError('getThisUser'))
-    );
+    if(this.User){
+      return of(this.User);
+    }else{
+      return this.http.get<User>(`${API_URL}/users`).pipe(
+        tap(user => this.SetUser(user)),
+        catchError(this.handleError('getThisUser'))
+      );
+    }
   }
 
   addToFavorite(entertainmentId: number){
@@ -47,7 +50,8 @@ export class UserService {
   uploadProfileImage(base64Img: string){
     base64Img = base64Img.split(';base64,')[1];
     return this.http.post<any>(`${API_URL}/users/uploadImage`, {base64Img}).pipe(
-      catchError(this.handleError('uploadProfileImage'))
+      catchError(this.handleError('uploadProfileImage')),
+      tap(_ => this.userInfo = undefined)
     );
   }
 

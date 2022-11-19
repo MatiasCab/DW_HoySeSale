@@ -1,24 +1,32 @@
 .fi-button {
-    
     background: linear-gradient(180deg, rgb(212, 80, 230) 0%, #6B2CF5 100%);
-    
-    border: 0; //Permite definir reglas para el estilo del borde del elemento.
-    height: 30%;
     color: white; //Especifica el color del contenido.
-    max-width: fit-content;
     display: flex;
     align-items: center;
     border-radius: 30px;
     height: 50%;    
 }
-
+label{
+    margin-bottom: 0;
+}
+.row{
+    height: 100%;
+}
+.col-8{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .modal-body{
-    height: 20vh;
+    height: 30vh;
+}
+.max-width {
+    padding-top: 5%;
+    width: 100%;
 }
 
-.max-width{
-    position: absolute;
-    width: 50%;
-    padding-bottom: 5%;
-    bottom: 0;
+.col-4.prev-view-user-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

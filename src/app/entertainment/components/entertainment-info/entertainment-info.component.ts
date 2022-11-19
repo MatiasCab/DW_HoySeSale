@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
 import { appAnimations } from 'src/app/animations';
-import { UserService } from 'src/app/profile/services/user.service';
+import { searchView } from '../../../core/models/searchInfo'
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
 import { Router } from '@angular/router';
 
@@ -23,9 +23,9 @@ export class EntertainmentInfoComponent implements OnInit {
   currentIcon?: string;
   prevIcon?: string;
 
-  get Rate(){
-    if(!this.isAnEvent && this.entertainment){
-      if(this.rate){
+  get Rate() {
+    if (!this.isAnEvent && this.entertainment) {
+      if (this.rate) {
         return this.rate;
       }
       return (this.entertainment as Local).qualification;
@@ -33,22 +33,28 @@ export class EntertainmentInfoComponent implements OnInit {
     return 0;
   }
 
-  set Rate(rate: number){
+  set Rate(rate: number) {
     this.rate = rate;
   }
 
-  get entertainmentEvents(){
-    if(this.entertainment){
+  get entertainmentEvents() {
+    if (this.entertainment) {
       return (this.entertainment as Local).localEvents;
     }
     return [];
   }
 
-  public get  Icon() : string {
-    if(this.currentIcon){
+
+  public get EntertainmentEventsMobile(): searchView {
+    return { action: 'new', newEntertainments: this.entertainmentEvents, oldEntertainments: this.entertainmentEvents };
+  }
+
+
+  public get Icon(): string {
+    if (this.currentIcon) {
       return this.currentIcon;
     }
-    if(this.entertainment && !this.currentIcon){
+    if (this.entertainment && !this.currentIcon) {
       this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
       return this.currentIcon;
     }
@@ -59,30 +65,31 @@ export class EntertainmentInfoComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.entertainment);
-  }
-  
-
-  openMap(){
-    window.open(`http://www.google.com/maps/place/${this.entertainment?.lat}, ${this.entertainment?.lon}`,'_blank', 'location=yes');
+    
   }
 
-  getDate(){
+
+  openMap() {
+    window.open(`http://www.google.com/maps/place/${this.entertainment?.lat}, ${this.entertainment?.lon}`, '_blank', 'location=yes');
+  }
+
+  getDate() {
     return (this.entertainment as Event).schedule;
   }
 
-  changFavoriteIcon(){
+  changFavoriteIcon() {
     const newFavoriteData = this.favoriteService.favoriteAction(this.Icon, this.entertainment!.entertainmentID);
     this.prevIcon = this.currentIcon;
     this.currentIcon = newFavoriteData.icon;
     newFavoriteData.serverStatus.subscribe(response => {
-      if(response.error){
+      if (response.error) {
         this.currentIcon = this.prevIcon!;
         alert('Lo sentimos no hemos podido procesar su solicitud.');
       }
     })
   }
 
-  redirectToChat(){
+  redirectToChat() {
     this.router.navigateByUrl(`/chat?entertainemt=${this.entertainment?.entertainmentID}`);
   }
 

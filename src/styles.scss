@@ -89,6 +89,28 @@ body {
     //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
 }
 
+.prev-view-user-photo .photo-cropper {
+
+    width: 6.5rem; //Especifica el ancho del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+
+    height: 6.5rem; //Especifica la altura del area de contendio del elemento. (es lo que esta dentro del margin, padding, etc).
+    //(la unidad "rem" signifixa que es relativo al tamaño del elemento raiz)
+}
+
+.spinner {
+    color: #6B2CF5;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
 .backdrop {
     backdrop-filter: blur(8px);
 }
@@ -99,9 +121,27 @@ body {
 }
 
 .cards-grid {
-    height: 79vh;
+    height: 86.5vh;
     overflow-y: auto;
 }
+
+// Simple
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.404);
+}
+
+.profile .spinner {
+    height: 56vh !important;
+}
+
+
+
 
 a {
     cursor: pointer;
@@ -117,7 +157,7 @@ a {
 .profile .carouselCards .entertainment-card {
     width: 100% !important;
     height: 56vh !important;
-    min-height: 300px ;
+    min-height: 300px;
 
     a .image {
         height: 100% !important;
@@ -175,7 +215,7 @@ a {
 }
 
 #carouselDesktop .row {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 
@@ -214,7 +254,7 @@ body::-webkit-scrollbar {
     width: 10px;
 }
 
-.carousel-events .entertainment-card{
+.carousel-events .entertainment-card {
     height: 30vh !important;
     width: 85%;
     margin-left: auto;
@@ -222,6 +262,6 @@ body::-webkit-scrollbar {
     margin-top: 0 !important;
 }
 
-.carousel-events .carousel-inner{
+.carousel-events .carousel-inner {
     padding-bottom: 0;
 }

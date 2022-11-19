@@ -26,7 +26,7 @@ export class UserProfileInfoComponent implements OnInit {
   openUploadModal() {
     this.modalService.open(ModalUploadPhotoComponent, {
       windowClass: 'backdrop',
-      centered: true,
+      centered: true
     });
   }
 }

@@ -1,4 +1,4 @@
-<div class="mx-3" *ngIf="isMobile">
+<div class="mx-3" *ngIf="isMobile && chatsPreview">
     <app-header-navbar [currentText]="'CHATS'"></app-header-navbar>
     <div class="mt-1">
         <app-search-input (searchEvent)="searchChat($event)"></app-search-input>
@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="container" *ngIf="!isMobile">
+<div class="container" *ngIf="!isMobile && chatsPreview">
     <div class="row">
         <div class="col-4 searchInput">
             <app-search-input class="w-100" (searchEvent)="searchChat($event)"></app-search-input>
@@ -36,5 +36,10 @@
                 <app-input-message (message)="sendMessage($event)"></app-input-message>
             </div>
         </div>
+    </div>
+</div>
+
+<div *ngIf="!chatsPreview" class="spinner" >
+    <div class="spinner-border" role="status">
     </div>
 </div>

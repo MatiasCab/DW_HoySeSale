@@ -1,7 +1,7 @@
 <div class="{{isMobile ? 'fondo' : ''}}">
     <div class="blur-back">
-        <p class="alert" *ngIf="errorMessage">
-            <ngb-alert [type]="'danger'" (closed)="errorMessage = undefined">{{errorMessage}}</ngb-alert>
+        <p class="alert" *ngIf="errorMessage" >
+            <ngb-alert [@alertMessages] [type]="'danger'" (closed)="errorMessage = undefined">{{errorMessage}}</ngb-alert>
         </p>
         <div class="mx-3" *ngIf="isMobile">
             <app-header-navbar [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
