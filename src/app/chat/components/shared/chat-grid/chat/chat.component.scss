@@ -6,3 +6,13 @@
 .border-top{
     border-color: #636363 !important;
 }
+
+.row.border-top{
+    flex-wrap: nowrap;
+}
+
+.row h5{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

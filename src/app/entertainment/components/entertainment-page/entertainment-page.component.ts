@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SearchCardsService } from 'src/app/search/services/SearchCards.service';
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
 
 @Component({
   selector: 'app-entertainment-page',
@@ -13,15 +14,28 @@ import { Event } from 'src/app/core/models/event';
 export class EntertainmentPageComponent implements OnInit {
 
   entertainment?: Local | Event;
-
-  favoriteIcon: string = 'bi bi-bookmark';
-
+  currentIcon?: string;
+  prevIcon?: string;
   isAnEvent: boolean = false;
   isMobile: boolean = true;
 
+  public get  Icon() : string {
+    if(this.currentIcon){
+      return this.currentIcon;
+    }
+    if(this.entertainment && !this.currentIcon){
+      this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+      return this.currentIcon;
+    }
+    return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
+  }
+  
+
   constructor(private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
-    public searchService: SearchCardsService) { }
+    public searchService: SearchCardsService,
+    private favoriteService: FavoriteService,
+    private router: Router) { }
 
   ngOnInit(): void {
     const entertainmentID = Number(this.route.snapshot.paramMap.get('id'));
@@ -31,6 +45,8 @@ export class EntertainmentPageComponent implements OnInit {
         console.log(event);
         this.entertainment = event;
         this.isAnEvent = true;
+        console.log(this.entertainment);
+        
       });
     } else {
       this.searchService.getLocalById(entertainmentID).subscribe(local => {
@@ -53,10 +69,19 @@ export class EntertainmentPageComponent implements OnInit {
   }
 
   changFavoriteIcon() {
-    if (this.favoriteIcon == 'bi bi-bookmark') {
-      this.favoriteIcon = 'bi-bookmark-fill';
-    } else {
-      this.favoriteIcon = 'bi bi-bookmark';
-    }
+    const newFavoriteData = this.favoriteService.favoriteAction(this.Icon, this.entertainment!.entertainmentID);
+    this.prevIcon = this.currentIcon;
+    this.currentIcon = newFavoriteData.icon;
+    newFavoriteData.serverStatus.subscribe(response => {
+      if(response.error){
+        this.currentIcon = this.prevIcon!;
+        alert('Lo sentimos no hemos podido procesar su solicitud.');
+      }
+    })
+  }
+
+  
+  redirectToChat(){
+    this.router.navigateByUrl(`/chat/${this.entertainment?.entertainmentID}`);
   }
 }

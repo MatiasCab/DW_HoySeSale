@@ -4,7 +4,7 @@
     height: 100%;
 
     .content{
-        width: 90vw;
+        width: 100%;
 
         .links{
             display: flex;
@@ -184,4 +184,8 @@
 
 .homeMobile{
     height: 100%;
+}
+
+.buttom{
+    width: 75%;
 }

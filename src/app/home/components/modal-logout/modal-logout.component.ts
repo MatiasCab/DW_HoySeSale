@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-modal-logout',
@@ -10,7 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalLogoutComponent implements OnInit {
 
-  constructor(config: NgbModalConfig, public modal: NgbActiveModal) {
+  constructor(config: NgbModalConfig, public modal: NgbActiveModal, private authService : AuthService) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -23,7 +24,7 @@ export class ModalLogoutComponent implements OnInit {
   }
 
   logout() {
-    console.log("kzdnflsndfdf");
+    this.authService.logout();
     this.close();
   }
 

@@ -3,3 +3,7 @@
         <app-card [@searchedCards]="{value:'', params:{delay:i/7}}" [entertainment]="entertainment"></app-card>
     </div>
 </div>
+<div *ngIf="!entertainments" class="spinner">
+    <div class="spinner-border" role="status">
+    </div>
+</div>

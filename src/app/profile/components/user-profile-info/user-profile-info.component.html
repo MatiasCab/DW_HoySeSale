@@ -1,9 +1,9 @@
-<div class="prub {{!isMobile ? 'marginDesktop' : 'marginMobile'}}">
+<div class="prub {{!isMobile ? 'marginDesktop' : 'marginMobile'}}" *ngIf="user">
     <div class="user-photo-profile">
-        <app-user-photo></app-user-photo>
+        <app-user-photo [imageURL]="newImage ? newImage : user.imageLink" (click)="openUploadModal()"></app-user-photo>
     </div>
     <div class="center">
-        <h1 class="text-light my-3">Matias</h1>
-        <p class="text-light">@mattiezequie</p>
+        <h1 class="text-light my-3">{{user.name}}</h1>
+        <p class="text-light">@{{user.username}}</p>
     </div>
 </div>

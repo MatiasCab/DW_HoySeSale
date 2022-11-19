@@ -10,8 +10,8 @@
                 <p class="mb-0">{{entertainment.name}}</p>
                 <p class="type mb-0">{{getEntertainmentType()}}</p>
             </a>
-            <app-button-icon [iconClass]="currentIcon" class="my-auto" (click)="changeFavoriteIcon()"
-                [@favoriteInCard]="currentIcon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
+            <app-button-icon [iconClass]="Icon" class="my-auto" (click)="changeFavoriteIcon()"
+                [@favoriteInCard]="Icon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
         </div>
     </div>
 </div>

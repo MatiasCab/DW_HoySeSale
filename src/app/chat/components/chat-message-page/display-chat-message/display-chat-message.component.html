@@ -1,5 +1,5 @@
 <div class="position-page">
-    <app-message-grid #messageGrid></app-message-grid>
+    <app-message-grid #messageGrid [messages]="messages"></app-message-grid>
     <div class="position">
         <app-input-message (message)="sendMessage($event)"></app-input-message>
     </div>

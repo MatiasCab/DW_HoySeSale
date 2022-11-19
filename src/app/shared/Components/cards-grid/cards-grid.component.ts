@@ -26,10 +26,10 @@ export class CardsGridComponent implements OnInit {
   }
 
   setCards(entertainmentsInfo?: searchView){
-    if (entertainmentsInfo?.action == 'extends') {
-      this.entertainments = [...this.entertainments!, ...entertainmentsInfo.entertainments];
+    if (entertainmentsInfo?.action == 'extends' && this.entertainments) {
+      this.entertainments = [...this.entertainments, ...entertainmentsInfo.newEntertainments];
     } else {
-      this.entertainments = entertainmentsInfo?.entertainments;
+      this.entertainments = entertainmentsInfo?.oldEntertainments;
     }
   }
 }

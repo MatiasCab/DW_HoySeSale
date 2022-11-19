@@ -19,7 +19,7 @@ export class AppComponent {
     return (this.route.url != '/presentation/login') &&
       (this.route.url != '/presentation') &&
       (this.route.url != '/presentation/singUp') &&
-      (!this.route.url.includes('/chat/@'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
+      (!this.route.url.includes('/chat/'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
   }
 
 

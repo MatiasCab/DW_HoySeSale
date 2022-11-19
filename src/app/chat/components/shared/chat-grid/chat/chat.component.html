@@ -1,11 +1,11 @@
-<div class="row border-top {{putBorderBottom ? 'border-bottom' : ''}}">
+<div *ngIf="chatInfo" class="row border-top {{putBorderBottom ? 'border-bottom' : ''}}">
     <div class="col-auto p-0 my-3">
         <div class="user-photo-chatPreview">
-            <app-user-photo></app-user-photo>
+            <app-user-photo [imageURL]="chatInfo.imageLink"></app-user-photo>
         </div>
     </div>
-    <div class="col text-light my-3">
-        <h5 class="text-uppercase">Matias</h5>
-        <p class="overflow-hidden text-style mt-1 mb-0">Sos un crack</p>
+    <div class="col-9 text-light my-3 ms-2">
+        <h5 class="text-uppercase">{{chatInfo.name}}</h5>
+        <p class="overflow-hidden text-style mt-1 mb-0">{{chatInfo.type}}</p>
     </div>
 </div>

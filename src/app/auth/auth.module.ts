@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { InputUserCredentialsComponent } from './components/shared/input-user-credentials/input-user-credentials.component';
 import { AppTitleComponent } from './components/presentation-page/app-title/app-title.component';
 import { SharedModule } from '../shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     CommonModule,
     AuthRoutingModule,
+    NgbModule
   ],
   declarations: [
     LoginComponent,
     PresentationPageComponent,
     SingUpPageComponent,
     InputUserCredentialsComponent,
-    AppTitleComponent,
+    AppTitleComponent
   ]
 })
 export class AuthModule { }

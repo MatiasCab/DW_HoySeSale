@@ -1,20 +1,35 @@
-<div class="fondo">
+<div class="{{isMobile ? 'fondo' : ''}}">
     <div class="blur-back">
+        <p class="alert pe-3" *ngIf="errorMessage">
+            <ngb-alert [type]="'danger'" [@alertMessages] (closed)="errorMessage = undefined">{{errorMessage}}</ngb-alert>
+        </p>
         <div class="mx-3">
-            <app-header-navbar *ngIf="isMobile" [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
+            <app-header-navbar *ngIf="isMobile" [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'">
+            </app-header-navbar>
         </div>
         <h1 class="text-light pt-5 center {{!isMobile ? 'title_margin' : ''}}">SIGNUP</h1>
         <div class="mx-auto pb-4 size">
-            <app-input-user-credentials class="w-100" [inputLabel]="'Nombre'"></app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Apellido'"></app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Username'"></app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Email Adress'"></app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Password'"></app-input-user-credentials>
+            <app-input-user-credentials class="w-100" [inputLabel]="'Nombre'" [inputTypeAutocomplete]="'given-name'"
+                (keypressEvent)="reguleGenericInfo($event, 'name')">
+            </app-input-user-credentials>
+            <app-input-user-credentials class="w-100" [inputLabel]="'Apellido'" [inputTypeAutocomplete]="'family-name'"
+                (keypressEvent)="reguleGenericInfo($event, 'lastname')">
+            </app-input-user-credentials>
+            <app-input-user-credentials class="w-100" [inputLabel]="'Username (Sin espacio ni @)'" [inputTypeAutocomplete]="'nickname'"
+                (keypressEvent)="reguleUsername($event)">
+            </app-input-user-credentials>
+            <app-input-user-credentials class="w-100" [inputLabel]="'Email Adress'" [inputTypeAutocomplete]="'email'"
+                (keypressEvent)="reguleEmail($event)">
+            </app-input-user-credentials>
+            <app-input-user-credentials class="w-100" [inputLabel]="'Contraseña (Minimo 8 caracteres)'"
+                [inputTypeAutocomplete]="'new-password'" [inputType]="'password'"
+                (keypressEvent)="regulePassword($event)">
+            </app-input-user-credentials>
         </div>
         <div class="mt-4">
-            <a routerLink="/home" routerLinkActive="active">
-                <app-generic-button class="size" [buttonStyle]="'fill'" [btnText]="'singup'"></app-generic-button>
-            </a>
+            <app-generic-button class="size" [buttonStyle]="'fill ' + enableSignup" [btnText]="'singup'"
+                (click)="signup()">
+            </app-generic-button>
         </div>
         <div class="{{isMobile ? 'bottom-button' : ''}}">
             <div class="center-or">

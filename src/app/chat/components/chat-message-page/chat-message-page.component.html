@@ -1,7 +1,6 @@
 <div class="mx-3">
     <div class="mt-4 border-bottom mb-2">
-        <app-header-navbar [firstIcon]="'bi bi-chevron-left me-3'" [currentText]="'MATIAS'" [backPage]="'/chat'"></app-header-navbar>
+        <app-header-navbar [firstIcon]="'bi bi-chevron-left me-3'" [currentText]="chat?.name" [backPage]="'/chat'"></app-header-navbar>
     </div>
-    <app-display-chat-message></app-display-chat-message>
+    <app-display-chat-message [chat]="chat" [messages]="messages"></app-display-chat-message>
 </div>
-<!-- <div class="prub"></div> -->

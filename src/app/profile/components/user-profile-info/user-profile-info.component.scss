@@ -6,7 +6,6 @@
 
 .marginDesktop {
     display: flex;
-    margin-bottom: 3vh;
     .center{
         margin-left: 3rem;
     }
@@ -14,4 +13,5 @@
 
 p.text-light{
     font-size:medium;
+    text-align: initial;
 }

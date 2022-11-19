@@ -1,0 +1,32 @@
+.fi-button {
+    background: linear-gradient(180deg, rgb(212, 80, 230) 0%, #6B2CF5 100%);
+    color: white; //Especifica el color del contenido.
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    height: 50%;    
+}
+label{
+    margin-bottom: 0;
+}
+.row{
+    height: 100%;
+}
+.col-8{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modal-body{
+    height: 30vh;
+}
+.max-width {
+    padding-top: 5%;
+    width: 100%;
+}
+
+.col-4.prev-view-user-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

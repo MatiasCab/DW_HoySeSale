@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChatService } from 'src/app/chat/services/chat.service';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
+import { Message, MessageFullInfo } from 'src/app/core/models/messages';
+import { User } from 'src/app/core/models/user';
+import { UserService } from 'src/app/profile/services/user.service';
 import { MessageGridComponent } from '../../shared/message-grid/message-grid.component';
 
 @Component({
@@ -9,14 +14,35 @@ import { MessageGridComponent } from '../../shared/message-grid/message-grid.com
 export class DisplayChatMessageComponent implements OnInit {
 
   @ViewChild('messageGrid') messageGrid?: MessageGridComponent;
+  @Input() chat?: ChatsPreview;
+  @Input() messages?: MessageFullInfo[];
 
-  constructor() { }
+  constructor(private chatService: ChatService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  sendMessage(message: string){
-    this.messageGrid?.newMessage(message);
+  sendMessage(message: string) {
+    this.chatService.sendMessage(message, this.chat!.messageChatId).subscribe(
+      message => {
+        let user = this.userService.User
+        if (!user) {
+          this.userService.getThisUser().subscribe(
+            user => this.setMessageInfo(message, user)
+          )
+        }else{
+          this.setMessageInfo(message, user);
+        }
+      }
+    )
   }
 
+    setMessageInfo(message: Message, user: User){
+      this.messageGrid?.newMessage({
+        message, 
+        type: 'send', 
+        senderImage: user.imageLink,
+        recieverIMage: this.chat!.imageLink
+      })
+    }
 }

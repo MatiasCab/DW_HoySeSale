@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from 'src/app/chat/services/chat.service';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 
 @Component({
   selector: 'app-display-chat-info',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayChatInfoComponent implements OnInit {
 
-  constructor() { }
+  chatsPreview?: ChatsPreview[];
+
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
+    this.chatService.getChatsPreview().subscribe(
+      res => {
+        this.chatsPreview = res;
+        console.log(this.chatsPreview);
+      }
+    )
   }
+
+
 
 }
