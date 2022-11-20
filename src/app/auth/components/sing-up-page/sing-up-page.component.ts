@@ -1,9 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { appAnimations } from 'src/app/animations';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
 import { AuthService } from '../../services/auth.service';
+import { VerificationCodeModalComponent } from '../verification-code-modal/verification-code-modal.component';
 
 @Component({
   selector: 'app-sing-up-page',
@@ -18,7 +20,10 @@ export class SingUpPageComponent implements OnInit {
   enableSignup: string = 'disabled';
   errorMessage?: string;
 
-  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) { }
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private authService: AuthService, 
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
@@ -31,6 +36,13 @@ export class SingUpPageComponent implements OnInit {
           this.isMobile = true;
         }
       })
+  }
+
+  openVerifyCodeModal(){
+    this.modalService.open(VerificationCodeModalComponent, {
+      windowClass: 'backdrop',
+      centered: true
+    });
   }
 
   signup() {
@@ -50,7 +62,8 @@ export class SingUpPageComponent implements OnInit {
             this.errorMessage = 'Lo sentimos, no hemos podido procesar su solicitud.';
           }
         } else {
-          this.router.navigateByUrl('/presentation/login')
+          this.openVerifyCodeModal();
+          //this.router.navigateByUrl('/presentation/login')
         }
       });
     }
