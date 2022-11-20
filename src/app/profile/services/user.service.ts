@@ -20,7 +20,7 @@ export class UserService {
     return this.userInfo;
   }
 
-  SetUser(user: User){
+  SetUser(user: User | undefined){
     this.userInfo = user;
   }
 

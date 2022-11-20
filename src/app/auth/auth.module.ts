@@ -8,6 +8,7 @@ import { InputUserCredentialsComponent } from './components/shared/input-user-cr
 import { AppTitleComponent } from './components/presentation-page/app-title/app-title.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VerificationCodeModalComponent } from './components/verification-code-modal/verification-code-modal.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PresentationPageComponent,
     SingUpPageComponent,
     InputUserCredentialsComponent,
-    AppTitleComponent
+    AppTitleComponent,
+    VerificationCodeModalComponent
   ]
 })
 export class AuthModule { }

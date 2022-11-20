@@ -4,13 +4,16 @@ import * as moment from "moment";
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import { API_URL } from 'src/app/core/consts';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
+import { UserService } from 'src/app/profile/services/user.service';
 
 const API_AUTH_URL = `${API_URL}/auth`;
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private userService: UserService) {
   }
 
   login(username: string, password: string) {
@@ -22,8 +25,14 @@ export class AuthService {
   }
 
   signup(signupInfo: SignupInfo) {
-    return this.http.post<any>(`${API_AUTH_URL}/signup`, signupInfo).pipe(
+    return this.http.post<any>(`${API_AUTH_URL}/verify`, signupInfo).pipe(
       catchError(this.handleError<any>('signup'))
+    );
+  }
+
+  verify(verificationCode: string){
+    return this.http.post<any>(`${API_AUTH_URL}/signup`, {verificationCode}).pipe(
+      catchError(this.handleError<any>('verify'))
     );
   }
 
@@ -35,6 +44,7 @@ export class AuthService {
   }
 
   logout() {
+    this.userService.SetUser(undefined);
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("user_ID");
