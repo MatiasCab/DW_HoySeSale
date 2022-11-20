@@ -37,7 +37,6 @@ export class DisplaySearchInfoComponent implements OnInit {
       this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput).subscribe( //Fijarse si esto no da eror por tener dos parametros opcionales.
         response => {
           this.searchIndex = response.searchIndex;
-          console.log(response);
 
           if (!searchIndex) this.searchView = undefined;
           if (response.entertainments.length == 0) this.limitReached = true;

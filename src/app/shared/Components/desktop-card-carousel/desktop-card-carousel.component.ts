@@ -21,7 +21,6 @@ export class DesktopCardCarouselComponent implements OnInit {
 
   @Input() public set setEntertainments(entertainmentsInfo: searchView | undefined) {
     if (entertainmentsInfo) {
-      console.log(entertainmentsInfo);
       this.setCards(entertainmentsInfo);
     }
   };
@@ -77,9 +76,6 @@ export class DesktopCardCarouselComponent implements OnInit {
     if (slideNumber + 1 == this.showedEntertainments?.length) {
       this.moreSlidesEvent.emit();
     }
-    console.log('cards',this.showedEntertainments?.length);
-    
-    console.log('carousel',slideNumber);
   }
 
 

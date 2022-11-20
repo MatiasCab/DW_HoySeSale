@@ -30,12 +30,10 @@
             <app-header-navbar class="buttom" [currentIcon1]="'bi bi-box-arrow-left'" (icon1Event)="openLogoutModal()">
             </app-header-navbar>
             <div class="links">
-                <div class="dd">
                     <a [@homeCards]="{value:'',params:{delay:0}}" class="bares" [routerLink]="'/search'"
                         [queryParams]="{type: 'bar'}">
                         <p>BARES</p>
                     </a>
-                </div>
                 <a [@homeCards]="{value:'',params:{delay:0.5}}" class="pubs" [routerLink]="'/search'"
                     [queryParams]="{type: 'pub'}" routerLinkActive="active">
                     <p>PUBS</p>

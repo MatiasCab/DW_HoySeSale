@@ -24,7 +24,6 @@ export class SingUpPageComponent implements OnInit {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        console.log(result);
         //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
         if (breakpoints['(min-width: 900px)']) {
           this.isMobile = false;
@@ -32,7 +31,6 @@ export class SingUpPageComponent implements OnInit {
           this.isMobile = true;
         }
       })
-    console.log(this.infocontainer);
   }
 
   signup() {
@@ -59,7 +57,6 @@ export class SingUpPageComponent implements OnInit {
   }
 
   enableSignupRegulator() {
-    console.log(this.infocontainer);
     if (this.infocontainer.size >= 5) {
       this.enableSignup = '';
     } else {

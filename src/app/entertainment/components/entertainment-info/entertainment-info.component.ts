@@ -6,6 +6,7 @@ import { searchView } from '../../../core/models/searchInfo'
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
 import { Router } from '@angular/router';
 import { ClockService } from '../../services/clock.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-entertainment-info',
@@ -13,7 +14,6 @@ import { ClockService } from '../../services/clock.service';
   styleUrls: ['./entertainment-info.component.scss'],
   animations: [appAnimations]
 })
-
 export class EntertainmentInfoComponent implements OnInit {
 
   @Input() entertainment?: Event | Local;
@@ -23,6 +23,7 @@ export class EntertainmentInfoComponent implements OnInit {
   rate?: number;
   currentIcon?: string;
   prevIcon?: string;
+  timerSubscription?: Subscription;
   countdown = {
     days: 0,
     hours: 0,
@@ -51,11 +52,9 @@ export class EntertainmentInfoComponent implements OnInit {
     return [];
   }
 
-
   public get EntertainmentEventsMobile(): searchView {
     return { action: 'new', newEntertainments: this.entertainmentEvents, oldEntertainments: this.entertainmentEvents };
   }
-
 
   public get Icon(): string {
     if (this.currentIcon) {
@@ -68,21 +67,29 @@ export class EntertainmentInfoComponent implements OnInit {
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
 
-  public get Schedule(): Date{
-    return new Date((this.entertainment as Event).schedule);
+  public get Schedule(): Date | undefined {
+    const event = (this.entertainment as Event);
+    if(event.schedule){
+      return new Date(event.schedule);
+    }
+    return undefined;
   }
 
   constructor(
-    private favoriteService: FavoriteService, 
+    private favoriteService: FavoriteService,
     private router: Router,
     private clockService: ClockService) { }
 
   ngOnInit(): void {
-    console.log(this.entertainment);
-    this.clockService.time(this.Schedule).subscribe(
-      countdown => {this.countdown = countdown; console.log(this.countdown);}
-      
-    )
+    if (this.Schedule) {
+      this.timerSubscription = this.clockService.time(this.Schedule).subscribe(
+        countdown => this.countdown = countdown
+      )
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.timerSubscription?.unsubscribe();
   }
 
 
@@ -104,6 +111,10 @@ export class EntertainmentInfoComponent implements OnInit {
         alert('Lo sentimos no hemos podido procesar su solicitud.');
       }
     })
+  }
+
+  getFormatedSchedule(){
+    return `${this.Schedule?.getFullYear()}/${this.Schedule?.getMonth()}/${this.Schedule?.getDay()} - ${this.Schedule?.getHours()}:${this.Schedule?.getMinutes()} hs`
   }
 
   redirectToChat() {

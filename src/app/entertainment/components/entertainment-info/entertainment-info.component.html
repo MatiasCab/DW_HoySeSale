@@ -1,9 +1,9 @@
 <div *ngIf="isMobile && entertainment; else elseBlock" class="infoMobile">
     <div class="description">
-        <h2>DESCRIPCIÓN</h2>
+        <h2 class="mb-1">DESCRIPCIÓN</h2>
         <p>{{entertainment.description}}</p>
     </div>
-
+    <p *ngIf="isAnEvent" class="date"><strong>FECHA:</strong>  {{getFormatedSchedule()}}</p>
     <div *ngIf="!isAnEvent" class="calification">
         <h3>CALIFICACIÓN</h3>
         <div class="row gx-2">
@@ -25,9 +25,34 @@
         <img class="map" src="{{'data:image/png;base64,' + entertainment.locationImage}}" (click)="openMap()">
     </div>
 
-    <div *ngIf="!isAnEvent" class="events mt-2">
+    <div *ngIf="!isAnEvent" class="events mt-2 mb-5">
         <h3>EVENTOS</h3>
-        <app-cards-grid [setEntertainments]="EntertainmentEventsMobile"></app-cards-grid>
+        <app-cards-grid [setEntertainments]="EntertainmentEventsMobile"
+            *ngIf="EntertainmentEventsMobile.newEntertainments.length > 0"></app-cards-grid>
+    </div>
+    <div class="timer cont-6 mt-3" *ngIf="isAnEvent">
+        <h3>FALTA POCO!!</h3>
+        <div class="pos mt-4">
+            <div class="mx-2">
+                <p>{{this.countdown.days}}</p>
+                <span class="title">Days</span>
+            </div>
+            <p class="separator">:</p>
+            <div class="mx-2">
+                <p>{{this.countdown.hours}}</p>
+                <span class="title">Horas</span>
+            </div>
+            <p class="separator">:</p>
+            <div class="mx-2">
+                <p>{{this.countdown.minutes}}</p>
+                <span class="title">Minutos</span>
+            </div>
+            <p class="separator">:</p>
+            <div class="mx-2">
+                <p>{{this.countdown.seconds}}</p>
+                <span class="title">Segundos</span>
+            </div>
+        </div>
     </div>
 </div>
 <!--ME PARECE QUE HAY COMO MUCHOS DIV, CAPAZ SE PUEDE ACORTAR UN POCO-->
@@ -71,6 +96,8 @@
             </div>
         </div>
 
+        <p *ngIf="isAnEvent" class="date">{{getFormatedSchedule()}}</p>
+
         <div class="description cont-4">
             <p>{{entertainment.description}}</p>
         </div>
@@ -99,7 +126,7 @@
                     <p>{{this.countdown.days}}</p>
                     <span class="title">Days</span>
                 </div>
-                <p class="separator">:</p>  
+                <p class="separator">:</p>
                 <div class="mx-2">
                     <p>{{this.countdown.hours}}</p>
                     <span class="title">Horas</span>

@@ -33,7 +33,6 @@ export class ChatPageComponent implements OnInit {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        console.log(result);
         //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
         if (breakpoints['(min-width: 900px)']) {
           this.isMobile = false;
@@ -70,7 +69,6 @@ export class ChatPageComponent implements OnInit {
 
   chatSelected(chatId: number) {
     this.selectedChat = this.chatsPreview?.filter((chat) => chat.messageChatId == chatId)[0];
-    console.log(this.selectedChat);
     this.chatService.getMessages(chatId).subscribe(
       messages => {
         this.userService.getThisUser().subscribe(
@@ -108,7 +106,6 @@ export class ChatPageComponent implements OnInit {
     this.chatService.getChatsPreview(searchInfo).subscribe(
       res => {
         this.chatsPreview = res;
-        console.log(this.chatsPreview);
         if (this.chatsPreview.length > 0) {
           if(putSelectedChat){
             this.selectedChat = this.chatsPreview[0];
