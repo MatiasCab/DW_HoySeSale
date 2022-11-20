@@ -16,7 +16,7 @@
             <i *ngIf="isMobile" class="{{icons[2]}} px-2"></i>
             <p *ngIf="!isMobile">CALENDARIO</p>
         </a>
-        <a class="animatedLink {{this.icons[3].includes('fillColor') ? 'hover' : ''}}" routerLink="/chat"
+        <a class="animatedLink {{this.icons[3].includes('fillColor') ? 'hover' : ''}}" routerLink="/chats"
             (click)="fillIcon(3)">
             <i *ngIf="isMobile" class="{{icons[3]}} px-2"></i>
             <p *ngIf="!isMobile">CHATS</p>
