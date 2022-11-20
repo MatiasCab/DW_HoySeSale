@@ -1,8 +1,9 @@
 div{
     height: 100vh;
-    position: absolute;
+    //position: absolute;
     width: 100%;
     overflow-y: auto;
+    max-width: 2048px;
 }
 
 .container-fluid{

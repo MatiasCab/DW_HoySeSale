@@ -18,7 +18,6 @@ export class ChatGridComponent implements OnInit {
   }
 
   selectedChat(chatId: number){
-    console.log(chatId);
     this.chatSelected.emit(chatId);
   }
 

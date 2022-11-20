@@ -42,15 +42,11 @@ export class EntertainmentPageComponent implements OnInit {
     const entertainmentType = this.route.snapshot.paramMap.get('type');
     if (entertainmentType == "events") {
       this.searchService.getEventById(entertainmentID).subscribe(event => {
-        console.log(event);
         this.entertainment = event;
         this.isAnEvent = true;
-        console.log(this.entertainment);
-        
       });
     } else {
       this.searchService.getLocalById(entertainmentID).subscribe(local => {
-        console.log(local);
         this.entertainment = local;
       });
     }
@@ -58,7 +54,6 @@ export class EntertainmentPageComponent implements OnInit {
     this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        console.log(result);
         //if(breakpoints[Breakpoints.Small]  breakpoints[Breakpoints.Medium]  breakpoints[Breakpoints.WebLandscape]){
         if (breakpoints['(min-width: 900px)']) {
           this.isMobile = false;

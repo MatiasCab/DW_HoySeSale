@@ -26,13 +26,11 @@ export class ChatMessagePageComponent implements OnInit {
 
     this.chatService.getEspecificChat(Number(entertainmentId)).subscribe(
       res => {
-        console.log(res);
         this.chat = res;
         this.chatService.getMessages(this.chat!.messageChatId).subscribe(
           messages => {
             this.userService.getThisUser().subscribe(
               user => {
-                console.log(messages);
                 const messagesCont: MessageFullInfo[] = []
                 messages.forEach(message => {
                   const isSender = message.receiver == Number(entertainmentId);

@@ -17,7 +17,6 @@ export class DisplayChatInfoComponent implements OnInit {
     this.chatService.getChatsPreview().subscribe(
       res => {
         this.chatsPreview = res;
-        console.log(this.chatsPreview);
       }
     )
   }

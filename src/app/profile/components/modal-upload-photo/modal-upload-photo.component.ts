@@ -41,7 +41,6 @@ export class ModalUploadPhotoComponent implements OnInit {
 
   private uploadImage(base64Img: string | null | ArrayBuffer) {
     if (typeof base64Img == 'string') {
-      console.log(base64Img);
       this.userService.uploadProfileImage(base64Img).subscribe(res => {
         if (res.error) {
           alert('Lo sentimos, no hemos podido procesarsu solicitud.')

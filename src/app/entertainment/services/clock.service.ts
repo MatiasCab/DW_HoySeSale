@@ -15,7 +15,8 @@ export class ClockService {
     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
     const minutes = Math.floor(timeDifference / (60 * 1000));
     const seconds = Math.floor(timeDifference /  (1000));
-    console.log(hours - (days * 24));
+    console.log(seconds);
+    
     return {
       days: days,
       hours: hours - (days * 24),

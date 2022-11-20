@@ -16,7 +16,6 @@ export class DisplayEntertainmentInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.entertainment);
   }
 
 }
