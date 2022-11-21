@@ -14,16 +14,18 @@
             <app-search-input class="w-100" (searchEvent)="searchChat($event)"></app-search-input>
         </div>
         <div class="col-8">
-            <div class="row border-bottom">
-                <div class="col-auto p-0 my-3">
-                    <div class="user-photo-chatPreview">
-                        <app-user-photo [imageURL]="selectedChat?.imageLink"></app-user-photo>
+            <a routerLink="/entertainments/locals/{{localId}}" class="text-decoration-none">
+                <div class="row border-bottom">
+                    <div class="col-auto p-0 my-3">
+                        <div class="user-photo-chatPreview">
+                            <app-user-photo [imageURL]="selectedChat?.imageLink"></app-user-photo>
+                        </div>
+                    </div>
+                    <div class="col text-light my-3">
+                        <h5 class="text-uppercase">{{selectedChat?.name}}</h5>
                     </div>
                 </div>
-                <div class="col text-light my-3">
-                    <h5 class="text-uppercase">{{selectedChat?.name}}</h5>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="row h-100">

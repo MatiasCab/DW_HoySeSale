@@ -1,10 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 import { Message, MessageFullInfo } from 'src/app/core/models/messages';
 import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/profile/services/user.service';
+
 import { ChatService } from '../../services/chat.service';
 import { MessageGridComponent } from '../shared/message-grid/message-grid.component';
 
@@ -20,7 +22,7 @@ export class ChatPageComponent implements OnInit {
   chatsPreview?: ChatsPreview[];
   selectedChat?: ChatsPreview;
   messages?: MessageFullInfo[];
-
+  localId?: number;
 
   constructor(
     private breakpointObserver: BreakpointObserver, 
@@ -69,6 +71,7 @@ export class ChatPageComponent implements OnInit {
 
   chatSelected(chatId: number) {
     this.selectedChat = this.chatsPreview?.filter((chat) => chat.messageChatId == chatId)[0];
+    this.localId = this.selectedChat?.localId;
     this.chatService.getMessages(chatId).subscribe(
       messages => {
         this.userService.getThisUser().subscribe(
