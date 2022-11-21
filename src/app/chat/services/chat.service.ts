@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { API_URL } from 'src/app/core/consts';
 import { ChatsPreview } from 'src/app/core/models/chatsPreview';
 import { Message } from 'src/app/core/models/messages';
