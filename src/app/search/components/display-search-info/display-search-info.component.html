@@ -1,6 +1,9 @@
 <app-search-entertainment [showSearchBar]="showSearchBar" (searchEvent)="getEntertianments($event)"></app-search-entertainment>
 <div #cardsScroller (scroll)="scrollInteraction($event)" class="cards-grid" *ngIf="isMobile">
     <app-cards-grid [setEntertainments]="searchView"></app-cards-grid>
+    <div *ngIf="limitReached" class="no-results">
+        <app-no-results [text]="noResultText"></app-no-results>
+    </div>
 </div>
 <app-desktop-card-carousel *ngIf="!isMobile" [setEntertainments]="searchView"
     (moreSlidesEvent)="getEntertianments(this.lastSearchInfo, this.searchIndex)"></app-desktop-card-carousel>

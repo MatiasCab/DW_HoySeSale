@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
 import { SearchCardsService } from '../../services/SearchCards.service';
 
@@ -14,11 +13,16 @@ export class DisplaySearchInfoComponent implements OnInit {
   searchIndex: number = 0;
   lastSearchInfo?: searchInfo;
   limitReached: boolean = false;
+  noResultText: string = 'No hay más resultados disponibles';
 
   @Input() isMobile?: boolean;
   @Input() showSearchBar?: boolean = true;
   @Input() onlyFavorites: boolean = false;
   @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
+
+  get limit(){
+    return this.limitReached;
+  }
 
   constructor(private searchService: SearchCardsService) { }
 
