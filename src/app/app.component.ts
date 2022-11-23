@@ -10,7 +10,7 @@ import { appAnimations } from './animations';
   styleUrls: ['./app.component.scss'],
   animations: [appAnimations]
 })
-export class AppComponent{
+export class AppComponent {
 
   title = 'Hoy se sale';
 
@@ -30,7 +30,8 @@ export class AppComponent{
     return 0;
   }
 
-  constructor(private contexts: ChildrenOutletContexts,
+  constructor(
+    private contexts: ChildrenOutletContexts,
     private route: Router
   ) { }
 
