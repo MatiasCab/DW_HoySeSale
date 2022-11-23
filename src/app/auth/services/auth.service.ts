@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, map, of, tap } from 'rxjs';
 import * as moment from "moment";
-import { catchError, map, Observable, of, tap } from 'rxjs';
+
+import { UserService } from 'src/app/profile/services/user.service';
+
 import { API_URL } from 'src/app/core/consts';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
-import { UserService } from 'src/app/profile/services/user.service';
 
 const API_AUTH_URL = `${API_URL}/auth`;
 
@@ -13,13 +15,13 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private userService: UserService) {
-  }
+    private userService: UserService
+  ) { }
 
   login(username: string, password: string) {
     return this.http.post<any>(`${API_AUTH_URL}/login`, { username, password }).pipe(
       tap(res => this.setSession(res)),
-      map(res => { return { error: false, type: 'success' } }),
+      map(_res => { return { error: false, type: 'success' } }),
       catchError(this.handleError<any>('login'))
     );
   }
@@ -30,8 +32,8 @@ export class AuthService {
     );
   }
 
-  verify(verificationCode: string){
-    return this.http.post<any>(`${API_AUTH_URL}/signup`, {verificationCode}).pipe(
+  verify(verificationCode: string) {
+    return this.http.post<any>(`${API_AUTH_URL}/signup`, { verificationCode }).pipe(
       catchError(this.handleError<any>('verify'))
     );
   }
@@ -50,15 +52,9 @@ export class AuthService {
     localStorage.removeItem("user_ID");
   }
 
-  getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
-    const expiresAt = JSON.parse(expiration!);
-    return moment(expiresAt);
-  }
-
   private handleError<T>(operation: String) {
     return (error: any) => {
-      console.error(`${operation} failed: ${error.error.message}`); //Esto no se es lo mejor, capaz en ver de hacer if aca devolve solo el tipo y error true y fue.
+      console.error(`${operation} failed: ${error.error.message}`);
       if (error.error.name == 'CredentialsAlredyExistsError') {
         return of({ error: true, type: 'RepitedCredentials' });
       } else if (error.error.name == 'InvalidUsernameOrPassword') {

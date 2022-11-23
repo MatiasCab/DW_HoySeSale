@@ -27,13 +27,11 @@
 <ng-template #elseBlock>
     <div class="homeDesktop">
         <div class="home">
-            <app-header-navbar class="buttom" [currentIcon1]="'bi bi-box-arrow-left'" (icon1Event)="openLogoutModal()">
-            </app-header-navbar>
             <div class="links">
-                    <a [@homeCards]="{value:'',params:{delay:0}}" class="bares" [routerLink]="'/search'"
-                        [queryParams]="{type: 'bar'}">
-                        <p>BARES</p>
-                    </a>
+                <a [@homeCards]="{value:'',params:{delay:0}}" class="bares" [routerLink]="'/search'"
+                    [queryParams]="{type: 'bar'}">
+                    <p>BARES</p>
+                </a>
                 <a [@homeCards]="{value:'',params:{delay:0.5}}" class="pubs" [routerLink]="'/search'"
                     [queryParams]="{type: 'pub'}" routerLinkActive="active">
                     <p>PUBS</p>

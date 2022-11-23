@@ -9,7 +9,6 @@ export class GenericButtonComponent implements OnInit {
 
   @Input() buttonStyle?: string;
   @Input() btnText?: string;
-  
   @Output() press: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
@@ -17,7 +16,7 @@ export class GenericButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitEvent(){
+  emitEvent() {
     this.press.emit();
   }
 

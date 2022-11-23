@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { appAnimations } from 'src/app/animations';
-import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
+
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
+
+import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-card',
@@ -13,10 +15,14 @@ import { FavoriteService } from 'src/app/shared/services/favorite.service';
 export class CardComponent implements OnInit {
 
   @Input() entertainment?: entertainmentCardPreview;
+
   currentIcon?: string;
   prevIcon?: string;
 
-  constructor(private favoriteService: FavoriteService, private router: Router) { }
+  constructor(
+    private favoriteService: FavoriteService,
+    private router: Router
+  ) { }
 
   public get Icon(): string {
     if (this.currentIcon) {
@@ -38,12 +44,13 @@ export class CardComponent implements OnInit {
     const newFavoriteData = this.favoriteService.favoriteAction(this.Icon, this.entertainment!.entertainmentID);
     this.prevIcon = this.currentIcon;
     this.currentIcon = newFavoriteData.icon;
+
     newFavoriteData.serverStatus.subscribe(response => {
       if (response.error) {
         this.currentIcon = this.prevIcon!;
         alert('Lo sentimos no hemos podido procesar su solicitud.');
       }
-    })
+    });
   }
 
   getEntertainmentType() {

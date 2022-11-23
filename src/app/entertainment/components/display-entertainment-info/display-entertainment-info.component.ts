@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
 

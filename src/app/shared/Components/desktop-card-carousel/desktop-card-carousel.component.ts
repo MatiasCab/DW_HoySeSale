@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
-import { ignoreElements } from 'rxjs';
-import { appAnimations } from 'src/app/animations';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchView } from 'src/app/core/models/searchInfo';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-desktop-card-carousel',
@@ -13,17 +13,15 @@ import { searchView } from 'src/app/core/models/searchInfo';
 })
 export class DesktopCardCarouselComponent implements OnInit {
 
-  showedEntertainments?: entertainmentCardPreview[][];
-
   @ViewChild('carousel') carousel?: NgbCarousel;
-
   @Output() moreSlidesEvent: EventEmitter<void> = new EventEmitter();
-
   @Input() public set setEntertainments(entertainmentsInfo: searchView | undefined) {
     if (entertainmentsInfo) {
       this.setCards(entertainmentsInfo);
     }
   };
+
+  showedEntertainments?: entertainmentCardPreview[][];
 
   constructor() { }
 
@@ -41,11 +39,11 @@ export class DesktopCardCarouselComponent implements OnInit {
       let index = 0;
       for (let i = lastSet.length; i < 3; i++) {
         let cardEntertainment = incommingEntertainments.shift()
-        if(cardEntertainment){
+        if (cardEntertainment) {
           lastSet.push(cardEntertainment);
         }
       }
-    }else if(searchView.action == 'extends'){
+    } else if (searchView.action == 'extends') {
       incommingEntertainments = searchView.oldEntertainments;
     }
 
@@ -62,6 +60,7 @@ export class DesktopCardCarouselComponent implements OnInit {
     if (newEntertainmentSet.length > 0) {
       newEntertainmentArray.push(newEntertainmentSet);
     }
+
     if (searchView.action == 'extends' && this.showedEntertainments) {
       this.showedEntertainments = [...this.showedEntertainments, ...newEntertainmentArray];
     } else {
@@ -73,6 +72,7 @@ export class DesktopCardCarouselComponent implements OnInit {
 
   chargeMoreCards() {
     const slideNumber = Number(this.carousel?.activeId);
+
     if (slideNumber + 1 == this.showedEntertainments?.length) {
       this.moreSlidesEvent.emit();
     }

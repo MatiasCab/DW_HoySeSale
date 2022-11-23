@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,15 +11,20 @@ import { UserService } from '../../services/user.service';
 export class ModalUploadPhotoComponent implements OnInit {
 
   @ViewChild("imageInput") imageInput?: ElementRef<HTMLInputElement>;
+
   prevImageLink?: any;
 
-  constructor(private userService: UserService, private modal: NgbActiveModal) { }
+  constructor(
+    private userService: UserService,
+    private modal: NgbActiveModal
+  ) { }
 
   ngOnInit(): void {
   }
 
   chargePrevViewImage() {
     let files = this.imageInput?.nativeElement.files;
+
     if (files && files[0]) {
       var reader = new FileReader();
       reader.addEventListener("load", () => this.prevViewImage(reader.result), false);
@@ -26,12 +32,13 @@ export class ModalUploadPhotoComponent implements OnInit {
     }
   }
 
-  prevViewImage(base64Image: string | null | ArrayBuffer){
+  prevViewImage(base64Image: string | null | ArrayBuffer) {
     this.prevImageLink = base64Image;
   }
 
   chargeImage() {
     let files = this.imageInput?.nativeElement.files;
+
     if (files && files[0]) {
       var reader = new FileReader();
       reader.addEventListener("load", () => this.uploadImage(reader.result), false);

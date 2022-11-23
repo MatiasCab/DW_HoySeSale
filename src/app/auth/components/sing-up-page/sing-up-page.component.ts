@@ -1,11 +1,13 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { AuthService } from '../../services/auth.service';
+
 import { appAnimations } from 'src/app/animations';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
-import { AuthService } from '../../services/auth.service';
 import { VerificationCodeModalComponent } from '../verification-code-modal/verification-code-modal.component';
+import { BREAK_POINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-sing-up-page',
@@ -21,24 +23,24 @@ export class SingUpPageComponent implements OnInit {
   errorMessage?: string;
 
   constructor(
-    private breakpointObserver: BreakpointObserver, 
-    private authService: AuthService, 
-    private modalService: NgbModal) { }
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
+    this.breakpointObserver.observe([BREAK_POINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-        if (breakpoints['(min-width: 900px)']) {
+        if (breakpoints[BREAK_POINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;
         }
-      })
+      });
   }
 
-  openVerifyCodeModal(){
+  openVerifyCodeModal() {
     this.modalService.open(VerificationCodeModalComponent, {
       windowClass: 'backdrop',
       centered: true
@@ -47,6 +49,7 @@ export class SingUpPageComponent implements OnInit {
 
   signup() {
     if (this.enableSignup == '') {
+
       const user: SignupInfo = {
         name: this.infocontainer.get('name')!,
         lastname: this.infocontainer.get('lastname')!,
@@ -54,6 +57,7 @@ export class SingUpPageComponent implements OnInit {
         email: this.infocontainer.get('email')!,
         password: this.infocontainer.get('password')!,
       };
+
       this.authService.signup(user).subscribe(res => {
         if (res.error) {
           if (res.type == 'RepitedCredentials') {
@@ -63,17 +67,18 @@ export class SingUpPageComponent implements OnInit {
           }
         } else {
           this.openVerifyCodeModal();
-          //this.router.navigateByUrl('/presentation/login')
         }
       });
+
     }
+
   }
 
   enableSignupRegulator() {
     if (this.infocontainer.size >= 5) {
       this.enableSignup = '';
     } else {
-      this.enableSignup = 'disabled'
+      this.enableSignup = 'disabled';
     }
   }
 
@@ -83,6 +88,7 @@ export class SingUpPageComponent implements OnInit {
     } else {
       this.infocontainer.delete(type);
     }
+
     this.enableSignupRegulator();
   }
 
@@ -92,6 +98,7 @@ export class SingUpPageComponent implements OnInit {
     } else {
       this.infocontainer.delete('username');
     }
+
     this.enableSignupRegulator();
   }
 
@@ -101,6 +108,7 @@ export class SingUpPageComponent implements OnInit {
     } else {
       this.infocontainer.delete('email');
     }
+
     this.enableSignupRegulator();
   }
 
@@ -110,6 +118,7 @@ export class SingUpPageComponent implements OnInit {
     } else {
       this.infocontainer.delete('password');
     }
+    
     this.enableSignupRegulator();
   }
 }

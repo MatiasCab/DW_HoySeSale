@@ -1,12 +1,14 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
+import { ClockService } from '../../services/clock.service';
+
+import { searchView } from '../../../core/models/searchInfo';
+import { appAnimations } from 'src/app/animations';
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
-import { appAnimations } from 'src/app/animations';
-import { searchView } from '../../../core/models/searchInfo'
-import { FavoriteService } from 'src/app/shared/services/favorite.service';
-import { Router } from '@angular/router';
-import { ClockService } from '../../services/clock.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-entertainment-info',
@@ -53,23 +55,29 @@ export class EntertainmentInfoComponent implements OnInit {
   }
 
   public get EntertainmentEventsMobile(): searchView {
-    return { action: 'new', newEntertainments: this.entertainmentEvents, oldEntertainments: this.entertainmentEvents };
+    return {
+      action: 'new',
+      newEntertainments: this.entertainmentEvents,
+      oldEntertainments: this.entertainmentEvents
+    };
   }
 
   public get Icon(): string {
     if (this.currentIcon) {
       return this.currentIcon;
     }
+
     if (this.entertainment && !this.currentIcon) {
       this.currentIcon = this.entertainment.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
       return this.currentIcon;
     }
+
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
 
   public get Schedule(): Date | undefined {
     const event = (this.entertainment as Event);
-    if(event.schedule){
+    if (event.schedule) {
       return new Date(event.schedule);
     }
     return undefined;
@@ -78,7 +86,8 @@ export class EntertainmentInfoComponent implements OnInit {
   constructor(
     private favoriteService: FavoriteService,
     private router: Router,
-    private clockService: ClockService) { }
+    private clockService: ClockService
+  ) { }
 
   ngOnInit(): void {
     if (this.Schedule) {
@@ -91,7 +100,6 @@ export class EntertainmentInfoComponent implements OnInit {
   ngOnDestroy(): void {
     this.timerSubscription?.unsubscribe();
   }
-
 
   openMap() {
     window.open(`http://www.google.com/maps/place/${this.entertainment?.lat}, ${this.entertainment?.lon}`, '_blank', 'location=yes');
@@ -113,8 +121,11 @@ export class EntertainmentInfoComponent implements OnInit {
     })
   }
 
-  getFormatedSchedule(){
-    return `${this.Schedule?.getFullYear()}/${this.Schedule?.getMonth()}/${this.Schedule?.getDay()} - ${this.Schedule?.getHours()}:${this.Schedule?.getMinutes()} hs`
+  getFormatedSchedule() {
+    return `${this.Schedule?.getFullYear()}/
+    ${this.Schedule?.getMonth()}/
+    ${this.Schedule?.getDay()} - 
+    ${this.Schedule?.getHours()}:${this.Schedule?.getMinutes()} hs`
   }
 
   redirectToChat() {

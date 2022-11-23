@@ -1,12 +1,17 @@
-.headerNavbar{
+.headerNavbar {
     height: 6vh;
     width: 100%;
     display: flex;
     align-items: center;
 
-    .headerIcons{
+    .headerIcons {
         display: flex;
         justify-content: flex-end;
         font-size: medium;
     }
+}
+
+h3 {
+    color: white;
+    white-space: nowrap;
 }

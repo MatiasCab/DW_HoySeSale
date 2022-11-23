@@ -1,4 +1,5 @@
-<app-search-entertainment [showSearchBar]="showSearchBar" (searchEvent)="getEntertianments($event)"></app-search-entertainment>
+<app-search-entertainment [showSearchBar]="showSearchBar" (searchEvent)="getEntertianments($event)">
+</app-search-entertainment>
 <div #cardsScroller (scroll)="scrollInteraction($event)" class="cards-grid" *ngIf="isMobile">
     <app-cards-grid [setEntertainments]="searchView"></app-cards-grid>
 </div>

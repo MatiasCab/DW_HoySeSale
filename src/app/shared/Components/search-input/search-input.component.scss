@@ -1,22 +1,21 @@
-.search{
+.search {
     height: 5vh;
     display: flex;
     align-items: center;
-    //position: absolute;
-    
 
-    .form-control{
+
+    .form-control {
         color: white;
         background-color: rgb(99, 99, 99, 0.20);
         border: none;
-        border-radius: 0.6rem;    
+        border-radius: 0.6rem;
     }
-    
-    .form-control::-webkit-input-placeholder { 
+
+    .form-control::-webkit-input-placeholder {
         font-family: 'Bootstrap-icons';
     }
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: 0px 0px 7px rgb(107, 44, 245);
 }

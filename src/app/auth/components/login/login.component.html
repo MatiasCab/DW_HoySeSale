@@ -6,9 +6,9 @@
         <div class="mx-3" *ngIf="isMobile">
             <app-header-navbar [firstIcon]="'bi bi-chevron-left'" [backPage]="'/presentation'"></app-header-navbar>
         </div>
-        <h1 class="text-light title_margin mt-5 center">LOGIN</h1>
+        <h1 class="text-light title_margin mt-5 center">INICIAR SESIÓN</h1>
         <div class="mt pb-4 size">
-            <app-input-user-credentials #username class="w-100" [inputLabel]="'Username'"
+            <app-input-user-credentials #username class="w-100" [inputLabel]="'Nombre de usuario'"
                 [inputTypeAutocomplete]="'nickname'">
             </app-input-user-credentials>
             <app-input-user-credentials #password class="w-100" [inputLabel]="'Contraseña'"
@@ -28,8 +28,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="form-check form-switch">
-    <input class="form-check-input t" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-    <label class="form-check-label text-light" for="flexSwitchCheckDefault">Remember me?</label>
-</div> -->

@@ -80,7 +80,7 @@ export const appAnimations = [
         ])
     ]), trigger("alertMessages", [
         transition(":enter", [
-            style({ transform: "translateY(100%)", opacity: 0}),
+            style({ transform: "translateY(100%)", opacity: 0 }),
             animate('0.2s {{delay}}s', style({ transform: "translateY(0%)", opacity: 1 }))
         ], { params: { delay: 0 } })
     ])

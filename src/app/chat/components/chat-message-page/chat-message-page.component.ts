@@ -1,10 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { appAnimations } from 'src/app/animations';
-import { ChatsPreview } from 'src/app/core/models/chatsPreview';
-import { Message, MessageFullInfo } from 'src/app/core/models/messages';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { UserService } from 'src/app/profile/services/user.service';
 import { ChatService } from '../../services/chat.service';
+
+import { appAnimations } from 'src/app/animations';
+import { ChatsPreview } from 'src/app/core/models/chatsPreview';
+import { MessageFullInfo } from 'src/app/core/models/messages';
 
 @Component({
   selector: 'app-chat-message-page',
@@ -17,7 +19,11 @@ export class ChatMessagePageComponent implements OnInit {
   chat?: ChatsPreview;
   messages?: MessageFullInfo[];
 
-  constructor(private chatService: ChatService, private route: ActivatedRoute, private userService: UserService) { }
+  constructor(
+    private chatService: ChatService,
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     const entertainmentId = this.route.snapshot.paramMap.get('entertainmentId');
@@ -30,7 +36,7 @@ export class ChatMessagePageComponent implements OnInit {
         this.chatService.getMessages(this.chat!.messageChatId).subscribe(
           messages => {
             this.userService.getThisUser().subscribe(
-              user => {
+              _user => {
                 const messagesCont: MessageFullInfo[] = []
                 messages.forEach(message => {
                   const isSender = message.receiver == Number(entertainmentId);
@@ -40,11 +46,11 @@ export class ChatMessagePageComponent implements OnInit {
                     senderImage: isSender ? this.userService.User!.imageLink : this.chat!.imageLink,
                     recieverIMage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
                   })
-                })
+                });
                 this.messages = messagesCont;
-              }
-            )
-          })
-      })
+              });
+          });
+      });
   }
+  
 }

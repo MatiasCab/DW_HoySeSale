@@ -1,18 +1,18 @@
-.entertainmentMobile{
+.entertainmentMobile {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .entertainment{
+    .entertainment {
         width: 90%;
     }
 
-    .index{
+    .index {
         z-index: 1;
     }
 }
 
-.entertainmentDesktop{
+.entertainmentDesktop {
     width: 100%;
     height: 84vh;
     display: flex;
