@@ -4,9 +4,6 @@ img {
 }
 
 .photo-cropper {
-    
-    overflow: hidden; //Overflow especifica como tratar el contenido excedente a un elemento o bloque.
-                        //hidder significa que lo oculta/es recortado.
-    
-    border-radius: 50%; //Redondea las esquinas del borde exterior de un elemento.
+    overflow: hidden;
+    border-radius: 50%;
 }

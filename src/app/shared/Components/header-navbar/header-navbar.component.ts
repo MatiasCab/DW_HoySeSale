@@ -1,6 +1,5 @@
-
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { appAnimations } from 'src/app/animations';
 
 @Component({
@@ -19,13 +18,12 @@ export class HeaderNavbarComponent implements OnInit {
   @Output() icon2Event: EventEmitter<void> = new EventEmitter();
   @Output() icon1Event: EventEmitter<void> = new EventEmitter();
 
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  emitEvent(eventNumber: number){
+  emitEvent(eventNumber: number) {
     switch (eventNumber) {
       case 1:
         this.icon1Event.emit();

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { Router } from '@angular/router';
 import { appAnimations } from './animations';
@@ -9,11 +10,9 @@ import { appAnimations } from './animations';
   styleUrls: ['./app.component.scss'],
   animations: [appAnimations]
 })
-
 export class AppComponent {
 
-  constructor(private contexts: ChildrenOutletContexts,
-    private route: Router) { }
+  title = 'Hoy se sale';
 
   get show() {
     return (this.route.url != '/presentation/login') &&
@@ -22,20 +21,21 @@ export class AppComponent {
       (!this.route.url.includes('/chat/'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
   }
 
-
   get navbarSelection(): number {
     const urls = ['/home', '/search', '/calendar', '/chat', '/profile']
     for (let i = 0; i < urls.length; i++) {
-      if(this.route.url.includes(urls[i])) return i;
+      if (this.route.url.includes(urls[i])) return i;
     }
-    if(this.route.url.includes('/entertainment')) return 1;
+    if (this.route.url.includes('/entertainment')) return 1;
     return 0;
   }
 
-  title = 'angular-hoy-se-sale';
+  constructor(
+    private contexts: ChildrenOutletContexts,
+    private route: Router
+  ) { }
 
   getRouteAnimationData() {
-    //this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username');
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

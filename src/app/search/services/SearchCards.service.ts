@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
+
 import { API_URL } from 'src/app/core/consts';
 import { searchResponse } from 'src/app/core/models/searchInfo';
 
@@ -13,12 +14,15 @@ constructor(private http: HttpClient) { }
 
   getEntertainments(searchIndex: Number, onlyFavorites: boolean, type?: string, searchInfo?: string){
     let params =`?startIndex=${searchIndex}&onlyFavorites=${onlyFavorites}&`;
+
     if(type){
       params += `type=${type}&`;
     }
+
     if(searchInfo){
       params += `searchInfo=${searchInfo}`
     }
+    
     return this.http.get<searchResponse>(`${API_URL}/searchResults${params}`).pipe(
       catchError( this.handleError<searchResponse>('getAllEntertainments', {searchIndex:0, entertainments: []}))
     );

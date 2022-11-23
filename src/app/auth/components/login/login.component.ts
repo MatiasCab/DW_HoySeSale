@@ -1,17 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  trigger,
-  style,
-  animate,
-  transition, 
-  // ...
-} from '@angular/animations';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { InputUserCredentialsComponent } from '../shared/input-user-credentials/input-user-credentials.component';
-import { AuthService } from '../../services/auth.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/profile/services/user.service';
+
+import { AuthService } from '../../services/auth.service';
+
+import { InputUserCredentialsComponent } from '../input-user-credentials/input-user-credentials.component';
 import { appAnimations } from 'src/app/animations';
+import { BREAK_POINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-login',
@@ -26,37 +21,39 @@ export class LoginComponent implements OnInit {
 
   errorMessage?: string;
   isMobile?: boolean;
-  
-  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router, private userService: UserService) { }
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
-    .subscribe(result => {
-      const breakpoints = result.breakpoints;
-      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 900px)']){
-        this.isMobile = false;
-      }else{
-        this.isMobile = true;
-      }
-    })
+    this.breakpointObserver.observe([BREAK_POINT])
+      .subscribe(result => {
+        const breakpoints = result.breakpoints;
+        if (breakpoints[BREAK_POINT]) {
+          this.isMobile = false;
+        } else {
+          this.isMobile = true;
+        }
+      });
   }
 
-  login(){
+
+
+  login() {
     let username = this.usernameInput?.InputInfo ? this.usernameInput?.InputInfo : '';
     const password = this.passwordInput?.InputInfo ? this.passwordInput?.InputInfo : '';
+
     this.authService.login(username, password).subscribe(response => {
-      if(response.error){
-        if(response.type == 'InvalidCredentials'){
+      if (response.error) {
+        if (response.type == 'InvalidCredentials') {
           this.errorMessage = 'Nombre de usuario y/o contraseña incorrectos';
-        }else{
+        } else {
           this.errorMessage = 'Lo sentimos no hemos podido procesar su solicitud';
         }
-      }else{
-        this.userService.getThisUser().subscribe(
-          user => {
-          }
-        )
+      } else {
         this.router.navigateByUrl('/home');
       }
     });

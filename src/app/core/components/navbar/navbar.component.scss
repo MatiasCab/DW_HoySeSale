@@ -1,7 +1,8 @@
-@mixin navbar1 ($justifyContent){
+@mixin navbar1 ($justifyContent) {
     display: flex;
     justify-content: $justifyContent;
-    .animatedLink{
+
+    .animatedLink {
         @include animatedLink();
     }
 }
@@ -11,13 +12,13 @@
     text-decoration: none;
 }
 
-@mixin linkStyle ($fontSize,$color){
-        align-items: center;
-        color: $color;
-        font-size: $fontSize;
+@mixin linkStyle ($fontSize, $color) {
+    align-items: center;
+    color: $color;
+    font-size: $fontSize;
 }
 
-@mixin animatedLinkEvents{
+@mixin animatedLinkEvents {
     content: '';
     display: block;
     width: 0;
@@ -26,53 +27,54 @@
     transition: width .3s;
 }
 
-@mixin animatedLinkHover{
+@mixin animatedLinkHover {
     width: 100%;
 }
 
-@mixin fillColor{
+@mixin fillColor {
     background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.container-fluid{
+.container-fluid {
     padding-left: 8%;
     padding-right: 8%;
 }
 
-.navbarMobile .navbar{
+.navbarMobile .navbar {
     background-color: #181818;
     position: fixed;
     bottom: 0;
     z-index: 1;
-    
+
     @include navbar1(space-around);
-    
+
     border-top: 2px solid #636363;
     padding: 0;
     width: 100%;
-    a{
+
+    a {
         @include linkStyle(1.3em, #636363);
         height: 100%;
     }
 
-    .animatedLink::before{
+    .animatedLink::before {
         @include animatedLinkEvents();
     }
 
-    .animatedLink.hover::before{
+    .animatedLink.hover::before {
         @include animatedLinkHover();
     }
 
-    .fillColor{
+    .fillColor {
         @include fillColor();
     }
 }
 
 
-.navbarDesktop .navbar{
+.navbarDesktop .navbar {
     @include navbar1(flex-end);
     border-bottom: 2px solid #636363;
     padding-top: 2vh;
@@ -80,31 +82,31 @@
     padding-bottom: 0;
     flex-wrap: nowrap;
 
-    a{
+    a {
         @include linkStyle(1em, white);
         margin-left: 7%;
         height: 2rem;
     }
-    
-    a.first{
+
+    a.first {
         margin-left: 0;
     }
 
     p {
-        margin:0;
+        margin: 0;
         height: 100%;
         //font-size: 3rem;
     }
 
-    .animatedLink::after{
+    .animatedLink::after {
         @include animatedLinkEvents();
     }
 
-    .animatedLink.hover::after{
+    .animatedLink.hover::after {
         @include animatedLinkHover();
     }
 
-    .hover p{
+    .hover p {
         @include fillColor();
     }
 
@@ -116,6 +118,6 @@
     }
 }
 
-.bi::before{
+.bi::before {
     line-height: 2;
 }

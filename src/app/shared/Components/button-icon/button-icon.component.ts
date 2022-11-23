@@ -8,7 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ButtonIconComponent implements OnInit {
 
   @Input() iconClass?: string;
-  
   @Output() press: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
@@ -16,7 +15,7 @@ export class ButtonIconComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitEvent(){
+  emitEvent() {
     this.press.emit();
   }
 

@@ -1,6 +1,10 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+
 import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
+
 import { SearchCardsService } from '../../services/SearchCards.service';
+
+import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
 
 @Component({
   selector: 'app-display-search-info',
@@ -20,9 +24,16 @@ export class DisplaySearchInfoComponent implements OnInit {
   @Input() onlyFavorites: boolean = false;
   @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
 
+
+  searchView?: searchView;
+  searchIndex: number = 0;
+  lastSearchInfo?: searchInfo;
+  limitReached: boolean = false;
+
   get limit(){
     return this.limitReached;
   }
+
 
   constructor(private searchService: SearchCardsService) { }
 
@@ -37,29 +48,31 @@ export class DisplaySearchInfoComponent implements OnInit {
     }
 
     if (!sameSearch || searchIndex) {
+      this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
+        .subscribe(
+          response => {
+            this.searchIndex = response.searchIndex;
 
-      this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput).subscribe( //Fijarse si esto no da eror por tener dos parametros opcionales.
-        response => {
-          this.searchIndex = response.searchIndex;
+            if (!searchIndex) this.searchView = undefined;
+            if (response.entertainments.length == 0) this.limitReached = true;
 
-          if (!searchIndex) this.searchView = undefined;
-          if (response.entertainments.length == 0) this.limitReached = true;
-          this.searchView = {
-            action: searchIndex ? 'extends' : 'new',
-            oldEntertainments: this.searchView ? [...this.searchView.oldEntertainments, ...response.entertainments] : response.entertainments,
-            newEntertainments: response.entertainments
-          }
-          this.lastSearchInfo = searchInfo;
-        }
-      );
+            this.searchView = {
+              action: searchIndex ? 'extends' : 'new',
+              oldEntertainments: this.searchView ? [...this.searchView.oldEntertainments, ...response.entertainments] : response.entertainments,
+              newEntertainments: response.entertainments
+            }
+
+            this.lastSearchInfo = searchInfo;
+          });
     }
   }
 
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
+
     if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight) {
       if (!this.limitReached) {
-        this.getEntertianments(this.lastSearchInfo, this.searchIndex); //Asegurarse de que no este llamando cuando se acaben los entretenimeintos pero se siga usando el scroll.
+        this.getEntertianments(this.lastSearchInfo, this.searchIndex);
       }
     }
   }

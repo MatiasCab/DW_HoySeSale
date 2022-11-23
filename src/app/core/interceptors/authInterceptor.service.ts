@@ -1,7 +1,8 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { catchError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of } from 'rxjs';
+
 import { API_URL, TOKEN_NAME_LS } from '../consts';
 
 @Injectable()
@@ -23,14 +24,15 @@ export class AuthInterceptor implements HttpInterceptor {
         );
       }
     }
+
     return next.handle(req).pipe(
       catchError(this.handleError())
-    ); //PREGUNATR SOBRE TENER ESTO ACA
+    );
   }
 
-  private handleError() { //PREGUNTAR SOBRE ESTO.
+  private handleError() {
     return (error: HttpErrorResponse) => {
-      if(error.error.name == 'NoJWT' || error.error.name == 'JWTInvalid'){
+      if (error.error.name == 'NoJWT' || error.error.name == 'JWTInvalid') {
         this.router.navigateByUrl('/presentation/login');
       };
       throw error;

@@ -1,18 +1,17 @@
-.entertainment-card{
-    height: 20vh;  
+.entertainment-card {
+    height: 20vh;
     margin-top: 2.5vh;
 
-    a{
+    a {
 
         .image {
-            //background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
-            background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
             border-radius: 15px;
             width: 100%;
             height: 100%;
         }
 
-        img{
+        img {
             position: relative;
             z-index: -1;
             width: 100%;
@@ -20,30 +19,33 @@
             border-radius: 15px;
             object-fit: cover;
         }
-    } 
-    
-    .decoration{
+    }
+
+    .decoration {
         color: white;
         display: flex;
         justify-content: space-between;
-        align-items: baseline; 
+        align-items: baseline;
+
         p {
             font-size: 1.5em;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
-        p.type{
+
+        p.type {
             font-size: small;
         }
-        a{
+
+        a {
             color: white;
             max-width: 85%;
             padding-right: 5%;
         }
     }
 
-    .prub{
+    .prub {
         position: relative;
         top: -45%;
     }

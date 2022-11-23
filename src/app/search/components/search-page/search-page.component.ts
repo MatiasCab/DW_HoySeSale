@@ -1,12 +1,13 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+
+import { BREAK_POINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-
 export class SearchPageComponent implements OnInit {
 
   isMobile?: boolean;
@@ -14,15 +15,14 @@ export class SearchPageComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
-    .subscribe(result => {
-      const breakpoints = result.breakpoints;
-      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 900px)']){
-        this.isMobile = false;
-      }else{
-        this.isMobile = true;
-      }
-    });
+    this.breakpointObserver.observe([BREAK_POINT])
+      .subscribe(result => {
+        const breakpoints = result.breakpoints;
+        if (breakpoints[BREAK_POINT]) {
+          this.isMobile = false;
+        } else {
+          this.isMobile = true;
+        }
+      });
   }
 }

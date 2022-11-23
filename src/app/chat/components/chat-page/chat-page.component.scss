@@ -1,13 +1,12 @@
-.container{
+.container {
     max-width: 70%;
     max-height: 70%;
     height: 70%;
-    //margin-top: 12vh;
     padding-top: 0.5rem;
 }
 
-.colum{
-   overflow-y: auto;
+.colum {
+    overflow-y: auto;
     max-height: 100%;
     overflow-x: hidden;
 }
@@ -16,41 +15,37 @@
     width: 0;
 }
 
-.uno{
-    overflow-y: auto;
-}
-
-.messagesView{
+.messagesView {
     display: flex;
     flex-direction: column;
     padding-right: 0;
 }
 
-.bottom-position{
+.bottom-position {
     margin-top: auto;
     position: sticky;
     bottom: 0;
 }
 
-.searchInput{
+.searchInput {
     display: flex;
     align-items: center;
     border-bottom: 1px solid white;
 }
 
-.border-bottom{
+.border-bottom {
     margin-left: 20px;
 }
 
-.margin{
+.margin {
     margin-left: 20px;
 }
 
-.width{
+.width {
     max-width: 80%;
 }
 
-div.col.text-light.my-3{
+div.col.text-light.my-3 {
     display: flex;
     align-items: center;
 }

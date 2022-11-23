@@ -1,12 +1,13 @@
 button {
     min-height: 38px;
     border-radius: 46px;
-    color:white ;
+    color: white;
 }
 
-.fill{
+.fill {
     background: linear-gradient(180deg, rgb(212, 80, 230) 0%, #6B2CF5 100%);
     border: 0;
+
     &:hover {
         box-shadow: 0px 0px 4px 0px #6B2CF5, 0px 0px 4px 0px #D450E6;
         background: linear-gradient(180deg, #6B2CF5 0%, #d450e6 100%);
@@ -20,8 +21,9 @@ button.empty {
     background-origin: border-box;
     background-clip: content-box, border-box;
     box-shadow: 2px 1000px 1px rgba(30, 30, 30, 0.9) inset;
-    &:hover{
-        box-shadow: 2px 1000px 1px rgba(30, 30, 30, 0.9) inset,  0px 0px 6px 0px #D450E6, 0px 0px 6px 0px #6B2CF5;
+
+    &:hover {
+        box-shadow: 2px 1000px 1px rgba(30, 30, 30, 0.9) inset, 0px 0px 6px 0px #D450E6, 0px 0px 6px 0px #6B2CF5;
         color: white;
     }
 }

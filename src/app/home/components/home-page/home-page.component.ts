@@ -1,8 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { appAnimations } from 'src/app/animations';
+
 import { ModalLogoutComponent } from '../modal-logout/modal-logout.component';
+import { appAnimations } from 'src/app/animations';
+import { BREAK_POINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-home-page',
@@ -12,22 +14,21 @@ import { ModalLogoutComponent } from '../modal-logout/modal-logout.component';
   animations: [appAnimations]
 })
 export class HomePageComponent implements OnInit {
-
-  constructor(private modalService: NgbModal, private breakpointObserver: BreakpointObserver) {  }
-
+  
   isMobile: boolean = true;
 
+  constructor(private modalService: NgbModal, private breakpointObserver: BreakpointObserver) { }
+
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(min-width: 900px)', Breakpoints.HandsetLandscape])
+    this.breakpointObserver.observe([BREAK_POINT])
     .subscribe(result => {
       const breakpoints = result.breakpoints;
-      //if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] || breakpoints[Breakpoints.WebLandscape]){
-      if(breakpoints['(min-width: 900px)']){
+      if (breakpoints[BREAK_POINT]) {
         this.isMobile = false;
-      }else{
+      } else {
         this.isMobile = true;
       }
-    })
+    });
   }
 
   openLogoutModal() {
@@ -35,9 +36,6 @@ export class HomePageComponent implements OnInit {
       windowClass: 'backdrop',
       centered: true,
     });
-  }
-
-  logout(){
   }
 
 }
