@@ -13,6 +13,7 @@ import { CardsGridComponent } from './Components/cards-grid/cards-grid.component
 import { DesktopCardCarouselComponent } from './Components/desktop-card-carousel/desktop-card-carousel.component';
 import { DisplaySearchInfoComponent } from '../search/components/display-search-info/display-search-info.component';
 import { SearchEntertainmentComponent } from '../search/components/search-entertainment/search-entertainment.component';
+import { NoResultsComponent } from './Components/no-results/no-results.component';
 
 
 
@@ -33,7 +34,8 @@ import { SearchEntertainmentComponent } from '../search/components/search-entert
     CardsGridComponent,
     DesktopCardCarouselComponent,
     DisplaySearchInfoComponent,
-    SearchEntertainmentComponent
+    SearchEntertainmentComponent,
+    NoResultsComponent
   ],
   exports: [
     GenericButtonComponent,
@@ -46,7 +48,8 @@ import { SearchEntertainmentComponent } from '../search/components/search-entert
     DesktopCardCarouselComponent,
     CardComponent,
     DisplaySearchInfoComponent,
-    SearchEntertainmentComponent
+    SearchEntertainmentComponent,
+    NoResultsComponent
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
+import { appAnimations } from 'src/app/animations';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchView } from 'src/app/core/models/searchInfo';
 import { appAnimations } from 'src/app/animations';
@@ -29,6 +30,7 @@ export class DesktopCardCarouselComponent implements OnInit {
   }
 
   setCards(searchView: searchView) {
+    
     let changeIndex = 3;
     let newEntertainmentArray: entertainmentCardPreview[][] = [];
     let newEntertainmentSet: entertainmentCardPreview[] = [];

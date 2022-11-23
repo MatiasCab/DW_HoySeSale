@@ -2,6 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { ClockService } from '../../services/clock.service';
+import { FavoriteService } from 'src/app/shared/services/favorite.service';
+
+import { Local } from 'src/app/core/models/local';
+import { Event } from 'src/app/core/models/event';
+import { appAnimations } from 'src/app/animations';
+import { searchView } from '../../../core/models/searchInfo';
+
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
 import { ClockService } from '../../services/clock.service';
 
@@ -26,6 +34,7 @@ export class EntertainmentInfoComponent implements OnInit {
   currentIcon?: string;
   prevIcon?: string;
   timerSubscription?: Subscription;
+  noResultText: string = 'Este local no tiene eventos disponibles';
   countdown = {
     days: 0,
     hours: 0,

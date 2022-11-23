@@ -29,6 +29,7 @@
         <h3>EVENTOS</h3>
         <app-cards-grid [setEntertainments]="EntertainmentEventsMobile"
             *ngIf="EntertainmentEventsMobile.newEntertainments.length > 0"></app-cards-grid>
+        <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results"></app-no-results>
     </div>
     <div class="timer cont-6 mt-3" *ngIf="isAnEvent">
         <h3>FALTA POCO!!</h3>
@@ -118,6 +119,7 @@
                     </ng-template>
                 </ngb-carousel>
             </div>
+            <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results"></app-no-results>
         </div>
         <div class="timer cont-6" *ngIf="isAnEvent">
             <h3>FALTA POCO!!</h3>
