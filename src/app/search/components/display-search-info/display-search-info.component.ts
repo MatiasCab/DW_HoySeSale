@@ -1,7 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
-import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
-
 import { SearchCardsService } from '../../services/SearchCards.service';
 
 import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
@@ -23,12 +21,6 @@ export class DisplaySearchInfoComponent implements OnInit {
   @Input() showSearchBar?: boolean = true;
   @Input() onlyFavorites: boolean = false;
   @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
-
-
-  searchView?: searchView;
-  searchIndex: number = 0;
-  lastSearchInfo?: searchInfo;
-  limitReached: boolean = false;
 
   get limit(){
     return this.limitReached;

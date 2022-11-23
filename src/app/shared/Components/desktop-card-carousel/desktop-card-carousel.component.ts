@@ -4,7 +4,6 @@ import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { appAnimations } from 'src/app/animations';
 import { entertainmentCardPreview } from 'src/app/core/models/entertainmentCardPreview';
 import { searchView } from 'src/app/core/models/searchInfo';
-import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-desktop-card-carousel',
@@ -71,7 +70,6 @@ export class DesktopCardCarouselComponent implements OnInit {
     }
   }
 
-
   chargeMoreCards() {
     const slideNumber = Number(this.carousel?.activeId);
 
@@ -79,7 +77,5 @@ export class DesktopCardCarouselComponent implements OnInit {
       this.moreSlidesEvent.emit();
     }
   }
-
-
 
 }
