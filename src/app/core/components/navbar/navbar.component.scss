@@ -78,6 +78,7 @@
     @include navbar1(flex-end);
     border-bottom: 2px solid #636363;
     padding-top: 2vh;
+    justify-content: center;
     align-items: center;
     padding-bottom: 0;
     flex-wrap: nowrap;
@@ -95,7 +96,6 @@
     p {
         margin: 0;
         height: 100%;
-        //font-size: 3rem;
     }
 
     .animatedLink::after {
@@ -116,6 +116,16 @@
         height: auto;
         margin-bottom: 0;
     }
+}
+
+.logout {
+    position: absolute;
+    top: 0.5%;
+    right: 9%;
+    height: 2rem;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .bi::before {
