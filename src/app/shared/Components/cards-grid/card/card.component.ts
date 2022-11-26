@@ -15,6 +15,7 @@ import { appAnimations } from 'src/app/animations';
 export class CardComponent implements OnInit {
 
   @Input() entertainment?: entertainmentCardPreview;
+  @Input() isMobile?: boolean;
 
   currentIcon?: string;
   prevIcon?: string;

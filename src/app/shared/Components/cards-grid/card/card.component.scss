@@ -21,18 +21,19 @@
         }
     }
 
+    .prub {
+        position: relative;
+        top: -45%;
+    }
+
     .decoration {
         color: white;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        
 
         p {
             font-size: 1.5em;
-            //overflow: hidden;
-            //white-space: nowrap;
-            //text-overflow: ellipsis;
             vertical-align: baseline;
         }
 
@@ -47,8 +48,33 @@
         }
     }
 
-    .prub {
+    .prub-desktop {
         position: relative;
-        top: -45%;
+        top: -25%;
+        height: 10vh;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .decoration-desktop {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        p {
+            font-size: 1.5em;
+            vertical-align: baseline;
+        }
+
+        p.type {
+            font-size: small;
+        }
+
+        a {
+            color: white;
+            max-width: 85%;
+            padding-right: 5%;
+        }
     }
 }
