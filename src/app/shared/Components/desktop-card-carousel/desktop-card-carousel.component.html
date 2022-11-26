@@ -4,11 +4,11 @@
         [id]="i.toString()">
         <div class="row carouselCards mx-4">
             <app-card class="p" [@searchedCardsDesktop]="{value:'', params:{delay:1/10}}" class="col"
-                    [isMobile]="isMobile" [entertainment]="entertainments[0]"></app-card>
+                    [isMobile]="true" [entertainment]="entertainments[0]"></app-card>
             <app-card class="p" [@searchedCardsDesktop]="{value:'', params:{delay:2/10}}" class="col"
-                    [isMobile]="isMobile" [entertainment]="entertainments[1]"></app-card>
+                    [isMobile]="true" [entertainment]="entertainments[1]"></app-card>
             <app-card class="p" [@searchedCardsDesktop]="{value:'', params:{delay:3/10}}" class="col"
-                    [isMobile]="isMobile" [entertainment]="entertainments[2]"></app-card>
+                    [isMobile]="true" [entertainment]="entertainments[2]"></app-card>
         </div>
     </ng-template>
 </ngb-carousel>

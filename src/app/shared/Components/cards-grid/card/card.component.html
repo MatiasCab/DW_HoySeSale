@@ -22,12 +22,14 @@
             <img src="{{entertainment.imageLink}}" alt="">
         </div>
     </a>
-    <div [ngClass]="isMobile ? 'prub' : 'prub-desktop'">
-        <div [ngClass]="isMobile ? 'decoration mx-3' : 'decoration-desktop mx-3'">
+    <div [ngClass]="!isMobile ? 'prub' : 'prub-desktop'">
+        <div [ngClass]="!isMobile ? 'decoration mx-3' : 'decoration-desktop mx-3'">
             <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
                 <p class="mb-0 name">{{entertainment.name}}</p>
                 <p class="type mb-0">{{getEntertainmentType()}}</p>
             </a>
+        </div>
+        <div class="favourite-icon">
             <app-button-icon [iconClass]="Icon" class="my-auto" (click)="changeFavoriteIcon()"
                 [@favoriteInCard]="Icon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
         </div>

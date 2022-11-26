@@ -38,7 +38,7 @@ export class CardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;    
   }
 
   changeFavoriteIcon() {
