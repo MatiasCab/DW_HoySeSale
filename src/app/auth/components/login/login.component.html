@@ -9,10 +9,10 @@
         <h1 class="text-light title_margin mt-5 center">INICIAR SESIÓN</h1>
         <div class="mt pb-4 size">
             <app-input-user-credentials #username class="w-100" [inputLabel]="'Nombre de usuario'"
-                [inputTypeAutocomplete]="'nickname'">
+                [inputTypeAutocomplete]="'nickname'" (enterpressEvent)="login()">
             </app-input-user-credentials>
             <app-input-user-credentials #password class="w-100" [inputLabel]="'Contraseña'"
-                [inputTypeAutocomplete]="'new-password'" [inputType]="'password'">
+                [inputTypeAutocomplete]="'new-password'" [inputType]="'password'" (enterpressEvent)="login()">
             </app-input-user-credentials>
         </div>
         <div class="mt-5">

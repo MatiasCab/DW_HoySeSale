@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { debounceTime, fromEvent, tap } from 'rxjs';
 
 @Component({
   selector: 'app-search-input',
@@ -14,9 +15,18 @@ export class SearchInputComponent implements OnInit {
     return this.searchBar?.nativeElement.value == '' ? undefined : this.searchBar?.nativeElement.value;
   }
 
+  source: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(this);
+    
+    // this.source = fromEvent(this.searchBar?.nativeElement, 'keyup');
+    // this.source.pipe(debounceTime(1200),
+    // tap((text: KeyboardEvent) => {
+    //   this.keyEnter(text)
+    // }));
   }
 
   keyEnter(key: KeyboardEvent) {

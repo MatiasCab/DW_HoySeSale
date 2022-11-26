@@ -43,6 +43,8 @@ export class DisplaySearchInfoComponent implements OnInit {
       this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
         .subscribe(
           response => {
+            console.log("Paso");
+            
             this.searchIndex = response.searchIndex;
 
             if (!searchIndex) this.searchView = undefined;

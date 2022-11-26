@@ -11,6 +11,7 @@ export class InputUserCredentialsComponent implements OnInit {
   @Input() inputType?: string;
   @Input() inputTypeAutocomplete?: string;
   @Output() keypressEvent: EventEmitter<string> = new EventEmitter();
+  @Output() enterpressEvent: EventEmitter<void> = new EventEmitter();
   @ViewChild('inputInfo') inputInfo?: ElementRef<HTMLInputElement>;
 
   get InputInfo(){
@@ -24,6 +25,10 @@ export class InputUserCredentialsComponent implements OnInit {
 
   keypress(){
     this.keypressEvent.emit(this.InputInfo);
+  }
+
+  enterpress(){
+    this.enterpressEvent.emit();
   }
 
 }

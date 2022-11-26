@@ -20,16 +20,20 @@ export class ChatService {
     if (searchFilter) {
       params = `?searchInfo=${searchFilter}`;
     }
-    return this.http.get<ChatsPreview[]>(`${this.CHAT_API_URL}${params}`);
+    return this.http.get<ChatsPreview[]>(`${this.CHAT_API_URL}${params}`).pipe(
+      catchError(this.handleError<ChatsPreview[]>('getEspecificChat', []))
+    );
   }
 
   getEspecificChat(entertainmentId: number) {
-    return this.http.get<ChatsPreview>(`${this.CHAT_API_URL}/${entertainmentId}`);
+    return this.http.get<ChatsPreview>(`${this.CHAT_API_URL}/${entertainmentId}`).pipe(
+      catchError(this.handleError<ChatsPreview>('getEspecificChat'))
+    );
   }
 
   sendMessage(messageContent: string, chatId: number) {
     return this.http.post<any>(`${this.CHAT_API_URL}/${chatId}/messages`, {messageContent}).pipe(
-      catchError(this.handleError<any>('getMessages'))
+      catchError(this.handleError<any>('sendMessage'))
     );
   }
 
