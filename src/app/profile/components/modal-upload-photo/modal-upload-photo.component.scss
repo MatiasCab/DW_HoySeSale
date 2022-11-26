@@ -7,10 +7,6 @@
     height: 50%;
 }
 
-label {
-    margin-bottom: 0;
-}
-
 .row {
     height: 100%;
 }
@@ -18,7 +14,7 @@ label {
 .col-8 {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .modal-body {
@@ -27,6 +23,7 @@ label {
 
 .max-width {
     padding-top: 5%;
+    padding-bottom: 5%;
     width: 100%;
 }
 

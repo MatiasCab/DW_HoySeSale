@@ -6,5 +6,5 @@
         <app-no-results [text]="noResultText"></app-no-results>
     </div>
 </div>
-<app-desktop-card-carousel *ngIf="!isMobile" [setEntertainments]="searchView"
+<app-desktop-card-carousel *ngIf="!isMobile" [setEntertainments]="searchView" [isMobile]="isMobile"
     (moreSlidesEvent)="getEntertianments(this.lastSearchInfo, this.searchIndex)"></app-desktop-card-carousel>

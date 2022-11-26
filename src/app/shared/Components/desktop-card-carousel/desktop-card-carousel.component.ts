@@ -15,6 +15,7 @@ export class DesktopCardCarouselComponent implements OnInit {
 
   @ViewChild('carousel') carousel?: NgbCarousel;
   @Output() moreSlidesEvent: EventEmitter<void> = new EventEmitter();
+  @Input() isMobile?: boolean;
   @Input() public set setEntertainments(entertainmentsInfo: searchView | undefined) {
     if (entertainmentsInfo) {
       this.setCards(entertainmentsInfo);

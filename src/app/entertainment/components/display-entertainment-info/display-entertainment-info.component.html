@@ -13,7 +13,7 @@
         </ngb-carousel>
     </div>
     <div class="entertainmentName">
-        <p>{{entertainment.name}}</p>
+        <p>{{entertainment.name | uppercase}}</p>
     </div>
     <app-entertainment-info [isAnEvent]="isAnEvent" [isMobile]="isMobile" [entertainment]="entertainment">
     </app-entertainment-info>

@@ -1,4 +1,4 @@
-<div class="entertainment-card" *ngIf="entertainment">
+<!-- <div class="entertainment-card" *ngIf="entertainment">
     <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
         <div class="image">
             <img src="{{entertainment.imageLink}}" alt="">
@@ -7,9 +7,29 @@
     <div class="prub">
         <div class="decoration mx-3">
             <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
-                <p class="mb-0">{{entertainment.name}}</p>
+                <p class="mb-0 name">{{entertainment.name}}</p>
                 <p class="type mb-0">{{getEntertainmentType()}}</p>
             </a>
+            <app-button-icon [iconClass]="Icon" class="my-auto" (click)="changeFavoriteIcon()"
+                [@favoriteInCard]="Icon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
+        </div>
+    </div>
+</div> -->
+
+<div class="entertainment-card" *ngIf="entertainment">
+    <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
+        <div class="image">
+            <img src="{{entertainment.imageLink}}" alt="">
+        </div>
+    </a>
+    <div [ngClass]="!isMobile ? 'prub' : 'prub-desktop'">
+        <div [ngClass]="!isMobile ? 'decoration mx-3' : 'decoration-desktop mx-3'">
+            <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
+                <p class="mb-0 name">{{entertainment.name}}</p>
+                <p class="type mb-0">{{getEntertainmentType()}}</p>
+            </a>
+        </div>
+        <div class="favourite-icon">
             <app-button-icon [iconClass]="Icon" class="my-auto" (click)="changeFavoriteIcon()"
                 [@favoriteInCard]="Icon == 'bi bi-bookmark' ? 'quitFavorite' : 'putFavorite'"></app-button-icon>
         </div>

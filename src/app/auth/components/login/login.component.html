@@ -16,14 +16,14 @@
             </app-input-user-credentials>
         </div>
         <div class="mt-5">
-            <app-generic-button (click)="login()" class="size" [buttonStyle]="'fill'" [btnText]="'Login'"></app-generic-button>
+            <app-generic-button (click)="login()" class="size" [buttonStyle]="'fill'" [btnText]="'Iniciar sesión'"></app-generic-button>
         </div>
         <div class="{{isMobile ? 'bottom-button' : ''}}">
             <div class="center-or">
-                <p class="text-center my-1 text-light px-1 or">or</p>
+                <p class="text-center my-1 text-light px-1 or">o</p>
             </div>
             <a routerLink="../singUp" routerLinkActive="active">
-                <app-generic-button class="size pb-3" [buttonStyle]="'empty'" [btnText]="'Signup'"></app-generic-button>
+                <app-generic-button class="size pb-3" [buttonStyle]="'empty'" [btnText]="'Registrarse'"></app-generic-button>
             </a>
         </div>
     </div>
