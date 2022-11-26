@@ -26,12 +26,14 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        
 
         p {
             font-size: 1.5em;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            //overflow: hidden;
+            //white-space: nowrap;
+            //text-overflow: ellipsis;
+            vertical-align: baseline;
         }
 
         p.type {

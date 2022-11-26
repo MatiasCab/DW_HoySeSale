@@ -7,7 +7,7 @@
     <div class="prub">
         <div class="decoration mx-3">
             <a routerLink="/entertainments/{{entertainment.type == 'event' ? 'events' : 'locals'}}/{{entertainment.entertainmentID}}" class="text-decoration-none">
-                <p class="mb-0">{{entertainment.name}}</p>
+                <p class="mb-0 name">{{entertainment.name}}</p>
                 <p class="type mb-0">{{getEntertainmentType()}}</p>
             </a>
             <app-button-icon [iconClass]="Icon" class="my-auto" (click)="changeFavoriteIcon()"
