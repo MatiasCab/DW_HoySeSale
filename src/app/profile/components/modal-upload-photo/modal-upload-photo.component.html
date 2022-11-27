@@ -1,9 +1,11 @@
 <div class="modal-body">
     <div class="row">
         <div class="col-8">
-            <label class="fi-button px-2" for="file">Seleccione una imagen...</label>
-            <input #imageInput id="file" type="file" class="fi-button" name="postImg" accept="image/*"
-                (change)="chargePrevViewImage()" hidden>
+            <div class="max-width mx-auto">
+                <input #imageInput id="file" type="file" accept="image/*" (change)="chargePrevViewImage()" hidden #file>
+                <app-generic-button [buttonStyle]="'fill'" [btnText]="'Seleccione una imagen...'" (click)="file.click()">
+                </app-generic-button>
+            </div>
             <div class="max-width mx-auto">
                 <app-generic-button [buttonStyle]="'empty w-100'" [btnText]="'Subir'" (click)="chargeImage()">
                 </app-generic-button>

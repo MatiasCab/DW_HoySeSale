@@ -15,6 +15,7 @@ import { appAnimations } from 'src/app/animations';
 export class CardComponent implements OnInit {
 
   @Input() entertainment?: entertainmentCardPreview;
+  @Input() isMobile?: boolean;
 
   currentIcon?: string;
   prevIcon?: string;
@@ -37,7 +38,7 @@ export class CardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;    
   }
 
   changeFavoriteIcon() {

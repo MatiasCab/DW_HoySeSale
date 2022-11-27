@@ -5,8 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorPageComponent } from './core/components/error-page/error-page.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'presentation', pathMatch:"full"},
-  {path: 'presentation', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  {path: '', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: 'chats', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)},
   {path: 'entertainments', loadChildren: () => import('./entertainment/entertainment.module').then(m => m.EntertainmentModule)},
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},

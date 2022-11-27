@@ -9,7 +9,7 @@
                 (icon2Event)="openVerifyCodeModal()" [backPage]="'/presentation'">
             </app-header-navbar>
         </div>
-        <h1 class="text-light pt-5 center {{!isMobile ? 'title_margin' : ''}}">SIGNUP</h1>
+        <h1 class="text-light pt-5 center {{!isMobile ? 'title_margin' : ''}}">REGISTRARSE</h1>
         <div class="mx-auto pb-4 size">
             <app-input-user-credentials class="w-100" [inputLabel]="'Nombre'" [inputTypeAutocomplete]="'given-name'"
                 (keypressEvent)="reguleGenericInfo($event, 'name')">
@@ -17,28 +17,28 @@
             <app-input-user-credentials class="w-100" [inputLabel]="'Apellido'" [inputTypeAutocomplete]="'family-name'"
                 (keypressEvent)="reguleGenericInfo($event, 'lastname')">
             </app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Username (Sin espacio ni @)'"
+            <app-input-user-credentials class="w-100" [inputLabel]="'Nombre de usuario (sin espacios)'"
                 [inputTypeAutocomplete]="'nickname'" (keypressEvent)="reguleUsername($event)">
             </app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Email Adress'" [inputTypeAutocomplete]="'email'"
+            <app-input-user-credentials class="w-100" [inputLabel]="'Email'" [inputTypeAutocomplete]="'email'"
                 (keypressEvent)="reguleEmail($event)">
             </app-input-user-credentials>
-            <app-input-user-credentials class="w-100" [inputLabel]="'Contraseña (Minimo 8 caracteres)'"
+            <app-input-user-credentials class="w-100" [inputLabel]="'Contraseña (mínimo 8 caracteres)'"
                 [inputTypeAutocomplete]="'new-password'" [inputType]="'password'"
                 (keypressEvent)="regulePassword($event)">
             </app-input-user-credentials>
         </div>
         <div class="mt-4">
-            <app-generic-button class="size" [buttonStyle]="'fill ' + enableSignup" [btnText]="'singup'"
+            <app-generic-button class="size" [buttonStyle]="'fill ' + enableSignup" [btnText]="'Registrarse'"
                 (click)="signup()">
             </app-generic-button>
         </div>
         <div class="{{isMobile ? 'bottom-button' : ''}}">
             <div class="center-or">
-                <p class="mt-1 mb-1 text-light px-1 or">or</p>
+                <p class="mt-1 mb-1 text-light px-1 or">o</p>
             </div>
             <a routerLink="../login" routerLinkActive="active">
-                <app-generic-button class="size pb-3" [buttonStyle]="'empty'" [btnText]="'Login'"></app-generic-button>
+                <app-generic-button class="size pb-3" [buttonStyle]="'empty'" [btnText]="'Iniciar sesión'"></app-generic-button>
             </a>
         </div>
     </div>

@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<!--ME PARECE QUE HAY COMO MUCHOS DIV, CAPAZ SE PUEDE ACORTAR UN POCO-->
+
 <ng-template #elseBlock>
     <div class="infoDesktop" *ngIf="entertainment">
         <div class="local-images cont-1">
@@ -75,7 +75,7 @@
         </div>
 
         <div class="header cont-2 row">
-            <p class="col-10">{{entertainment.name}}</p>
+            <p class="col-10">{{entertainment.name | uppercase}}</p>
             <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" [currentIcon2]="Icon"
                 [currentIcon1]="'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()" (icon1Event)="redirectToChat()">
             </app-header-navbar>

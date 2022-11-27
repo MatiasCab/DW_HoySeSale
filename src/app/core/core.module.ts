@@ -5,12 +5,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/authInterceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule
   ],
   declarations: [
