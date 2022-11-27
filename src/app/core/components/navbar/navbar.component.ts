@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { BREAK_POINT } from '../../consts';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalLogoutComponent } from 'src/app/shared/Components/modal-logout/modal-logout.component';
 
 @Component({
   selector: 'app-navbar',
@@ -36,9 +38,7 @@ export class NavbarComponent implements OnInit {
     "bi bi-person-fill fillColor"
   ];
 
-  constructor(
-    private breakpointObserver: BreakpointObserver
-  ) { }
+  constructor( private modalService: NgbModal, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe([BREAK_POINT])
@@ -60,6 +60,13 @@ export class NavbarComponent implements OnInit {
         this.icons[i] = this.baseIcons[i];
       }
     }
+  }
+
+  openLogoutModal() {
+    this.modalService.open(ModalLogoutComponent, {
+      windowClass: 'backdrop',
+      centered: true,
+    });
   }
 
 }

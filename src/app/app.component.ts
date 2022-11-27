@@ -15,9 +15,11 @@ export class AppComponent {
   title = 'Hoy se sale';
 
   get show() {
-    return (this.route.url != '/presentation/login') &&
-      (this.route.url != '/presentation') &&
-      (this.route.url != '/presentation/singUp') &&
+    console.log(this.route.url);
+    
+    return (this.route.url != '/login') &&
+      (this.route.url != '/') &&
+      (this.route.url != '/singUp') &&
       (!this.route.url.includes('/chat/'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
   }
 

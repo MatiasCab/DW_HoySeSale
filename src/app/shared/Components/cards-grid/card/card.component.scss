@@ -21,17 +21,26 @@
         }
     }
 
+    .prub {
+        position: relative;
+        top: -60%;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
     .decoration {
         color: white;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        width: 100%;
 
         p {
+            width: 100%;
             font-size: 1.5em;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            vertical-align: baseline;
         }
 
         p.type {
@@ -40,13 +49,43 @@
 
         a {
             color: white;
-            max-width: 85%;
+            max-width: 95%;
             padding-right: 5%;
         }
     }
 
-    .prub {
+    .prub-desktop {
         position: relative;
-        top: -45%;
+        top: -25%;
+        height: 10vh;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .decoration-desktop {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+
+        p {
+            font-size: 1.5em;
+            vertical-align: baseline;
+        }
+
+        p.type {
+            font-size: small;
+        }
+
+        a {
+            color: white;
+            max-width: 100%;
+            padding-right: 5%;
+        }
+    }
+
+    .favourite-icon {
+        width: 10%;
+        margin-right: 5%;
     }
 }

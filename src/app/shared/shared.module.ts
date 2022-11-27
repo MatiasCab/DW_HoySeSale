@@ -14,8 +14,7 @@ import { DesktopCardCarouselComponent } from './Components/desktop-card-carousel
 import { DisplaySearchInfoComponent } from '../search/components/display-search-info/display-search-info.component';
 import { SearchEntertainmentComponent } from '../search/components/search-entertainment/search-entertainment.component';
 import { NoResultsComponent } from './Components/no-results/no-results.component';
-
-
+import { ModalLogoutComponent } from './Components/modal-logout/modal-logout.component';
 
 @NgModule({
   imports: [
@@ -35,7 +34,8 @@ import { NoResultsComponent } from './Components/no-results/no-results.component
     DesktopCardCarouselComponent,
     DisplaySearchInfoComponent,
     SearchEntertainmentComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    ModalLogoutComponent
   ],
   exports: [
     GenericButtonComponent,
@@ -49,7 +49,8 @@ import { NoResultsComponent } from './Components/no-results/no-results.component
     CardComponent,
     DisplaySearchInfoComponent,
     SearchEntertainmentComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    ModalLogoutComponent
   ]
 })
 export class SharedModule { }
