@@ -63,7 +63,6 @@ export class DisplaySearchInfoComponent implements OnInit {
               oldEntertainments: this.searchView ? [...this.searchView.oldEntertainments, ...response.entertainments] : response.entertainments,
               newEntertainments: response.entertainments
             }
-            alert(this.searchView);
             this.lastSearchInfo = searchInfo;
           });
     }
@@ -71,9 +70,14 @@ export class DisplaySearchInfoComponent implements OnInit {
 
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
-
+    console.log(eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight);
+    
     if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight) {
+      console.log("limit",this.limitReached);
+      
       if (!this.limitReached) {
+        console.log('llamo');
+        
         this.getEntertianments(this.lastSearchInfo, this.searchIndex);
       }
     }
