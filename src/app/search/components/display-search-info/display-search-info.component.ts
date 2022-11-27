@@ -63,7 +63,7 @@ export class DisplaySearchInfoComponent implements OnInit {
               oldEntertainments: this.searchView ? [...this.searchView.oldEntertainments, ...response.entertainments] : response.entertainments,
               newEntertainments: response.entertainments
             }
-
+            alert(this.searchView);
             this.lastSearchInfo = searchInfo;
           });
     }
