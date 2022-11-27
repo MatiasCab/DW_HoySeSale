@@ -97,6 +97,6 @@ export class EntertainmentPageComponent implements OnInit {
   }
 
   redirectToChat() {
-    this.router.navigateByUrl(`/chat/${this.entertainment?.entertainmentID}`);
+    this.router.navigateByUrl(`/chats/${this.entertainment?.entertainmentID}`);
   }
 }
