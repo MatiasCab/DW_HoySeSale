@@ -3,6 +3,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SearchCardsService } from '../../services/SearchCards.service';
 
 import { searchInfo, searchView } from 'src/app/core/models/searchInfo';
+import { ignoreElements, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-display-search-info',
@@ -16,13 +17,15 @@ export class DisplaySearchInfoComponent implements OnInit {
   lastSearchInfo?: searchInfo;
   limitReached: boolean = false;
   noResultText: string = 'No hay más resultados disponibles';
+  isInRequest: boolean = false;
+  responseSubscription?: Subscription;
 
   @Input() isMobile?: boolean;
   @Input() showSearchBar?: boolean = true;
   @Input() onlyFavorites: boolean = false;
   @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
 
-  get limit(){
+  get limit() {
     return this.limitReached;
   }
 
@@ -38,13 +41,18 @@ export class DisplaySearchInfoComponent implements OnInit {
     if (!searchIndex && this.cardsScroller) {
       this.cardsScroller.nativeElement.scrollTop = 0;
     }
+    if(this.isInRequest) this.responseSubscription?.unsubscribe();
 
+    this.isInRequest = true;
+    
     if (!sameSearch || searchIndex) {
-      this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
+      console.log(searchInfo?.searchInput);
+      this.responseSubscription = this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
         .subscribe(
           response => {
+            console.log(response);
             console.log("Paso");
-            
+            this.isInRequest = false;
             this.searchIndex = response.searchIndex;
 
             if (!searchIndex) this.searchView = undefined;
