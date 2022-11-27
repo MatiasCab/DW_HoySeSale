@@ -1,5 +1,4 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { Router } from '@angular/router';
 import { appAnimations } from './animations';
@@ -15,12 +14,10 @@ export class AppComponent {
   title = 'Hoy se sale';
 
   get show() {
-    console.log(this.route.url);
-    
     return (this.route.url != '/login') &&
       (this.route.url != '/') &&
       (this.route.url != '/singUp') &&
-      (!this.route.url.includes('/chat/'));// Otra forma de hacerlo por si las dudas console.log(this.contexts.getContext('primary')?.route?.snapshot.paramMap.has('username'));
+      (!this.route.url.includes('/chat/'));
   }
 
   get navbarSelection(): number {

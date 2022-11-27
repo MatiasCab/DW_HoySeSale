@@ -1,17 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { AuthService } from '../../services/auth.service';
+
 import { InputUserCredentialsComponent } from '../input-user-credentials/input-user-credentials.component';
+import { appAnimations } from 'src/app/animations';
 
 @Component({
   selector: 'app-verification-code-modal',
   templateUrl: './verification-code-modal.component.html',
-  styleUrls: ['./verification-code-modal.component.scss']
+  styleUrls: ['./verification-code-modal.component.scss'],
+  animations: [appAnimations]
 })
 export class VerificationCodeModalComponent implements OnInit {
 
   @ViewChild('code') codeInput?: InputUserCredentialsComponent;
+
+  errorMessage?: string;
 
   constructor(
     private authService: AuthService,
@@ -28,7 +34,11 @@ export class VerificationCodeModalComponent implements OnInit {
         response => {
           if (!response.error) {
             this.modal.close();
-            this.router.navigateByUrl('/presentation/login');
+            this.router.navigateByUrl('/login');
+          }else{
+            if(response.type == 'InvalidCode'){
+              this.errorMessage = 'Codigo invalido, intente de nuevo.'
+            }
           }
         }
       )

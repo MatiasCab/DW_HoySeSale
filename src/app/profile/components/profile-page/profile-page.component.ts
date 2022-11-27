@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 import { User } from 'src/app/core/models/user';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-profile-page',
@@ -22,10 +22,10 @@ export class ProfilePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;

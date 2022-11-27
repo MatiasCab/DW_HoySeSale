@@ -8,7 +8,7 @@ import { ChatService } from '../../services/chat.service';
 import { Message, MessageFullInfo } from 'src/app/core/models/messages';
 import { MessageGridComponent } from '../shared/message-grid/message-grid.component';
 import { ChatsPreview } from 'src/app/core/models/chatsPreview';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 import { User } from 'src/app/core/models/user';
 
 @Component({
@@ -34,10 +34,10 @@ export class ChatPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;

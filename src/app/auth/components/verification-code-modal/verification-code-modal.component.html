@@ -7,3 +7,6 @@
         </app-generic-button>
     </div>
 </div>
+<p class="alert" *ngIf="errorMessage" >
+    <ngb-alert [@alertMessages] [type]="'danger'" (closed)="errorMessage = undefined">{{errorMessage}}</ngb-alert>
+</p>

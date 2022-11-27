@@ -2,7 +2,7 @@
     <div *ngIf="isMobile; else elseBlock" class="entertainmentMobile">
         <div class="entertainment" *ngIf="entertainment">
             <app-header-navbar class="index" [backPage]="'/search'" [firstIcon]="'bi bi-chevron-left'"
-                [currentIcon2]="Icon" [currentIcon1]="'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()"
+                [currentIcon2]="Icon" [currentIcon1]="isAnEvent ? undefined : 'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()"
                 (icon1Event)="redirectToChat()"></app-header-navbar>
             <app-display-entertainment-info [entertainment]="entertainment" [isAnEvent]="isAnEvent"
                 [isMobile]="isMobile"></app-display-entertainment-info>

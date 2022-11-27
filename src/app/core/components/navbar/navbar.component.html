@@ -26,7 +26,7 @@
             <i *ngIf="isMobile" class="{{icons[4]}} px-2"></i>
             <p *ngIf="!isMobile">PERFIL</p>
         </a>
-        <a></a>
+        <a *ngIf="!isMobile"></a>
     </div>
     <i *ngIf="!isMobile" class="bi bi-box-arrow-left logout" (click)="openLogoutModal()"></i>
 </div>

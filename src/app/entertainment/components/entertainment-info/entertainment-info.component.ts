@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { FavoriteService } from 'src/app/shared/services/favorite.service';
-import { ClockService } from '../../services/clock.service';
 
 import { searchView } from '../../../core/models/searchInfo';
 import { appAnimations } from 'src/app/animations';
@@ -25,14 +24,8 @@ export class EntertainmentInfoComponent implements OnInit {
   rate?: number;
   currentIcon?: string;
   prevIcon?: string;
-  timerSubscription?: Subscription;
   noResultText: string = 'Este local no tiene eventos disponibles';
-  countdown = {
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  }
+
 
   get Rate() {
     if (!this.isAnEvent && this.entertainment) {
@@ -76,30 +69,13 @@ export class EntertainmentInfoComponent implements OnInit {
     return this.entertainment?.isFavorite ? 'bi-bookmark-fill' : 'bi bi-bookmark';
   }
 
-  public get Schedule(): Date | undefined {
-    const event = (this.entertainment as Event);
-    if (event.schedule) {
-      return new Date(event.schedule);
-    }
-    return undefined;
-  }
-
   constructor(
     private favoriteService: FavoriteService,
-    private router: Router,
-    private clockService: ClockService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    if (this.Schedule) {
-      this.timerSubscription = this.clockService.time(this.Schedule).subscribe(
-        countdown => this.countdown = countdown
-      )
-    }
-  }
 
-  ngOnDestroy(): void {
-    this.timerSubscription?.unsubscribe();
   }
 
   openMap() {
@@ -107,7 +83,11 @@ export class EntertainmentInfoComponent implements OnInit {
   }
 
   getDate() {
-    return (this.entertainment as Event).schedule;
+    const event = (this.entertainment as Event);
+    if (event.schedule) {
+      return new Date(event.schedule);
+    }
+    return undefined;
   }
 
   changFavoriteIcon() {
@@ -123,10 +103,15 @@ export class EntertainmentInfoComponent implements OnInit {
   }
 
   getFormatedSchedule() {
-    return `${this.Schedule?.getFullYear()}/
-    ${this.Schedule?.getMonth()}/
-    ${this.Schedule?.getDay()} - 
-    ${this.Schedule?.getHours()}:${this.Schedule?.getMinutes()} hs`
+    let month = this.getDate()?.getMonth()!;
+    let day = this.getDate()?.getDay()!;
+    let hours = this.getDate()?.getHours()!;
+    let minutes = this.getDate()?.getMinutes()!;
+
+    return `${this.getDate()?.getFullYear()}/
+    ${month < 10 ? "0" + month : month}/
+    ${day < 10 ? "0" + day : day} - 
+    ${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes} hs`
   }
 
   redirectToChat() {

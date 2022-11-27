@@ -29,31 +29,12 @@
         <h3>EVENTOS</h3>
         <app-cards-grid [setEntertainments]="EntertainmentEventsMobile"
             *ngIf="EntertainmentEventsMobile.newEntertainments.length > 0"></app-cards-grid>
-        <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results"></app-no-results>
+        <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results">
+        </app-no-results>
     </div>
-    <div class="timer cont-6 mt-3" *ngIf="isAnEvent">
+    <div class="cont-6 mt-3" *ngIf="isAnEvent">
         <h3>FALTA POCO!!</h3>
-        <div class="pos mt-4">
-            <div class="mx-2">
-                <p>{{this.countdown.days}}</p>
-                <span class="title">Days</span>
-            </div>
-            <p class="separator">:</p>
-            <div class="mx-2">
-                <p>{{this.countdown.hours}}</p>
-                <span class="title">Horas</span>
-            </div>
-            <p class="separator">:</p>
-            <div class="mx-2">
-                <p>{{this.countdown.minutes}}</p>
-                <span class="title">Minutos</span>
-            </div>
-            <p class="separator">:</p>
-            <div class="mx-2">
-                <p>{{this.countdown.seconds}}</p>
-                <span class="title">Segundos</span>
-            </div>
-        </div>
+        <app-clock [targetDate]="getDate()" [isMobile]="isMobile"></app-clock>
     </div>
 </div>
 
@@ -77,7 +58,7 @@
         <div class="header cont-2 row">
             <p class="col-10">{{entertainment.name | uppercase}}</p>
             <app-header-navbar class="index col-2 ms-auto" [backPage]="'/search'" [currentIcon2]="Icon"
-                [currentIcon1]="'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()" (icon1Event)="redirectToChat()">
+                [currentIcon1]="isAnEvent ? undefined : 'bi bi-chat-left'" (icon2Event)="changFavoriteIcon()" (icon1Event)="redirectToChat()">
             </app-header-navbar>
         </div>
 
@@ -119,31 +100,12 @@
                     </ng-template>
                 </ngb-carousel>
             </div>
-            <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results"></app-no-results>
+            <app-no-results *ngIf="entertainmentEvents.length === 0" [text]="noResultText" class="no-results">
+            </app-no-results>
         </div>
         <div class="timer cont-6" *ngIf="isAnEvent">
             <h3>FALTA POCO!!</h3>
-            <div class="pos">
-                <div class="mx-2">
-                    <p>{{this.countdown.days}}</p>
-                    <span class="title">Days</span>
-                </div>
-                <p class="separator">:</p>
-                <div class="mx-2">
-                    <p>{{this.countdown.hours}}</p>
-                    <span class="title">Horas</span>
-                </div>
-                <p class="separator">:</p>
-                <div class="mx-2">
-                    <p>{{this.countdown.minutes}}</p>
-                    <span class="title">Minutos</span>
-                </div>
-                <p class="separator">:</p>
-                <div class="mx-2">
-                    <p>{{this.countdown.seconds}}</p>
-                    <span class="title">Segundos</span>
-                </div>
-            </div>
+            <app-clock [targetDate]="getDate()"></app-clock>
         </div>
     </div>
 </ng-template>

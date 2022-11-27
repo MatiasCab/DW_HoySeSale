@@ -6,18 +6,22 @@
             <div class="links">
                 <div class="locales">
                     <div class="bares-pubs">
-                        <a [@homeCards]="{value:'',params:{delay:0}}" class="bares" routerLink="/search">
+                        <a [@homeCards]="{value:'',params:{delay:0}}" class="bares" [routerLink]="'/search'"
+                            [queryParams]="{type: 'bar'}">
                             <p>BARES</p>
                         </a>
-                        <a [@homeCards]="{value:'',params:{delay:0.5}}" class="pubs" routerLink="/search">
+                        <a [@homeCards]="{value:'',params:{delay:0.5}}" class="pubs" [routerLink]="'/search'"
+                            [queryParams]="{type: 'pub'}" routerLinkActive="active">
                             <p>PUBS</p>
                         </a>
                     </div>
-                    <a [@homeCards]="{value:'',params:{delay:0.7}}" class="bailes" routerLink="/search">
+                    <a [@homeCards]="{value:'',params:{delay:0.7}}" class="bailes" [routerLink]="'/search'"
+                        [queryParams]="{type: 'dancingParty'}" routerLinkActive="active">
                         <p>BAILES</p>
                     </a>
                 </div>
-                <a [@homeCards]="{value:'',params:{delay:1}}" class="eventos" routerLink="/search">
+                <a [@homeCards]="{value:'',params:{delay:1}}" class="eventos" [routerLink]="'/search'"
+                    [queryParams]="{type: 'event'}" routerLinkActive="active">
                     <p>EVENTOS</p>
                 </a>
             </div>

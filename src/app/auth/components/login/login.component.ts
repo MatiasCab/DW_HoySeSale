@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 
 import { InputUserCredentialsComponent } from '../input-user-credentials/input-user-credentials.component';
 import { appAnimations } from 'src/app/animations';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-login',
@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;
