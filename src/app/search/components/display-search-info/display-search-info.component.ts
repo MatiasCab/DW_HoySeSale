@@ -51,8 +51,6 @@ export class DisplaySearchInfoComponent implements OnInit {
       this.responseSubscription = this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
         .subscribe(
           response => {
-            console.log(response);
-            console.log("Paso");
             this.isInRequest = false;
             this.isInScrollCall = false;
             this.searchIndex = response.searchIndex;
@@ -72,17 +70,11 @@ export class DisplaySearchInfoComponent implements OnInit {
 
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
-    console.log('off set y scroll', eventEl.offsetHeight + eventEl.scrollTop);
-    console.log('scrooll hei', eventEl.scrollHeight);
 
-
-    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight - 100 && !this.isInScrollCall) {
+    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight - 200 && !this.isInScrollCall) {
       this.isInScrollCall = true;
-      console.log("limit", this.limitReached);
 
       if (!this.limitReached) {
-        console.log('llamo');
-
         this.getEntertianments(this.lastSearchInfo, this.searchIndex);
       }
     }

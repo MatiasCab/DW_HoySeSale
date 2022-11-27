@@ -52,7 +52,7 @@ export const appAnimations = [
             animate('0.2s', style({ transform: "scale(0.5)" }))
         ])
     ]), trigger("homeCards", [
-        transition(":enter", [
+        transition("Login => Home", [
             style({ transform: "scale(0)" }),
             animate('0.5s {{delay}}s', style({ transform: "scale(1.155)" })),
             animate('0.2s', style({ transform: "scale(0.855)" })),
