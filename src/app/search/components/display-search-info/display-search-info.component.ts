@@ -72,7 +72,7 @@ export class DisplaySearchInfoComponent implements OnInit {
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
 
-    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight - 200 && !this.isInScrollCall) {
+    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight - 500 && !this.isInScrollCall) {
       this.isInScrollCall = true;
 
       if (!this.limitReached) {
