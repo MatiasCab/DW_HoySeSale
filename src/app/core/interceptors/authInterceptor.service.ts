@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private handleError() {
     return (error: HttpErrorResponse) => {
       if (error.error.name == 'NoJWT' || error.error.name == 'JWTInvalid') {
-        this.router.navigateByUrl('/presentation/login');
+        this.router.navigateByUrl('/login');
       };
       throw error;
     }

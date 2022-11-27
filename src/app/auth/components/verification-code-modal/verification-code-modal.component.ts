@@ -28,7 +28,7 @@ export class VerificationCodeModalComponent implements OnInit {
         response => {
           if (!response.error) {
             this.modal.close();
-            this.router.navigateByUrl('/presentation/login');
+            this.router.navigateByUrl('/login');
           }
         }
       )
