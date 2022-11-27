@@ -25,7 +25,7 @@ export class SearchInputComponent implements OnInit {
   keyEnter(key: KeyboardEvent) {
     console.log(key);
     let reg = 'qwertyuiopñlkjhgfdsazxcvbnmQWERTYUIOPÑLKJHGFDSAZXCVBNM-*/1234567890!¡¿?';
-    if (reg.includes(key.key) || ('Backspace' == key.key)) {
+    if (reg.includes(key.key) || ('Backspace' == key.key) || (key.key == 'Unidentified')) { //'Unidentified' para las teclas en mobile.
 
       if (this.debounceTimer) clearTimeout(this.debounceTimer);
 
