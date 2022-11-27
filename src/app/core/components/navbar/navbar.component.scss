@@ -32,11 +32,12 @@
 }
 
 @mixin fillColor {
+    background-color: #6B2CF5;
     background: -webkit-gradient(linear, left top, left bottom, from(#D450E6), to(#6B2CF5));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: #D450E6;
+    color: #D450E6;
 }
 
 .container-fluid {
