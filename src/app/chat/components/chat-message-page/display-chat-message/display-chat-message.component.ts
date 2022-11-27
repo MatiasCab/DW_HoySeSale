@@ -47,7 +47,7 @@ export class DisplayChatMessageComponent implements OnInit {
       message,
       type: 'send',
       senderImage: user.imageLink,
-      recieverIMage: this.chat!.imageLink
+      recieverImage: this.chat!.imageLink
     })
   }
 }

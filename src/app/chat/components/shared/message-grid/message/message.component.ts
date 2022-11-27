@@ -17,7 +17,7 @@ export class MessageComponent implements OnInit {
   }
 
   get getImageLink() {
-    return this.messageInfo?.type == 'send' ? this.messageInfo.senderImage : this.messageInfo?.recieverIMage;
+    return this.messageInfo?.senderImage
   }
 
   constructor() { }
