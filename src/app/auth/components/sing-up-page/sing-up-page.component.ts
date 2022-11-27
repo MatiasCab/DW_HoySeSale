@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { appAnimations } from 'src/app/animations';
 import { SignupInfo } from 'src/app/core/models/signupInfo';
 import { VerificationCodeModalComponent } from '../verification-code-modal/verification-code-modal.component';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-sing-up-page',
@@ -29,10 +29,10 @@ export class SingUpPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;

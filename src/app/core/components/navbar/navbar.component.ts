@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
-import { BREAK_POINT } from '../../consts';
+import { BREAKPOINT } from '../../consts';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalLogoutComponent } from 'src/app/shared/Components/modal-logout/modal-logout.component';
 
@@ -41,10 +41,10 @@ export class NavbarComponent implements OnInit {
   constructor( private modalService: NgbModal, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;

@@ -53,7 +53,7 @@ export class UserService {
   uploadProfileImage(base64Img: string) {
     base64Img = base64Img.split(';base64,')[1];
 
-    return this.http.post<any>(`${API_USER_URL}/uploadImage`, { base64Img }).pipe(
+    return this.http.put<any>(`${API_USER_URL}/uploadImage`, { base64Img }).pipe(
       catchError(this.handleError('uploadProfileImage')),
       tap(_ => this.userInfo = undefined)
     );

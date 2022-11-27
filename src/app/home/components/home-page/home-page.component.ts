@@ -4,7 +4,7 @@ import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { ModalLogoutComponent } from '../../../shared/Components/modal-logout/modal-logout.component';
 import { appAnimations } from 'src/app/animations';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-home-page',
@@ -20,10 +20,10 @@ export class HomePageComponent implements OnInit {
   constructor(private modalService: NgbModal, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
     .subscribe(result => {
       const breakpoints = result.breakpoints;
-      if (breakpoints[BREAK_POINT]) {
+      if (breakpoints[BREAKPOINT]) {
         this.isMobile = false;
       } else {
         this.isMobile = true;

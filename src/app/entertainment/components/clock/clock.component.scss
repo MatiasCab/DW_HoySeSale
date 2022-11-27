@@ -1,0 +1,38 @@
+.title {
+    font-size: large;
+    font-weight: 200;
+}
+
+.pos {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.separator {
+    padding-bottom: 2rem;
+}
+
+.timer p {
+    margin: 0;
+    font-size: xxx-large;
+}
+
+.timer .mx-2 p {
+    border-bottom: solid 1px
+}
+
+.mobile.timer p {
+    font-size: x-large;
+}
+
+.mobile.pos {
+    height: 20vh;
+    margin-top: 2rem !important;
+    align-items: normal;
+}
+
+p {
+    text-align: center;
+}

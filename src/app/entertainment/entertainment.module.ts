@@ -6,6 +6,7 @@ import { EntertainmentPageComponent } from './components/entertainment-page/ente
 import { EntertainmentInfoComponent } from './components/entertainment-info/entertainment-info.component';
 import { DisplayEntertainmentInfoComponent } from './components/display-entertainment-info/display-entertainment-info.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClockComponent } from './components/clock/clock.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     EntertainmentPageComponent,
     EntertainmentInfoComponent,
-    DisplayEntertainmentInfoComponent
+    DisplayEntertainmentInfoComponent,
+    ClockComponent
   ]
 })
 export class EntertainmentModule { }

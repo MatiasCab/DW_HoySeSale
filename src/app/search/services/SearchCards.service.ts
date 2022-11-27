@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ConditionalExpr } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
 
@@ -41,9 +42,16 @@ constructor(private http: HttpClient) { }
   }
 
   private handleError<T>(operation: string, result?: T){
-    return (error: any): Observable<T> => {
+    return (error: any): Observable<any> => {
       console.error(`${operation} failed: ${error.error.message}`);
-      return of(result as T);
+      console.log(error);
+      if(error.error.name == 'EventDontExist'){
+        return of({error: true, type:'NotFound'});
+      } else if (result){
+        return of(result as T);
+      } else{
+        return of({error: true, type:'Generic'})
+      }
     }
   }
 

@@ -15,12 +15,16 @@ export class ClockService {
     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
     const minutes = Math.floor(timeDifference / (60 * 1000));
     const seconds = Math.floor(timeDifference /  (1000));
+
+    const hoursFormated = hours - (days * 24);
+    const minutesFormated = minutes - (hours * 60);
+    const secondsFormated = seconds - (minutes * 60);
     
     return {
-      days: days,
-      hours: hours - (days * 24),
-      minutes: minutes - (hours * 60),
-      seconds: seconds - (minutes * 60)
+      days: days + '',
+      hours: hoursFormated < 10 ? '0'+ hoursFormated : hoursFormated + '',
+      minutes: minutesFormated < 10 ? '0' + minutesFormated : minutesFormated + '',
+      seconds: secondsFormated < 10 ? '0' + secondsFormated : secondsFormated + ''
     }
   }
 

@@ -27,13 +27,13 @@ export class AuthService {
   }
 
   signup(signupInfo: SignupInfo) {
-    return this.http.post<any>(`${API_AUTH_URL}/verify`, signupInfo).pipe(
+    return this.http.post<any>(`${API_AUTH_URL}/signup`, signupInfo).pipe(
       catchError(this.handleError<any>('signup'))
     );
   }
 
   verify(verificationCode: string) {
-    return this.http.post<any>(`${API_AUTH_URL}/signup`, { verificationCode }).pipe(
+    return this.http.post<any>(`${API_AUTH_URL}/verify`, { verificationCode }).pipe(
       catchError(this.handleError<any>('verify'))
     );
   }
@@ -59,6 +59,8 @@ export class AuthService {
         return of({ error: true, type: 'RepitedCredentials' });
       } else if (error.error.name == 'InvalidUsernameOrPassword') {
         return of({ error: true, type: 'InvalidCredentials' });
+      } else if (error.error.name == 'InvalidVerificationCode') {
+        return of({ error: true, type: 'InvalidCode' })
       } else {
         return of({ error: true, type: 'Server' });
       }

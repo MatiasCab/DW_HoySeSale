@@ -7,7 +7,7 @@ import { FavoriteService } from 'src/app/shared/services/favorite.service';
 
 import { Local } from 'src/app/core/models/local';
 import { Event } from 'src/app/core/models/event';
-import { BREAK_POINT } from 'src/app/core/consts';
+import { BREAKPOINT } from 'src/app/core/consts';
 
 @Component({
   selector: 'app-entertainment-page',
@@ -47,19 +47,35 @@ export class EntertainmentPageComponent implements OnInit {
 
     if (entertainmentType == "events") {
       this.searchService.getEventById(entertainmentID).subscribe(event => {
-        this.entertainment = event;
-        this.isAnEvent = true;
+        if (event.error) {
+          if (event.type == 'NotFound') {
+            this.router.navigateByUrl('/Notfound');
+          } else {
+            this.router.navigateByUrl('/error');
+          }
+        } else {
+          this.entertainment = event;
+          this.isAnEvent = true;
+        }
       });
     } else {
       this.searchService.getLocalById(entertainmentID).subscribe(local => {
-        this.entertainment = local;
+        if (local.error) {
+          if (local.type = 'NotFound') {
+            this.router.navigateByUrl('/Notfound');
+          } else {
+            this.router.navigateByUrl('/error');
+          }
+        } else {
+          this.entertainment = local;
+        }
       });
     }
 
-    this.breakpointObserver.observe([BREAK_POINT])
+    this.breakpointObserver.observe([BREAKPOINT])
       .subscribe(result => {
         const breakpoints = result.breakpoints;
-        if (breakpoints[BREAK_POINT]) {
+        if (breakpoints[BREAKPOINT]) {
           this.isMobile = false;
         } else {
           this.isMobile = true;
