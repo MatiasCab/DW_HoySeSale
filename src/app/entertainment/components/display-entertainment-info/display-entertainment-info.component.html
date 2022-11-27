@@ -1,17 +1,17 @@
 <div *ngIf="isMobile && entertainment" class="display-info-mobile">
-    <div class="carousel-container">
-        <ngb-carousel class="carousel" #carousel [interval]="3000" [showNavigationIndicators]="false"
-            [showNavigationArrows]="false">
-            <ng-template ngbSlide *ngFor="let img of entertainment.imagesLinks">
-                <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
-                    <div class="images">
-                        <img [src]="img" alt="">
-                        <div class="gradient"></div>
-                    </div>
-                </a>
-            </ng-template>
-        </ngb-carousel>
-    </div>
+        <div class="carousel-container">
+            <ngb-carousel class="carousel" #carousel [interval]="3000" [showNavigationIndicators]="false"
+                [showNavigationArrows]="false">
+                <ng-template ngbSlide *ngFor="let img of entertainment.imagesLinks">
+                    <a href="{{img}}" target="_blank" rel="nofollow noopener noreferrer">
+                        <div class="images">
+                            <img [src]="img" alt="">
+                            <div class="gradient"></div>
+                        </div>
+                    </a>
+                </ng-template>
+            </ngb-carousel>
+        </div>
     <div class="entertainmentName">
         <p>{{entertainment.name | uppercase}}</p>
     </div>

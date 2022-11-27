@@ -43,7 +43,7 @@
         height: 40vh;
 
         .carousel {
-            width: 100vw;
+            width: 100%;
             position: absolute;
             left: 0;
             top: 0;
@@ -63,4 +63,8 @@
 .display-info-desktop {
     width: 65%;
     height: 84vh;
+}
+
+.position-carousel {
+    position: relative;
 }

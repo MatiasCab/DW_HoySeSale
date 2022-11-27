@@ -2,17 +2,6 @@ div {
     height: 100vh;
     width: 100%;
     overflow-y: auto;
+    position: relative;
     max-width: 2048px;
-}
-
-.container-fluid {
-    height: 8vh;
-    padding-left: 8%;
-    padding-right: 8%;
-}
-
-.footerDesktop {
-    .border-top {
-        border-top: 2px solid #636363;
-    }
 }
