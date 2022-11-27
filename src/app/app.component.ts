@@ -17,7 +17,7 @@ export class AppComponent {
     return (this.route.url != '/login') &&
       (this.route.url != '/') &&
       (this.route.url != '/singUp') &&
-      (!this.route.url.includes('/chat/'));
+      (!this.route.url.includes('/chats/'));
   }
 
   get navbarSelection(): number {
