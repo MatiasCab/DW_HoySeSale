@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="container" *ngIf="!isMobile && chatsPreview">
+<div class="container" *ngIf="!isMobile && chatsPreview && chatsPreview.length != 0">
     <div class="row">
         <div class="col-4 searchInput">
             <app-search-input class="w-100" (searchEvent)="searchChat($event)"></app-search-input>
@@ -43,5 +43,11 @@
 
 <div *ngIf="!chatsPreview" class="spinner">
     <div class="spinner-border" role="status">
+    </div>
+</div>
+
+<div *ngIf="chatsPreview && chatsPreview.length == 0">
+    <div class="emptyChat">
+        <p class="empty-title">Usted no posee ningun chat</p>
     </div>
 </div>
