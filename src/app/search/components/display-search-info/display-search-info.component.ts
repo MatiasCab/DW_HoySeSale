@@ -47,11 +47,9 @@ export class DisplaySearchInfoComponent implements OnInit {
     this.isInRequest = true;
 
     if (!sameSearch || searchIndex) {
-      console.log(searchInfo?.searchInput);
       this.responseSubscription = this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
         .subscribe(
           response => {
-            console.log(response);
             this.isInRequest = false;
             this.isInScrollCall = false;
             this.searchIndex = response.searchIndex;

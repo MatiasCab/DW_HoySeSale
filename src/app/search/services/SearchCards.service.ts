@@ -44,7 +44,6 @@ constructor(private http: HttpClient) { }
   private handleError<T>(operation: string, result?: T){
     return (error: any): Observable<any> => {
       console.error(`${operation} failed: ${error.error.message}`);
-      console.log(error);
       if(error.error.name == 'EventDontExist'){
         return of({error: true, type:'NotFound'});
       } else if (result){
