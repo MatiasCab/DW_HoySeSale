@@ -70,7 +70,9 @@ export class DisplaySearchInfoComponent implements OnInit {
 
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
-    console.log(eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight);
+    console.log('off set y scroll',eventEl.offsetHeight + eventEl.scrollTop);
+    console.log('scrooll hei',eventEl.scrollHeight);
+    
     
     if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight) {
       console.log("limit",this.limitReached);
