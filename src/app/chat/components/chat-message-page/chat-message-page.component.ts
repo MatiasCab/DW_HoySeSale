@@ -44,7 +44,7 @@ export class ChatMessagePageComponent implements OnInit {
                     message,
                     type: isSender ? 'send' : 'recibe',
                     senderImage: isSender ? this.userService.User!.imageLink : this.chat!.imageLink,
-                    recieverIMage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
+                    recieverImage: isSender ? this.chat!.imageLink : this.userService.User!.imageLink
                   })
                 });
                 this.messages = messagesCont;

@@ -66,7 +66,7 @@ export class ChatPageComponent implements OnInit {
       message,
       type: 'send',
       senderImage: user.imageLink,
-      recieverIMage: this.selectedChat!.imageLink
+      recieverImage: this.selectedChat!.imageLink
     })
   }
 
@@ -80,14 +80,16 @@ export class ChatPageComponent implements OnInit {
           user => {
             const messagesCont: MessageFullInfo[] = []
             messages.forEach(message => {
+              console.log(message);
               const isSender = message.receiver == Number(this.selectedChat?.localId);
               messagesCont?.push({
                 message,
                 type: isSender ? 'send' : 'recibe',
                 senderImage: isSender ? user.imageLink : this.selectedChat!.imageLink,
-                recieverIMage: isSender ? this.selectedChat!.imageLink : user.imageLink
+                recieverImage: isSender ? this.selectedChat!.imageLink : user.imageLink
               })
             })
+            console.log(messagesCont);
             this.messages = messagesCont;
           }
         )

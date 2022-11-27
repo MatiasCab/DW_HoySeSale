@@ -4,7 +4,6 @@ import { SharedModule } from '../shared/shared.module';
 import { DisplayChatMessageComponent } from './components/chat-message-page/display-chat-message/display-chat-message.component';
 import { ChatMessagePageComponent } from './components/chat-message-page/chat-message-page.component';
 import { ChatPageComponent } from './components/chat-page/chat-page.component';
-import { DesktopChatPageComponent } from './components/desktop-chat-page/desktop-chat-page.component';
 import { ChatComponent } from './components/shared/chat-grid/chat/chat.component';
 import { ChatGridComponent } from './components/shared/chat-grid/chat-grid.component';
 import { InputMessageComponent } from './components/shared/input-message/input-message.component';
@@ -23,7 +22,6 @@ import { ChatRoutingModule } from './chat-routing.module';
     DisplayChatMessageComponent,
     ChatMessagePageComponent,
     ChatPageComponent,
-    DesktopChatPageComponent,
     ChatComponent,
     ChatGridComponent,
     InputMessageComponent,

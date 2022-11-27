@@ -10,5 +10,5 @@ export interface MessageFullInfo {
     message: Message;
     type: 'send' | 'recibe';
     senderImage: string;
-    recieverIMage: string;
+    recieverImage: string;
 }
