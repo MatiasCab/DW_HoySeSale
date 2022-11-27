@@ -12,6 +12,11 @@ import { ignoreElements, Subscription } from 'rxjs';
 })
 export class DisplaySearchInfoComponent implements OnInit {
 
+  @Input() isMobile?: boolean;
+  @Input() showSearchBar?: boolean = true;
+  @Input() onlyFavorites: boolean = false;
+  @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
+
   searchView?: searchView;
   searchIndex: number = 0;
   lastSearchInfo?: searchInfo;
@@ -19,16 +24,12 @@ export class DisplaySearchInfoComponent implements OnInit {
   noResultText: string = 'No hay más resultados disponibles';
   isInRequest: boolean = false;
   responseSubscription?: Subscription;
+  isInScrollCall: boolean = false;
 
-  @Input() isMobile?: boolean;
-  @Input() showSearchBar?: boolean = true;
-  @Input() onlyFavorites: boolean = false;
-  @ViewChild('cardsScroller') cardsScroller?: ElementRef<HTMLDivElement>;
 
   get limit() {
     return this.limitReached;
   }
-
 
   constructor(private searchService: SearchCardsService) { }
 
@@ -41,10 +42,10 @@ export class DisplaySearchInfoComponent implements OnInit {
     if (!searchIndex && this.cardsScroller) {
       this.cardsScroller.nativeElement.scrollTop = 0;
     }
-    if(this.isInRequest) this.responseSubscription?.unsubscribe();
+    if (this.isInRequest) this.responseSubscription?.unsubscribe();
 
     this.isInRequest = true;
-    
+
     if (!sameSearch || searchIndex) {
       console.log(searchInfo?.searchInput);
       this.responseSubscription = this.searchService.getEntertainments(searchIndex ? searchIndex : 0, this.onlyFavorites, searchInfo?.type, searchInfo?.searchInput)
@@ -53,6 +54,7 @@ export class DisplaySearchInfoComponent implements OnInit {
             console.log(response);
             console.log("Paso");
             this.isInRequest = false;
+            this.isInScrollCall = false;
             this.searchIndex = response.searchIndex;
 
             if (!searchIndex) this.searchView = undefined;
@@ -70,16 +72,17 @@ export class DisplaySearchInfoComponent implements OnInit {
 
   scrollInteraction(event: Event) {
     let eventEl: HTMLElement = event.target as HTMLElement;
-    console.log('off set y scroll',eventEl.offsetHeight + eventEl.scrollTop);
-    console.log('scrooll hei',eventEl.scrollHeight);
-    
-    
-    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight) {
-      console.log("limit",this.limitReached);
-      
+    console.log('off set y scroll', eventEl.offsetHeight + eventEl.scrollTop);
+    console.log('scrooll hei', eventEl.scrollHeight);
+
+
+    if (eventEl.offsetHeight + eventEl.scrollTop >= eventEl.scrollHeight - 100 && !this.isInScrollCall) {
+      this.isInScrollCall = true;
+      console.log("limit", this.limitReached);
+
       if (!this.limitReached) {
         console.log('llamo');
-        
+
         this.getEntertianments(this.lastSearchInfo, this.searchIndex);
       }
     }
